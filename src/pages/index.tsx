@@ -8,7 +8,7 @@ import {useBudouX} from "@/functions/hook/useBudouX";
 import {statusMessage} from "@/functions/data-store";
 import {Skills} from "@/components/home/skills";
 import {SnsIcons} from "@/components/home/sns-icons";
-import {Footer} from "@/components/home/footer";
+import Footer from "@/components/home/footer";
 
 const Home: NextPage = () => {
     const {parse} = useBudouX()
