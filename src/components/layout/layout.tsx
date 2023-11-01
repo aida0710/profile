@@ -26,7 +26,7 @@ export default function Layout({children}: Props) {
                             isIconOnly={true}
                             variant="ghost"
                             onClick={() => {
-                                window.open("https://github.com/aida0710/profile", "_blank");
+                                window.open("https://github.com/aida0710/profile");
                             }}
                         >
                             <BsGithub className="w-full h-full"/>
