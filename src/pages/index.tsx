@@ -33,6 +33,7 @@ const Home: NextPage = () => {
             </div>
             <Divider className="my-14"/>
             <Skills/>
+            <Footer/>
         </div>
     )
 };
