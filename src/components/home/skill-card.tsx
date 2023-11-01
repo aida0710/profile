@@ -15,7 +15,7 @@ export default function SkillCard({title, contents}: Props) {
                 <h2 className="text-lg mb-2">{title}</h2>
                 <div className="flex flex-wrap m-1">
                     {contents.map((content: string) => (
-                        <Chip radius="lg" className="m-1">{content}</Chip>
+                        <Chip radius="lg" className="m-1" key={content}>{content}</Chip>
                     ))}
                 </div>
             </CardBody>

@@ -8,6 +8,7 @@ import {useBudouX} from "@/functions/hook/useBudouX";
 import {statusMessage} from "@/functions/data-store";
 import {Skills} from "@/components/home/skills";
 import {SnsIcons} from "@/components/home/sns-icons";
+import {Footer} from "@/components/home/footer";
 
 const Home: NextPage = () => {
     const {parse} = useBudouX()
@@ -27,7 +28,7 @@ const Home: NextPage = () => {
                 <p className="font-normal text-md md:text-xl mb-1">18歳 千葉県船橋市在住</p>
                 <SnsIcons/>
                 {statusMessage().map((message: string) => (
-                    <p className="font-normal text-md md:text-xl mb-1">{parse(message)}</p>
+                    <p className="font-normal text-md md:text-xl mb-1" key={message}>{parse(message)}</p>
                 ))}
             </div>
             <Divider className="my-14"/>
