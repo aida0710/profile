@@ -69,7 +69,7 @@ export const qualifications = () => {
     ]
 }
 
-export const achievements = () => {
+export const awards = () => {
     return [
         "東京大学 産学協創推進本部主催 100program 4期 優秀アプリ賞 受賞",
     ]

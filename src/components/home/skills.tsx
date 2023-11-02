@@ -2,7 +2,7 @@
 
 import SkillCard from "@/components/home/skill-card";
 import {
-    achievements,
+    awards,
     amazonWebServices,
     databases,
     frameworks,
@@ -29,7 +29,7 @@ export function Skills() {
                     <SkillCard title="Databases" contents={databases()}/>
                     <SkillCard title="Amazon Web Services" contents={amazonWebServices()}/>
                     <SkillCard title="Qualifications" contents={qualifications()}/>
-                    <SkillCard title="Achievements" contents={achievements()}/>
+                    <SkillCard title="Awards" contents={awards()}/>
                 </div>
             </div>
         </section>
