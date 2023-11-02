@@ -17,11 +17,16 @@ const Home: NextPage = () => {
         <div>
             <Head title={"Profile"}/>
             <div className="text-center">
-                <div className="flex justify-center">
+                <div className="flex justify-center mb-12 mt-12">
                     <Image
                         radius="full"
+                        isBlurred={true}
+                        loading="lazy"
                         src="/neko.jpg"
-                        className="mb-12 mt-12 w-56 h-56"
+                        alt="profile-icon"
+                        width={"224px"}
+                        height={"224px"}
+                        className="w-56 h-56"
                     />
                 </div>
                 <h6 className="font-medium text-lg md:text-2xl">Masaki Aida / 相田 優希</h6>
