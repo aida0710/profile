@@ -14,7 +14,7 @@ export const programmingLanguage = () => {
         "Python 3.*",
         "Java",
         "Kotlin",
-        "Excel",
+        "Excel VBA",
         "HTML",
         "CSS",
         "Dart",
