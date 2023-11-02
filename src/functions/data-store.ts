@@ -74,3 +74,27 @@ export const awards = () => {
         "東京大学 産学協創推進本部主催 100program 4期 優秀アプリ賞 受賞",
     ]
 }
+
+export const tools = () => {
+    return [
+        "PhpStorm",
+        "IntelliJ IDEA",
+        "PyCharm",
+        "DataGrip",
+        "VSCode",
+        "Android Studio",
+        "Postman",
+        "Termius",
+    ]
+}
+
+export const others = () => {
+    return [
+        "Git",
+        "Cloudflare",
+        "Redmine",
+        "Nginx",
+        "Apache",
+        "Ubuntu 20.04",
+        ]
+}
