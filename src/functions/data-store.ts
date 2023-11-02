@@ -1,5 +1,5 @@
 //statusMessage
-export const statusMessage = () => {
+export const statusMessages = () => {
     return [
         "現在は、next.jsを使用したwebアプリ開発を行っています。",
         "以前はPHPを使用したマインクラフトサーバの開発、運用、保守を行っていました。",
@@ -8,7 +8,7 @@ export const statusMessage = () => {
 }
 
 //skills
-export const programmingLanguage = () => {
+export const programmingLanguages = () => {
     return [
         "PHP 8.*",
         "Python 3.*",
@@ -23,7 +23,7 @@ export const programmingLanguage = () => {
     ];
 }
 
-export const frameWork = () => {
+export const frameworks = () => {
     return [
         "React",
         "Next.js",
@@ -31,20 +31,7 @@ export const frameWork = () => {
     ]
 }
 
-export const javaScriptLibrary = () => {
-    return [
-        "D3.js",
-    ]
-}
-
-export const dataBase = () => {
-    return [
-        "MySQL",
-        "SQLite",
-    ]
-}
-
-export const uiFrameWork = () => {
+export const uiFrameworks = () => {
     return [
         "ChakraUI",
         "Bootstrap",
@@ -54,7 +41,20 @@ export const uiFrameWork = () => {
     ]
 }
 
-export const amazonWebSystem = () => {
+export const javaScriptLibraries = () => {
+    return [
+        "D3.js",
+    ]
+}
+
+export const databases = () => {
+    return [
+        "MySQL",
+        "SQLite",
+    ]
+}
+
+export const amazonWebServices = () => {
     return [
         "EC2",
         "RDS",

@@ -3,12 +3,12 @@
 import SkillCard from "@/components/home/skill-card";
 import {
     achievements,
-    amazonWebSystem,
-    dataBase,
-    frameWork,
-    javaScriptLibrary,
-    programmingLanguage, qualifications,
-    uiFrameWork
+    amazonWebServices,
+    databases,
+    frameworks,
+    javaScriptLibraries,
+    programmingLanguages, qualifications,
+    uiFrameworks
 } from "@/functions/data-store";
 import React from "react";
 
@@ -22,12 +22,12 @@ export function Skills() {
             </div>
             <div className="flex justify-center w-full my-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 m-4">
-                    <SkillCard title="Programming Languages" contents={programmingLanguage()}/>
-                    <SkillCard title="FrameWork (広義)" contents={frameWork()}/>
-                    <SkillCard title="UI FrameWork" contents={uiFrameWork()}/>
-                    <SkillCard title="JavaScriptLibrary" contents={javaScriptLibrary()}/>
-                    <SkillCard title="DataBase" contents={dataBase()}/>
-                    <SkillCard title="AmazonWebSystem" contents={amazonWebSystem()}/>
+                    <SkillCard title="Programming Languages" contents={programmingLanguages()}/>
+                    <SkillCard title="Frameworks (広義)" contents={frameworks()}/>
+                    <SkillCard title="UI Frameworks" contents={uiFrameworks()}/>
+                    <SkillCard title="JavaScript Libraries" contents={javaScriptLibraries()}/>
+                    <SkillCard title="Databases" contents={databases()}/>
+                    <SkillCard title="Amazon Web Services" contents={amazonWebServices()}/>
                     <SkillCard title="Qualifications" contents={qualifications()}/>
                     <SkillCard title="Achievements" contents={achievements()}/>
                 </div>
