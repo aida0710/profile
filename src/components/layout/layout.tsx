@@ -23,7 +23,7 @@ export default function Layout({children}: Props) {
                         <Button
                             className="block p-2"
                             radius="full"
-                            isIconOnly={true}
+                            isIconOnly
                             variant="ghost"
                             onClick={() => {
                                 window.open("https://github.com/aida0710/profile");

@@ -32,7 +32,7 @@ export function ThemeButton() {
                 radius="full"
                 variant="ghost"
                 onClick={handleSetTheme}
-                isIconOnly={true}
+                isIconOnly
             >
                 {theme === "light" ? (
                     <BsFillMoonStarsFill className="w-full h-full"/>

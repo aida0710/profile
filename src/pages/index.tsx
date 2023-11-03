@@ -20,7 +20,7 @@ const Home: NextPage = () => {
                 <div className="flex justify-center mb-12 mt-12">
                     <Image
                         radius="full"
-                        isBlurred={true}
+                        isBlurred
                         loading="lazy"
                         src="/neko.jpg"
                         alt="profile-icon"
