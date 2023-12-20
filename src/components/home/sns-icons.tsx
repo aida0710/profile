@@ -4,7 +4,6 @@ import React from "react";
 import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/react";
 import { BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
-import {WakatimeIcon} from "@/components/icons/wakatime-icon";
 import {SiWakatime} from "react-icons/si";
 
 export function SnsIcons() {
