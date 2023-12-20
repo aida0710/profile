@@ -4,7 +4,7 @@ import React from "react";
 import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/react";
 import { BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
-import {WakatimeIcon} from "@/components/icons/wakatime-icon";
+import { WakatimeIcon } from "@/components/icons/wakatime-icon";
 
 export function SnsIcons() {
   return (
@@ -42,11 +42,11 @@ export function SnsIcons() {
         </Link>
         <Link href="https://wakatime.com/@aida_0710" className="ml-5 mr-5">
           <Button
-              isIconOnly
-              variant="light"
-              className="hover:scale-125 hover:rounded-md"
+            isIconOnly
+            variant="light"
+            className="hover:scale-125 hover:rounded-md"
           >
-            <WakatimeIcon  />
+            <WakatimeIcon />
           </Button>
         </Link>
       </div>
