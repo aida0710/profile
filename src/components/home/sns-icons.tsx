@@ -5,6 +5,7 @@ import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/react";
 import { BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
 import {WakatimeIcon} from "@/components/icons/wakatime-icon";
+import {SiWakatime} from "react-icons/si";
 
 export function SnsIcons() {
   return (
@@ -46,7 +47,7 @@ export function SnsIcons() {
               variant="light"
               className="hover:scale-125 hover:rounded-md"
           >
-            <WakatimeIcon  />
+            <SiWakatime className="w-full h-full"/>
           </Button>
         </Link>
       </div>
