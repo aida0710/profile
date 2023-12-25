@@ -5,11 +5,11 @@ import {useRouter} from 'next/navigation';
 import {ThemeProvider} from 'next-themes';
 import React from 'react';
 import {AppRouterInstance} from 'next/dist/shared/lib/app-router-context.shared-runtime';
-import {ProjectIcon} from "@/components/icons/project-icon";
-import {BsGithub} from "react-icons/bs";
-import {ThemeButton} from "@/app/components/theme-button";
+import {ProjectIcon} from '@/components/icons/project-icon';
+import {BsGithub} from 'react-icons/bs';
+import {ThemeButton} from '@/app/components/theme-button';
 
-export function Providers({children}: { children: React.ReactNode }) {
+export function Providers({children}: {children: React.ReactNode}) {
     const router: AppRouterInstance = useRouter();
 
     return (
@@ -19,21 +19,21 @@ export function Providers({children}: { children: React.ReactNode }) {
             <NextUIProvider navigate={router.push}>
                 <Navbar isBordered>
                     <NavbarBrand>
-                        <ProjectIcon/>
-                        <p className="ml-5 font-bold text-inherit text-large">Profile</p>
+                        <ProjectIcon />
+                        <p className='ml-5 font-bold text-inherit text-large'>Profile</p>
                     </NavbarBrand>
-                    <NavbarContent justify="end">
+                    <NavbarContent justify='end'>
                         <Button
-                            className="block p-2"
-                            radius="full"
+                            className='block p-2'
+                            radius='full'
                             isIconOnly
-                            variant="ghost"
+                            variant='ghost'
                             onClick={() => {
-                                window.open("https://github.com/aida0710/profile");
+                                window.open('https://github.com/aida0710/profile');
                             }}>
-                            <BsGithub className="w-full h-full"/>
+                            <BsGithub className='w-full h-full' />
                         </Button>
-                        <ThemeButton/>
+                        <ThemeButton />
                     </NavbarContent>
                 </Navbar>
                 {children}
