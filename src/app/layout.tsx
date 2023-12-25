@@ -4,6 +4,7 @@ import {Metadata} from 'next';
 import {Inter} from 'next/font/google';
 import {NextFont} from 'next/dist/compiled/@next/font';
 import {Providers} from '@/app/providers';
+import {SpeedInsights} from '@vercel/speed-insights/next';
 
 const site_name: string = 'Profile';
 const site_description: string = '@aida_0710のプロフィールページ';
@@ -56,6 +57,7 @@ export default async function RootLayout({children}: {children: ReactNode}) {
     return (
         <html lang='ja'>
             <body className={inter.className}>
+                <SpeedInsights />
                 <Suspense>
                     <Providers>{children}</Providers>
                 </Suspense>
