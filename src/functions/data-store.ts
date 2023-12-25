@@ -12,23 +12,20 @@ export const programmingLanguages = () => {
   return [
     "PHP 8.*",
     "Python 3.*",
-    "Java",
-    "Kotlin",
     "Excel VBA",
     "HTML 5",
     "CSS 3",
-    "Dart",
     "TypeScript",
     "JavaScript",
   ];
 };
 
 export const frameworks = () => {
-  return ["React", "Next.js", "Flutter"];
+  return ["React", "Next.js"];
 };
 
 export const uiFrameworks = () => {
-  return ["ChakraUI", "Bootstrap", "TailwindCSS", "MaterialUI", "Shadcn/ui"];
+  return ["ChakraUI", "TailwindCSS", "MaterialUI", "Shadcn/ui"];
 };
 
 export const javaScriptLibraries = () => {
