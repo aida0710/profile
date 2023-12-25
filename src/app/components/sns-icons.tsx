@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/react";

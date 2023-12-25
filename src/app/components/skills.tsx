@@ -1,6 +1,4 @@
-"use client";
-
-import SkillCard from "@/components/home/skill-card";
+import SkillCard from "@/app/components/skill-card";
 import {
   amazonWebServices,
   awards,
