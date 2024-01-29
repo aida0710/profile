@@ -26,11 +26,7 @@ export function ThemeButton() {
             variant='ghost'
             onClick={handleSetTheme}
             isIconOnly>
-            {theme === 'light' ? (
-                <BsFillMoonStarsFill className='h-full w-full' />
-            ) : (
-                <BsFillSunFill className='h-full w-full' />
-            )}
+            {theme === 'light' ? <BsFillMoonStarsFill className='h-full w-full' /> : <BsFillSunFill className='h-full w-full' />}
         </Button>
     );
 }
