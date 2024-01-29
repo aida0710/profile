@@ -157,7 +157,7 @@
       <option name="BLOCK_MAPPING_ON_NEW_LINE" value="true" />
     </yaml>
     <codeStyleSettings language="HTML">
-      <option name="SOFT_MARGINS" value="120" />
+      <option name="SOFT_MARGINS" value="160" />
       <indentOptions>
         <option name="CONTINUATION_INDENT_SIZE" value="4" />
       </indentOptions>
@@ -176,7 +176,7 @@
     <codeStyleSettings language="JavaScript">
       <option name="KEEP_LINE_BREAKS" value="false" />
       <option name="ALIGN_MULTILINE_ARRAY_INITIALIZER_EXPRESSION" value="true" />
-      <option name="SOFT_MARGINS" value="120" />
+      <option name="SOFT_MARGINS" value="160" />
     </codeStyleSettings>
     <codeStyleSettings language="Markdown">
       <indentOptions>
@@ -206,10 +206,10 @@
       </indentOptions>
     </codeStyleSettings>
     <codeStyleSettings language="TypeScript">
-      <option name="SOFT_MARGINS" value="120" />
+      <option name="SOFT_MARGINS" value="160" />
     </codeStyleSettings>
     <codeStyleSettings language="Vue">
-      <option name="SOFT_MARGINS" value="120" />
+      <option name="SOFT_MARGINS" value="160" />
       <indentOptions>
         <option name="INDENT_SIZE" value="4" />
         <option name="TAB_SIZE" value="4" />
