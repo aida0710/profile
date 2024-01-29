@@ -1,9 +1,9 @@
 //statusMessage
 export const statusMessages: () => string[] = () => {
     return [
-        '現在は、next.jsを使用したwebアプリ開発を行っています。',
+        '現在は、Next.jsを使用した単語帳Webアプリ「Catsial」の開発を行っています。',
         '以前はPHPを使用したマインクラフトサーバの開発、運用、保守を行っていました。',
-        '旅行やご飯を食べに行くことが最近の趣味です。',
+        'また、東京大学 産学協創推進本部主催 100program 5期に参加しています。',
     ];
 };
 
