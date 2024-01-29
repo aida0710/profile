@@ -17,15 +17,11 @@ export const frameworks: () => string[] = () => {
 };
 
 export const uiFrameworks: () => string[] = () => {
-    return ['ChakraUI', 'TailwindCSS', 'MaterialUI', 'Shadcn/ui'];
-};
-
-export const javaScriptLibraries: () => string[] = () => {
-    return ['D3.js'];
+    return ['ChakraUI', 'TailwindCSS', 'Shadcn/ui'];
 };
 
 export const databases: () => string[] = () => {
-    return ['MySQL', 'SQLite'];
+    return ['MySQL 8', 'SQLite'];
 };
 
 export const amazonWebServices: () => string[] = () => {
@@ -40,10 +36,6 @@ export const awards: () => string[] = () => {
     return ['東京大学 産学協創推進本部主催 100program 4期 優秀アプリ賞 受賞'];
 };
 
-export const tools: () => string[] = () => {
-    return ['PhpStorm', 'IntelliJ IDEA', 'PyCharm', 'DataGrip', 'Android Studio', 'VSCode', 'Postman', 'Termius'];
-};
-
 export const others: () => string[] = () => {
-    return ['Git', 'Cloudflare', 'Redmine', 'Nginx', 'Apache', 'Ubuntu 20.04'];
+    return ['Git', 'Nginx', 'Apache', 'Ubuntu 20.04', 'Node.js 18~21'];
 };
