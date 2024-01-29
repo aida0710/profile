@@ -1,16 +1,5 @@
 import SkillCard from '@/app/components/skill-card';
-import {
-    amazonWebServices,
-    awards,
-    databases,
-    frameworks,
-    javaScriptLibraries,
-    others,
-    programmingLanguages,
-    qualifications,
-    tools,
-    uiFrameworks,
-} from '@/functions/data-store';
+import {amazonWebServices, awards, databases, frameworks, others, programmingLanguages, qualifications, uiFrameworks} from '@/functions/data-store';
 import React from 'react';
 
 export function Skills() {
@@ -54,20 +43,12 @@ export function Skills() {
                             contents={uiFrameworks()}
                         />
                         <SkillCard
-                            title='JavaScript Libraries'
-                            contents={javaScriptLibraries()}
-                        />
-                        <SkillCard
                             title='Databases'
                             contents={databases()}
                         />
                         <SkillCard
                             title='Amazon Web Services'
                             contents={amazonWebServices()}
-                        />
-                        <SkillCard
-                            title='Tools'
-                            contents={tools()}
                         />
                         <SkillCard
                             title='Other'
