@@ -1,13 +1,10 @@
 'use client';
 
-import {Button, Navbar, NavbarBrand, NavbarContent, NextUIProvider} from '@nextui-org/react';
+import {NextUIProvider} from '@nextui-org/react';
 import {useRouter} from 'next/navigation';
 import {ThemeProvider} from 'next-themes';
 import React from 'react';
 import {AppRouterInstance} from 'next/dist/shared/lib/app-router-context.shared-runtime';
-import {ProjectIcon} from '@/components/icons/project-icon';
-import {BsGithub} from 'react-icons/bs';
-import {ThemeButton} from '@/app/components/theme-button';
 
 export function Providers({children}: {children: React.ReactNode}) {
     const router: AppRouterInstance = useRouter();
@@ -16,28 +13,7 @@ export function Providers({children}: {children: React.ReactNode}) {
         <ThemeProvider
             defaultTheme='dark'
             attribute='class'>
-            <NextUIProvider navigate={router.push}>
-                <Navbar isBordered>
-                    <NavbarBrand>
-                        <ProjectIcon />
-                        <p className='ml-5 text-large font-bold text-inherit'>Profile</p>
-                    </NavbarBrand>
-                    <NavbarContent justify='end'>
-                        <Button
-                            className='block p-2'
-                            radius='full'
-                            isIconOnly
-                            variant='ghost'
-                            onClick={(): void => {
-                                window.open('https://github.com/aida0710/profile');
-                            }}>
-                            <BsGithub className='h-full w-full' />
-                        </Button>
-                        <ThemeButton />
-                    </NavbarContent>
-                </Navbar>
-                {children}
-            </NextUIProvider>
+            <NextUIProvider navigate={router.push}>{children}</NextUIProvider>
         </ThemeProvider>
     );
 }

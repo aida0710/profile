@@ -10,7 +10,7 @@ export const StatusMessage: () => React.JSX.Element = () => {
         <div>
             {statusMessages().map((message: string) => (
                 <p
-                    className='text-md mb-1 font-normal md:text-xl'
+                    className='text-md mb-1 font-normal tracking-wide md:text-xl'
                     key={message}>
                     {parse(message)}
                 </p>

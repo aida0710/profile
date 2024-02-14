@@ -6,6 +6,8 @@ import {NextFont} from 'next/dist/compiled/@next/font';
 import {Providers} from '@/app/providers';
 import {Analytics} from '@vercel/analytics/react';
 import {SpeedInsights} from '@vercel/speed-insights/next';
+import Footer from '@/app/components/layout/footer';
+import {NavigationBar} from '@/app/components/layout/navigation-bar';
 
 const site_name: string = 'Profile';
 const site_description: string = '@aida_0710のプロフィールページ';
@@ -33,7 +35,7 @@ export const metadata: Metadata = {
             type: 'image/png',
             width: 1200,
             height: 630,
-            alt: 'Catsial Image',
+            alt: 'Profile Image',
         },
     },
     twitter: {
@@ -45,7 +47,7 @@ export const metadata: Metadata = {
             type: 'image/png',
             width: 1200,
             height: 630,
-            alt: 'Catsial Image',
+            alt: 'Profile Image',
         },
         creator: twitter_id,
     },
@@ -61,7 +63,13 @@ export default async function RootLayout({children}: {children: ReactNode}) {
                 <Analytics />
                 <SpeedInsights />
                 <Suspense>
-                    <Providers>{children}</Providers>
+                    <Providers>
+                        <div className='flex h-screen flex-col'>
+                            <NavigationBar />
+                            <div className='mb-auto'>{children}</div>
+                            <Footer />
+                        </div>
+                    </Providers>
                 </Suspense>
             </body>
         </html>
