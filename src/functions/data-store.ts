@@ -1,9 +1,9 @@
 //statusMessage
 export const statusMessages: () => string[] = () => {
     return [
-        '現在は、Next.jsを使用した単語帳Webアプリ「Catsial」の開発を行っています。',
+        '高校生 普通科 3年 Frontend/Backend Engineer',
+        '現在は、Next.jsを使用したWebアプリやRustを用いた自作言語の開発を行っています。',
         '以前はPHPを使用したマインクラフトサーバの開発、運用、保守を行っていました。',
-        'また、東京大学 産学協創推進本部主催 100program 5期に参加しています。',
     ];
 };
 
