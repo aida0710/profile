@@ -1,5 +1,5 @@
 import SkillCard from '@/app/components/skill-card';
-import {amazonWebServices, awards, databases, frameworks, others, programmingLanguages, qualifications, uiFrameworks} from '@/functions/data-store';
+import {amazonWebServices, awards, databases, webRelated, others, programmingLanguages, qualifications} from '@/functions/data-store';
 import React from 'react';
 
 export function Skills() {
@@ -35,12 +35,8 @@ export function Skills() {
                             contents={programmingLanguages()}
                         />
                         <SkillCard
-                            title='Frameworks (広義)'
-                            contents={frameworks()}
-                        />
-                        <SkillCard
-                            title='UI Frameworks'
-                            contents={uiFrameworks()}
+                            title='Web Related'
+                            contents={webRelated()}
                         />
                         <SkillCard
                             title='Databases'

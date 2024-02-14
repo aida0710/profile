@@ -9,15 +9,11 @@ export const statusMessages: () => string[] = () => {
 
 //skills
 export const programmingLanguages: () => string[] = () => {
-    return ['PHP 8.*', 'Python 3.*', 'Excel VBA', 'HTML 5', 'CSS 3', 'TypeScript', 'JavaScript'];
+    return ['PHP 8.*', 'Python 3.*', 'Excel VBA', 'HTML 5', 'CSS 3', 'TypeScript', 'JavaScript', 'Rust'];
 };
 
-export const frameworks: () => string[] = () => {
-    return ['React', 'Next.js'];
-};
-
-export const uiFrameworks: () => string[] = () => {
-    return ['ChakraUI', 'TailwindCSS', 'Shadcn/ui'];
+export const webRelated: () => string[] = () => {
+    return ['React', 'Next.js', 'ChakraUI', 'TailwindCSS', 'Shadcn/ui'];
 };
 
 export const databases: () => string[] = () => {
