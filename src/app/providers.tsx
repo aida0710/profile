@@ -28,7 +28,7 @@ export function Providers({children}: {children: React.ReactNode}) {
                             radius='full'
                             isIconOnly
                             variant='ghost'
-                            onClick={() => {
+                            onClick={(): void => {
                                 window.open('https://github.com/aida0710/profile');
                             }}>
                             <BsGithub className='h-full w-full' />

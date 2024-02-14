@@ -25,11 +25,9 @@ export default async function Page() {
                 <h6 className='text-lg font-medium md:text-2xl'>Masaki Aida / 相田 優希</h6>
                 <p className='text-md mb-1 font-normal md:text-xl'>18歳 千葉県船橋市在住</p>
                 <SnsIcons />
-                <Suspense>
                     <NoSSR>
                         <StatusMessage />
                     </NoSSR>
-                </Suspense>
             </div>
             <Divider className='my-14' />
             <Skills />
