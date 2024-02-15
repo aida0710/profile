@@ -1,6 +1,6 @@
 import React from 'react';
 import {Metadata} from 'next';
-import {Skills} from '@/app/components/skills';
+import {Skills} from '@/components/skills';
 import {Card, CardBody} from '@nextui-org/card';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -59,8 +59,8 @@ export default async function Page() {
     return (
         <Skills
             title='Projects'
-            description='クリックしたらリポジトリに飛べます！'>
-            {projects.map((project, index) => (
+            description='クリックしたらリポジトリやサイトに飛べます！'>
+            {projects.map((project: ProjectsProps, index: number) => (
                 <Link
                     href={project.link}
                     key={index}>

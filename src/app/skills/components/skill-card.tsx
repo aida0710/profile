@@ -1,7 +1,7 @@
 import React from 'react';
 import {Card, CardBody} from '@nextui-org/card';
 import {Chip} from '@nextui-org/chip';
-import {SkillProps} from '@/functions/data-store';
+import {SkillProps} from '@/app/skills/data-store';
 
 interface Props {
     title: string;

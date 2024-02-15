@@ -6,8 +6,8 @@ import {NextFont} from 'next/dist/compiled/@next/font';
 import {Providers} from '@/app/providers';
 import {Analytics} from '@vercel/analytics/react';
 import {SpeedInsights} from '@vercel/speed-insights/next';
-import Footer from '@/app/components/layout/footer';
-import {NavigationBar} from '@/app/components/layout/navigation-bar';
+import Footer from '@/components/layout/footer';
+import {NavigationBar} from '@/components/layout/navigation-bar';
 
 const site_name: string = 'Profile';
 const site_description: string = '@aida_0710のプロフィールページ';

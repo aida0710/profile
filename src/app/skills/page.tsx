@@ -1,9 +1,9 @@
 import React from 'react';
 import {Metadata} from 'next';
-import {Skills} from '@/app/components/skills';
+import {Skills} from '@/components/skills';
 import {Card, CardBody} from '@nextui-org/card';
-import SkillCard from '@/app/components/skill-card';
-import {amazonWebServices, databases, others, programmingLanguages, webRelated} from '@/functions/data-store';
+import SkillCard from '@/app/skills/components/skill-card';
+import {amazonWebServices, databases, others, programmingLanguages, webRelated} from '@/app/skills/data-store';
 
 export const metadata: Metadata = {
     title: 'Skills',

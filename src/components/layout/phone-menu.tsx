@@ -5,8 +5,8 @@ import {Button, Modal, ModalContent, ModalHeader, useDisclosure} from '@nextui-o
 import clsx from 'clsx';
 import {usePathname} from 'next/navigation';
 import React from 'react';
-import {NavItemProps} from '@/app/components/layout/navigation-bar';
-import {ProjectIcon} from '@/app/components/icons/project-icon';
+import {NavItemProps} from '@/components/layout/navigation-bar';
+import {ProjectIcon} from '@/components/icons/project-icon';
 import {MenuIcon, XIcon} from 'lucide-react';
 
 interface Props {
@@ -67,7 +67,7 @@ export const PhoneMenu = ({NavItems}: Props) => {
                         <Link
                             color='foreground'
                             isDisabled={onDisabled()}
-                            href='/'>
+                            href='/public'>
                             <ProjectIcon />
                             <p className='ml-5 text-large font-bold text-inherit'>Profile</p>
                         </Link>

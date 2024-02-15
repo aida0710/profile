@@ -9,7 +9,7 @@ interface Props {
 export function Skills({title, description, children}: Props) {
     return (
         <div>
-            <div className='m-5 mb-12 max-md:m-0'>
+            <div className='m-5 mb-12 max-md:m-0 max-md:mt-5'>
                 <div className='ml-5'>
                     <h1 className='text-3xl font-medium md:text-4xl'>{title}</h1>
                     <p className='text-sm font-normal md:text-base'>{description}</p>
