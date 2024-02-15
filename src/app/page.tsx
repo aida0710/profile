@@ -1,8 +1,11 @@
 import React from 'react';
 import {Image} from '@nextui-org/image';
-import {SnsIcons} from '@/app/components/sns-icons';
-import {StatusMessage} from '@/app/components/status-message';
-import {NoSSR} from '@/app/components/utils/no-ssr';
+import {SnsIcons} from '@/app/index/sns-icons';
+import {StatusMessage} from '@/app/index/status-message';
+import {NoSSR} from '@/app/index/utils/no-ssr';
+import Link from 'next/link';
+import {Button} from '@nextui-org/react';
+import {AppWindowIcon, AwardIcon, PenToolIcon} from 'lucide-react';
 
 export default async function Page() {
     return (
@@ -25,6 +28,32 @@ export default async function Page() {
             <NoSSR>
                 <StatusMessage />
             </NoSSR>
+            <div className='mb-12 mt-16 flex justify-center gap-3'>
+                <Link href='awards'>
+                    <Button
+                        color='danger'
+                        startContent={<AwardIcon />}
+                        variant='flat'>
+                        Awards
+                    </Button>
+                </Link>
+                <Link href='projects'>
+                    <Button
+                        color='success'
+                        startContent={<AppWindowIcon />}
+                        variant='flat'>
+                        Projects
+                    </Button>
+                </Link>
+                <Link href='skills'>
+                    <Button
+                        color='warning'
+                        startContent={<PenToolIcon />}
+                        variant='flat'>
+                        Skills
+                    </Button>
+                </Link>
+            </div>
         </div>
     );
 }
