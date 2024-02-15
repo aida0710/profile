@@ -34,6 +34,7 @@ export default async function Page() {
             description='頂いた賞の一覧'>
             {Awards.map((award: AwardsProps, index: number) => (
                 <Link
+                    target='_blank'
                     href={award.link}
                     key={index}>
                     <Card

@@ -62,6 +62,7 @@ export default async function Page() {
             description='クリックしたらリポジトリやサイトに飛べます！'>
             {projects.map((project: ProjectsProps, index: number) => (
                 <Link
+                    target='_blank'
                     href={project.link}
                     key={index}>
                     <Card
