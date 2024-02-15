@@ -4,10 +4,10 @@ import {Link} from '@nextui-org/link';
 import {Button, Navbar, NavbarBrand, NavbarContent, NavbarItem} from '@nextui-org/react';
 import {usePathname} from 'next/navigation';
 import React from 'react';
-import {PhoneMenu} from '@/app/components/layout/phone-menu';
-import {ThemeButton} from '@/app/components/layout/theme-button';
-import {ProjectIcon} from '@/app/components/icons/project-icon';
-import {AwardIcon, HomeIcon, PenToolIcon, ProjectorIcon} from 'lucide-react';
+import {PhoneMenu} from '@/components/layout/phone-menu';
+import {ThemeButton} from '@/components/layout/theme-button';
+import {ProjectIcon} from '@/components/icons/project-icon';
+import {AppWindowIcon, AwardIcon, HomeIcon, PenToolIcon} from 'lucide-react';
 import {BsGithub} from 'react-icons/bs';
 
 export interface NavItemProps {
@@ -46,7 +46,7 @@ export const NavigationBar = () => {
             Display: 'Projects',
             Link: '/projects',
             Icon: (
-                <ProjectorIcon
+                <AppWindowIcon
                     size={32}
                     color='currentColor'
                     strokeWidth={3}
@@ -94,7 +94,7 @@ export const NavigationBar = () => {
                 <NavbarBrand>
                     <Link
                         color='foreground'
-                        href='/'>
+                        href='/public'>
                         <ProjectIcon />
                         <p className='ml-5 text-large font-bold text-inherit'>Profile</p>
                     </Link>
