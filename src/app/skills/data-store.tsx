@@ -164,7 +164,7 @@ export const webRelated: SkillProps[] = [
         ),
     },
 ];
-
+//treejsとd3.js,node.js あたりも欲しいかも
 export const databases: SkillProps[] = [
     {
         title: 'MySQL 8',
