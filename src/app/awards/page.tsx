@@ -19,6 +19,20 @@ interface AwardsProps {
 
 const Awards: AwardsProps[] = [
     {
+        organization: '総務省 / 株式会社角川アスキー総合研究所',
+        description: '異能ベーション 2023年度 ジェネレーションアワード部門 ノミネート',
+        image: '異能ベーション-ジェネレーションアワード_表彰状.png',
+        link: 'https://www.inno.go.jp/result/2023/generation/nominate/',
+        date: '2024年03月02日',
+    },
+    {
+        organization: '東北大学 グリーン未来創造機構',
+        description: '2023-2024 Academia in Action ファイナリスト受賞',
+        image: 'academia-in-action.png',
+        link: 'https://www.ggi.tohoku.ac.jp/academia-in-action/',
+        date: '2024年03月04日',
+    },
+    {
         organization: '東京大学 産学協創推進本部',
         description: '100program 4期 優秀アプリ賞 受賞',
         image: '100program-4.png',
@@ -49,7 +63,7 @@ export default async function Page() {
                                 <Image
                                     src={`/images/awards/${award.image}`}
                                     alt={award.description}
-                                    className='mt-auto aspect-video rounded-lg'
+                                    className='mt-auto aspect-video rounded-lg object-contain object-center'
                                     width={1920}
                                     height={1080}
                                 />
@@ -58,16 +72,6 @@ export default async function Page() {
                     </Card>
                 </Link>
             ))}
-            <Card className='max-md:hidden'>
-                <CardBody>
-                    <h2 className='text-sm'>今後取りたい！</h2>
-                </CardBody>
-            </Card>
-            <Card className='max-lg:hidden'>
-                <CardBody>
-                    <h2 className='text-sm'>今後取りたい！</h2>
-                </CardBody>
-            </Card>
         </Skills>
     );
 }
