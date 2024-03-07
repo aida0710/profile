@@ -8,6 +8,7 @@ import {
     SiAmazons3,
     SiApache,
     SiChakraui,
+    SiElectron,
     SiNextdotjs,
     SiNextui,
     SiNginx,
@@ -19,6 +20,7 @@ import {
 } from 'react-icons/si';
 import {GrMysql} from 'react-icons/gr';
 import {FaGitAlt, FaNodeJs, FaUbuntu} from 'react-icons/fa';
+import {LibraryIcon} from 'lucide-react';
 
 export const statusMessages: () => string[] = (): string[] => {
     return [
@@ -163,8 +165,52 @@ export const webRelated: SkillProps[] = [
             />
         ),
     },
+    {
+        title: 'Electron js',
+        icon: (
+            <SiElectron
+                size={19}
+                className='mr-2'
+            />
+        ),
+    },
+    {
+        title: 'React Native',
+        icon: (
+            <BiLogoReact
+                size={22}
+                className='mr-2'
+            />
+        ),
+    },
+    {
+        title: 'Tree.js',
+        icon: (
+            <LibraryIcon
+                size={19}
+                className='mr-2'
+            />
+        ),
+    },
+    {
+        title: 'D3.js',
+        icon: (
+            <LibraryIcon
+                size={19}
+                className='mr-2'
+            />
+        ),
+    },
+    {
+        title: 'Node.js',
+        icon: (
+            <LibraryIcon
+                size={19}
+                className='mr-2'
+            />
+        ),
+    },
 ];
-//treejsとd3.js,node.js あたりも欲しいかも
 export const databases: SkillProps[] = [
     {
         title: 'MySQL 8',
