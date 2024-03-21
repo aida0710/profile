@@ -1,7 +1,7 @@
-/** @type {import('next').NextConfig} */
+/** @type {{images: {remotePatterns: string[]}}} */
 const nextConfig = {
     images: {
-        domains: ['images.unsplash.com', 'dummyimage.com'],
+        remotePatterns: ['images.unsplash.com', 'dummyimage.com'],
     },
 };
 
