@@ -7,8 +7,8 @@ import {
     SiAmazonec2,
     SiAmazons3,
     SiApache,
-    SiChakraui,
-    SiElectron,
+    SiChakraui, SiCsharp,
+    SiElectron, SiKotlin,
     SiNextdotjs,
     SiNextui,
     SiNginx,
@@ -17,6 +17,7 @@ import {
     SiRust,
     SiSqlite,
     SiTailwindcss,
+    SiUnity,
 } from 'react-icons/si';
 import {GrMysql} from 'react-icons/gr';
 import {FaGitAlt, FaNodeJs, FaUbuntu} from 'react-icons/fa';
@@ -100,9 +101,27 @@ export const programmingLanguages: SkillProps[] = [
         ),
     },
     {
-        title: 'Rust',
+        title: 'Rust(ﾁｮｯﾄﾀﾞｹ)',
         icon: (
             <SiRust
+                size={19}
+                className='mr-2'
+            />
+        ),
+    },
+    {
+        title: 'C#',
+        icon: (
+            <SiCsharp
+                size={19}
+                className='mr-2'
+            />
+        ),
+    },
+    {
+        title: 'Kotlin',
+        icon: (
+            <SiKotlin
                 size={19}
                 className='mr-2'
             />
@@ -193,16 +212,7 @@ export const webRelated: SkillProps[] = [
         ),
     },
     {
-        title: 'D3.js',
-        icon: (
-            <LibraryIcon
-                size={19}
-                className='mr-2'
-            />
-        ),
-    },
-    {
-        title: 'Node.js',
+        title: 'D3.js(force graphのみ)',
         icon: (
             <LibraryIcon
                 size={19}
@@ -211,6 +221,7 @@ export const webRelated: SkillProps[] = [
         ),
     },
 ];
+
 export const databases: SkillProps[] = [
     {
         title: 'MySQL 8',
@@ -273,7 +284,16 @@ export const others: SkillProps[] = [
         ),
     },
     {
-        title: 'Nginx',
+        title: 'Unity(コントローラー層の実装のみ)',
+        icon: (
+            <SiUnity
+                size={19}
+                className='mr-2'
+            />
+        ),
+    },
+    {
+        title: 'Nginx(web/リバースプロキシサーバー構築に使用)',
         icon: (
             <SiNginx
                 size={19}
@@ -282,7 +302,7 @@ export const others: SkillProps[] = [
         ),
     },
     {
-        title: 'Apache',
+        title: 'Apache(webサーバー構築に使用)',
         icon: (
             <SiApache
                 size={19}
