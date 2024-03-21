@@ -1,8 +1,3 @@
-/** @type {{images: {remotePatterns: string[]}}} */
-const nextConfig = {
-    images: {
-        remotePatterns: ['images.unsplash.com', 'dummyimage.com'],
-    },
-};
+const nextConfig = {};
 
 module.exports = nextConfig;
