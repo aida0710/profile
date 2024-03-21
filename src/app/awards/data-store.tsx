@@ -29,7 +29,7 @@ export const Awards: AwardsProps[] = [
         date: '2023年09月22日',
     },
     {
-        organization: "Transeeds Inc.",
+        organization: 'Transeeds Inc.',
         description: 'JAPAN WEB3.0 AWARD 特別賞 αU賞 受賞 by.KDDI株式会社',
         image: 'japan-web3-award.png',
         link: 'https://prtimes.jp/main/html/rd/p/000000024.000056442.html',
