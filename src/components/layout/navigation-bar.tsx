@@ -94,7 +94,7 @@ export const NavigationBar = () => {
                 <NavbarBrand>
                     <Link
                         color='foreground'
-                        href='/public'>
+                        href='/'>
                         <ProjectIcon />
                         <p className='ml-5 text-large font-bold text-inherit'>Profile</p>
                     </Link>

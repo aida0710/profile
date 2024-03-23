@@ -17,10 +17,6 @@ export const PhoneMenu = ({NavItems}: Props) => {
     const {isOpen, onOpen, onClose, onOpenChange} = useDisclosure();
     const pathname: string = usePathname();
 
-    function onDisabled(): boolean {
-        return pathname === '/initial-setting';
-    }
-
     function isActive(link: string): boolean {
         return pathname === link;
     }
@@ -66,8 +62,7 @@ export const PhoneMenu = ({NavItems}: Props) => {
                         />
                         <Link
                             color='foreground'
-                            isDisabled={onDisabled()}
-                            href='/public'>
+                            href='/'>
                             <ProjectIcon />
                             <p className='ml-5 text-large font-bold text-inherit'>Profile</p>
                         </Link>
@@ -84,7 +79,6 @@ export const PhoneMenu = ({NavItems}: Props) => {
                                         'text-primary': isActive(item.Link),
                                     })}
                                     onPress={onClose}
-                                    isDisabled={onDisabled()}
                                     href={item.Link}>
                                     {item.Icon}
                                     <span className='ml-4 text-4xl'>{item.Display}</span>
