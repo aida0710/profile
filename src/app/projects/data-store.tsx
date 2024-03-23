@@ -15,7 +15,7 @@ export const projects: ProjectsProps[] = [
         language: 'TypeScript',
     },
     {
-        title: 'Web ネットワーク シミュレータ',
+        title: 'Web Network Simulator',
         description: ['100pro 5期で作成したネットワークシミュレータ', 'フロントエンドなどを担当し、Next.jsで開発', '公開サイト https://nw-sim.net/'],
         image: 'network-simulator.png',
         link: 'https://github.com/orgs/web-network-simulator/repositories',
