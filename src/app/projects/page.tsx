@@ -27,11 +27,13 @@ export default async function Page() {
                         <CardBody>
                             <h2 className='text-sm'>言語：{project.language}</h2>
                             <h3 className='my-2 font-semibold'>{project.title}</h3>
-                            <p className='mb-1'>{project.description.map((item) => (
-                                <div>
-                                    <p className='text-md'>{item}</p>
-                                </div>
-                            ))}</p>
+                            <p className='mb-1'>
+                                {project.description.map((item: string, index: number) => (
+                                    <div key={index}>
+                                        <p className='text-md'>{item}</p>
+                                    </div>
+                                ))}
+                            </p>
                             <Image
                                 src={`/images/projects/${project.image}`}
                                 alt={project.title}
