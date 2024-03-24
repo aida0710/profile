@@ -22,6 +22,13 @@ export const projects: ProjectsProps[] = [
         language: 'TypeScript / Python',
     },
     {
+        title: 'Desktop Mascot',
+        description: ['100pro 5期で作成したデスクトップマスコット', 'Unity + C# + Google Calendar Api for .Netで開発'],
+        image: 'desktop-mascot.png',
+        link: 'https://100program.jp/',
+        language: 'C#',
+    },
+    {
         title: 'Zircon Lang',
         description: ['Kotlin製自作インタープリター言語', '開発中(字句解析器/構文解析器/インタープリター実装済み)'],
         image: 'zircon-lang.png',
