@@ -49,5 +49,4 @@ export const Awards: AwardsProps[] = [
         link: 'https://100program.jp/',
         date: '2023年09月22日',
     },
-
 ];
