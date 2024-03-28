@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
-import {statusMessages} from '@/app/skills/data-store';
 import {useBudouX} from '@/functions/hook/useBudouX';
+import {statusMessages} from '@/app/index/data-store';
 
 export const StatusMessage: () => React.JSX.Element = () => {
     const {parse} = useBudouX();
