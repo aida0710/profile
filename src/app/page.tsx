@@ -16,8 +16,8 @@ export default async function Page() {
                     isBlurred
                     src='/neko.jpg'
                     alt='profile-icon'
-                    width={'224px'}
-                    height={'224px'}
+                    width='224px'
+                    height='224px'
                     className='h-56 w-56'
                 />
             </div>
