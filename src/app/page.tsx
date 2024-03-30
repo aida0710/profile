@@ -22,7 +22,7 @@ export default async function Page() {
                 />
             </div>
             <h6 className='text-lg font-medium tracking-wide md:text-2xl'>Masaki Aida / 相田 優希</h6>
-            <p className='text-md mt-2 font-normal tracking-wide md:text-xl'>高校生 普通科 18歳 千葉県船橋市在住</p>
+            <p className='text-md mt-2 font-normal tracking-wide md:text-xl'>18歳 千葉県船橋市在住</p>
             <p className='text-md font-normal tracking-wide md:text-xl'>Frontend/Backend Engineer</p>
             <SnsIcons />
             <NoSSR>
