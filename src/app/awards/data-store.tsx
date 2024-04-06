@@ -29,6 +29,13 @@ export const Awards: AwardsProps[] = [
         date: '2024年03月19日',
     },
     {
+        organization: '岐阜協立大学',
+        description: '奨励賞 受賞',
+        image: 'gifu-contest.png',
+        link: 'https://www.gku.ac.jp/topics/event/post-354.html',
+        date: '2024年03月11日',
+    },
+    {
         organization: '東北大学 グリーン未来創造機構',
         description: '2023-2024 Academia in Action ファイナリスト',
         image: 'academia-in-action.png',
