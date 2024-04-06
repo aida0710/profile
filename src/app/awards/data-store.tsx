@@ -30,7 +30,7 @@ export const Awards: AwardsProps[] = [
     },
     {
         organization: '岐阜協立大学',
-        description: '奨励賞 受賞',
+        description: '第6回 高校生ビジネスアイデアコンテスト 奨励賞 受賞',
         image: 'gifu-contest.png',
         link: 'https://www.gku.ac.jp/topics/event/post-354.html',
         date: '2024年03月11日',
