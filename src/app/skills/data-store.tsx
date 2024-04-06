@@ -232,7 +232,7 @@ export const webRelated: SkillProps[] = [
                 className='mr-2'
             />
         ),
-    }
+    },
 ];
 
 export const databases: SkillProps[] = [
