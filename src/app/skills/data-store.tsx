@@ -7,14 +7,20 @@ import {
     SiAmazonec2,
     SiAmazons3,
     SiApache,
+    SiC,
     SiChakraui,
+    SiCplusplus,
     SiCsharp,
+    SiDocker,
     SiElectron,
+    SiExpress,
+    SiFirebase,
     SiKotlin,
     SiNextdotjs,
     SiNextui,
     SiNginx,
     SiPhp,
+    SiPostgresql,
     SiRadixui,
     SiRust,
     SiSqlite,
@@ -24,6 +30,7 @@ import {
 import {GrMysql} from 'react-icons/gr';
 import {FaGitAlt, FaNodeJs, FaUbuntu} from 'react-icons/fa';
 import {LibraryIcon} from 'lucide-react';
+import {FaDebian} from 'react-icons/fa6';
 
 export interface SkillProps {
     title: string;
@@ -105,6 +112,24 @@ export const programmingLanguages: SkillProps[] = [
         ),
     },
     {
+        title: 'C(ﾁｮｯﾄﾀﾞｹ)',
+        icon: (
+            <SiC
+                size={19}
+                className='mr-2'
+            />
+        ),
+    },
+    {
+        title: 'C++(ﾁｮｯﾄﾀﾞｹ)',
+        icon: (
+            <SiCplusplus
+                size={19}
+                className='mr-2'
+            />
+        ),
+    },
+    {
         title: 'C#',
         icon: (
             <SiCsharp
@@ -180,9 +205,18 @@ export const webRelated: SkillProps[] = [
         ),
     },
     {
-        title: 'Electron js',
+        title: 'Electron.js',
         icon: (
             <SiElectron
+                size={19}
+                className='mr-2'
+            />
+        ),
+    },
+    {
+        title: 'Express.js',
+        icon: (
+            <SiExpress
                 size={19}
                 className='mr-2'
             />
@@ -225,6 +259,15 @@ export const webRelated: SkillProps[] = [
         ),
     },
     {
+        title: 'firebase Authentication',
+        icon: (
+            <SiFirebase
+                size={19}
+                className='mr-2'
+            />
+        ),
+    },
+    {
         title: 'Resend (Mail)',
         icon: (
             <LibraryIcon
@@ -249,6 +292,15 @@ export const databases: SkillProps[] = [
         title: 'SQLite',
         icon: (
             <SiSqlite
+                size={19}
+                className='mr-2'
+            />
+        ),
+    },
+    {
+        title: 'PostgreSQL',
+        icon: (
+            <SiPostgresql
                 size={19}
                 className='mr-2'
             />
@@ -327,6 +379,24 @@ export const others: SkillProps[] = [
         title: 'Ubuntu 20.04',
         icon: (
             <FaUbuntu
+                size={19}
+                className='mr-2'
+            />
+        ),
+    },
+    {
+        title: 'Debian 12',
+        icon: (
+            <FaDebian
+                size={19}
+                className='mr-2'
+            />
+        ),
+    },
+    {
+        title: 'Docker',
+        icon: (
+            <SiDocker
                 size={19}
                 className='mr-2'
             />
