@@ -67,7 +67,7 @@ export default async function Footer() {
                     isBlock
                     showAnchorIcon
                     className='mb-3 text-medium font-normal'>
-                    <p>© 2023 Masaki Aida. All Rights Reserved.</p>
+                    <p>© {new Date().getFullYear()} Masaki Aida. All Rights Reserved.</p>
                 </Link>
             </div>
         </footer>
