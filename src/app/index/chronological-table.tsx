@@ -2,16 +2,16 @@
 
 import React from 'react';
 import {TableBody, Table, TableCell, TableHeader, TableColumn, TableRow} from '@nextui-org/react';
-import {timeTableData} from '@/app/index/data-store';
+import {chronologicalTableData} from '@/app/index/data-store';
 import {Link} from '@nextui-org/link';
 
-export interface TimeTableData {
+export interface IChronologicalTableData {
     date: string;
     content: string[];
     link?: string;
 }
 
-export function TimeTable() {
+export function ChronologicalTable() {
     return (
         <div>
             <h2 className='text-center text-lg'>Chronological Table</h2>
@@ -23,14 +23,13 @@ export function TimeTable() {
                     td: 'bg-transparent border-b border-divider',
                     tbody: 'bg-transparent',
                 }}
-                aria-label='time table'
-                topContentPlacement='outside'>
+                aria-label='chronological table'>
                 <TableHeader>
                     <TableColumn>年月日</TableColumn>
                     <TableColumn>活動内容</TableColumn>
                 </TableHeader>
-                <TableBody className=''>
-                    {timeTableData().map((data: TimeTableData, index: number) => (
+                <TableBody>
+                    {chronologicalTableData().map((data: IChronologicalTableData, index: number) => (
                         <TableRow key={index}>
                             <TableCell>{data.date}</TableCell>
                             {data.link ? (

@@ -1,4 +1,4 @@
-import {TimeTableData} from '@/app/index/time-table';
+import {IChronologicalTableData} from '@/app/index/chronological-table';
 
 export const statusMessages: () => string[] = (): string[] => {
     return [
@@ -9,7 +9,7 @@ export const statusMessages: () => string[] = (): string[] => {
     ];
 };
 
-export const timeTableData: () => TimeTableData[] = (): TimeTableData[] => {
+export const chronologicalTableData: () => IChronologicalTableData[] = (): IChronologicalTableData[] => {
     return [
         {
             date: '2024年5月25日~',
