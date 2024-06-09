@@ -55,7 +55,7 @@ export default async function Page() {
                     </Button>
                 </Link>
             </div>
-            <div className="flex justify-center">
+            <div className='flex justify-center'>
                 <ChronologicalTable />
             </div>
         </div>
