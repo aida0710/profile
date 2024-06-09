@@ -20,7 +20,7 @@ export function TimeTable() {
                 classNames={{
                     wrapper: 'max-w-4xl bg-transparent',
                     th: 'bg-transparent border-b border-divider text-center',
-                    td: 'bg-transparent border-b border-divider　overflow-x-scroll',
+                    td: 'bg-transparent border-b border-divider',
                     tbody: 'bg-transparent',
                 }}
                 aria-label='time table'
