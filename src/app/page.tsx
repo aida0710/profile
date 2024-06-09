@@ -6,6 +6,7 @@ import {NoSSR} from '@/app/index/utils/no-ssr';
 import Link from 'next/link';
 import {Button} from '@nextui-org/react';
 import {AppWindowIcon, AwardIcon, PenToolIcon} from 'lucide-react';
+import {TimeTable} from '@/app/index/time-table';
 
 export default async function Page() {
     return (
@@ -53,6 +54,9 @@ export default async function Page() {
                         Skills
                     </Button>
                 </Link>
+            </div>
+            <div className="flex justify-center">
+                <TimeTable />
             </div>
         </div>
     );
