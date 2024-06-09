@@ -4,35 +4,35 @@ import React from 'react';
 import {TableBody, Table, TableCell, TableHeader, TableColumn, TableRow} from '@nextui-org/react';
 import {timeTableData} from '@/app/index/data-store';
 import {Link} from '@nextui-org/link';
-import {TableDate} from '@/app/index/utils/table-date';
 
 export interface TimeTableData {
-    date: TableDate;
+    date: string;
     content: string[];
     link?: string;
 }
 
 export function TimeTable() {
     return (
-        <div className=''>
+        <div>
+            <h2 className='text-center text-lg'>Chronological Table</h2>
             <Table
-                className="p-4"
+                className='px-4'
                 classNames={{
-                    wrapper: 'max-w-3xl bg-transparent border border-divider rounded-md overflow-y-auto',
-                    th: 'bg-transparent text-default-500 border-b border-divider',
-                    td: "bg-transparent text-default-900 border-b border-divider",
+                    wrapper: 'max-w-4xl bg-transparent',
+                    th: 'bg-transparent border-b border-divider text-center',
+                    td: 'bg-transparent border-b border-divider　overflow-x-scroll',
                     tbody: 'bg-transparent',
                 }}
                 aria-label='time table'
-                topContentPlacement="outside">
+                topContentPlacement='outside'>
                 <TableHeader>
                     <TableColumn>年月日</TableColumn>
-                    <TableColumn>何をしたか</TableColumn>
+                    <TableColumn>活動内容</TableColumn>
                 </TableHeader>
-                <TableBody>
+                <TableBody className=''>
                     {timeTableData().map((data: TimeTableData, index: number) => (
                         <TableRow key={index}>
-                            <TableCell>{data.date.getDate()}</TableCell>
+                            <TableCell>{data.date}</TableCell>
                             {data.link ? (
                                 <TableCell>
                                     <Link
