@@ -1,4 +1,5 @@
 'use client';
+
 import React from 'react';
 import {useBudouX} from '@/functions/hook/useBudouX';
 import {statusMessages} from '@/app/index/data-store';
