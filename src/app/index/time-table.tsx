@@ -35,9 +35,7 @@ export function TimeTable() {
                             <TableCell>{data.date}</TableCell>
                             {data.link ? (
                                 <TableCell>
-                                    <Link
-                                        isExternal
-                                        href={data.link}>
+                                    <Link href={data.link}>
                                         {data.content.map((content: string, index: number) => (
                                             <p key={index}>{content}</p>
                                         ))}
