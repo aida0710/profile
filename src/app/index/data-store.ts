@@ -22,12 +22,12 @@ export const chronologicalTableData: () => IChronologicalTableData[] = (): IChro
         },
         {
             date: '2024年03月19日',
-            content: [ 'JAPAN WEB3.0 AWARD αU賞 受賞'],
+            content: ['JAPAN WEB3.0 AWARD αU賞 受賞'],
             link: 'https://prtimes.jp/main/html/rd/p/000000024.000056442.html',
         },
         {
             date: '2024年03月11日',
-            content: [ '第6回 高校生ビジネスアイデアコンテスト 奨励賞 受賞'],
+            content: ['第6回 高校生ビジネスアイデアコンテスト 奨励賞 受賞'],
             link: 'https://www.gku.ac.jp/topics/event/post-354.html',
         },
         {
