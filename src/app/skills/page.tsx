@@ -15,7 +15,7 @@ export default async function Page() {
             <Skills
                 title='Qualifications'
                 description='保有資格'>
-                <Card>
+                <Card key="information-system-qualification">
                     <CardBody>
                         <h2 className='text-sm'>独立行政法人 情報処理推進機構</h2>
                         <h3 className='my-3 font-semibold'>ITパスポート R5 May</h3>
@@ -24,7 +24,7 @@ export default async function Page() {
                         </div>
                     </CardBody>
                 </Card>
-                <Card>
+                <Card key="others">
                     <CardBody>
                         <h2 className='text-sm'>その他</h2>
                         <h3 className='my-3 font-semibold'>普通自動車運転免許 R5 Aug</h3>
@@ -35,22 +35,27 @@ export default async function Page() {
                 title='Skills'
                 description='経験したことのある技術や出来ること'>
                 <SkillCard
+                    key="programming-languages"
                     title='Programming Languages'
                     contents={programmingLanguages}
                 />
                 <SkillCard
+                    key="web-related"
                     title='Web Related'
                     contents={webRelated}
                 />
                 <SkillCard
+                    key="databases"
                     title='Databases'
                     contents={databases}
                 />
                 <SkillCard
+                    key="aws"
                     title='Amazon Web Services'
                     contents={amazonWebServices}
                 />
                 <SkillCard
+                    key="others"
                     title='Other'
                     contents={others}
                 />
