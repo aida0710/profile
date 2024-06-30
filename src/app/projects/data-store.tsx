@@ -24,7 +24,7 @@ export const projects: ProjectsProps[] = [
             awards: {
                 description: '岐阜協立大学 第6回 高校生ビジネスアイデアコンテスト',
                 url: 'https://www.gku.ac.jp/topics/event/post-354.html',
-            }
+            },
         },
         language: 'TypeScript',
     },

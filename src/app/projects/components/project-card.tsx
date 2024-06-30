@@ -9,13 +9,21 @@ interface ProjectCardProps extends ProjectsProps {
 
 export default function ProjectCard({onOpen, ...props}: ProjectCardProps) {
     return (
-        <Card className='h-full' isHoverable isPressable onClick={onOpen}>
+        <Card
+            className='h-full'
+            isHoverable
+            isPressable
+            onClick={onOpen}>
             <CardBody>
                 <h2 className='text-sm'>言語：{props.language}</h2>
                 <h3 className='my-2 font-semibold'>{props.title}</h3>
                 <div className='mb-1'>
                     {props.description.map((item: string, index: number) => (
-                        <p key={index} className='text-md'>{item}</p>
+                        <p
+                            key={index}
+                            className='text-md'>
+                            {item}
+                        </p>
                     ))}
                 </div>
                 <Image
