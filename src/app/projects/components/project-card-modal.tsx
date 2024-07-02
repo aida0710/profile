@@ -35,6 +35,7 @@ export default function ProjectCardModal(props: ProjectsProps) {
                                 </div>
                                 {Object.entries(props.links).map(([key, link]) => (
                                     <Link
+                                        target='_blank'
                                         key={key}
                                         className='block w-full'
                                         href={link.url}>
