@@ -17,8 +17,8 @@ export function ChronologicalTable() {
             <h2 className='text-center text-lg'>Chronological Table</h2>
             <Table
                 hideHeader
-                shadow="none"
-                radius="none"
+                shadow='none'
+                radius='none'
                 isCompact
                 className='px-4'
                 classNames={{
@@ -47,7 +47,11 @@ export function ChronologicalTable() {
                             ) : (
                                 <TableCell>
                                     {data.content.map((content: string, index: number) => (
-                                        <p  className="py-0.5" key={index}>{content}</p>
+                                        <p
+                                            className='py-0.5'
+                                            key={index}>
+                                            {content}
+                                        </p>
                                     ))}
                                 </TableCell>
                             )}
