@@ -25,7 +25,7 @@ async function getLastCommit(): Promise<CommitResult> {
         if (!response.ok) {
             return {
                 success: false,
-                data: `GETリクエストが失敗しました: ${response.status}`
+                data: `GETリクエストが失敗しました: ${response.status}`,
             };
         }
 
@@ -34,19 +34,19 @@ async function getLastCommit(): Promise<CommitResult> {
         if (!data[0]) {
             return {
                 success: false,
-                data: 'データが取得できませんでした'
+                data: 'データが取得できませんでした',
             };
         }
 
         return {
             success: true,
-            data: new Date(data[0].commit.author.date)
+            data: new Date(data[0].commit.author.date),
         };
     } catch (error) {
         console.error(error);
         return {
             success: false,
-            data: error instanceof Error ? error.message : '不明なエラーが発生しました'
+            data: error instanceof Error ? error.message : '不明なエラーが発生しました',
         };
     }
 }
