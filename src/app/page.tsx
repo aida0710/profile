@@ -54,6 +54,11 @@ export default async function Page() {
                         Skills
                     </Button>
                 </Link>
+                <Chip
+                    startContent={<MailIcon />}
+                    radius='sm'>
+                    <p className='text-default-600'>Email: email[at]aida0710.work</p>
+                </Chip>
             </div>
             <div className='flex justify-center'>
                 <ChronologicalTable />
