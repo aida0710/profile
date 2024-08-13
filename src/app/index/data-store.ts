@@ -2,10 +2,9 @@ import {IChronologicalTableData} from '@/app/index/chronological-table';
 
 export const statusMessages: () => string[] = (): string[] => {
     return [
-        '最近はネットワークセキュリティに興味があります。',
-        'next.jsやreact native, express.jsを使った開発を主に行っています。',
-        'データベースに関する知識は、第3正規化までの設計や小規模のSNSが作れる程度です。',
-        '色んなことをしてみたい。',
+        "最近は、ネットワークインフラとネットワークセキュリティー分野に手を出しています。",
+        "Rustムズイ。",
+        "SecHack365 2024 学習駆動コース 坂井ゼミに参加しています。",
     ];
 };
 
