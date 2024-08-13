@@ -30,7 +30,7 @@ export default async function Page() {
             <NoSSR>
                 <StatusMessage />
             </NoSSR>
-            <div className='mb-12 mt-16 '>
+            <div className='mb-12 mt-16'>
                 <SelectionButton />
                 <Chip
                     startContent={<MailIcon />}
