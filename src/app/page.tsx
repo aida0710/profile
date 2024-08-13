@@ -29,31 +29,8 @@ export default async function Page() {
             <NoSSR>
                 <StatusMessage />
             </NoSSR>
-            <div className='mb-12 mt-16 flex justify-center gap-3'>
-                <Link href='awards'>
-                    <Button
-                        color='danger'
-                        startContent={<AwardIcon />}
-                        variant='flat'>
-                        Awards
-                    </Button>
-                </Link>
-                <Link href='projects'>
-                    <Button
-                        color='success'
-                        startContent={<AppWindowIcon />}
-                        variant='flat'>
-                        Projects
-                    </Button>
-                </Link>
-                <Link href='skills'>
-                    <Button
-                        color='warning'
-                        startContent={<PenToolIcon />}
-                        variant='flat'>
-                        Skills
-                    </Button>
-                </Link>
+            <div className='mb-12 mt-16 '>
+                <SelectionButton />
                 <Chip
                     startContent={<MailIcon />}
                     radius='sm'>
