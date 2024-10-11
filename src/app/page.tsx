@@ -3,8 +3,6 @@ import {Image} from '@nextui-org/image';
 import {SnsIcons} from '@/app/index/sns-icons';
 import {StatusMessage} from '@/app/index/status-message';
 import {NoSSR} from '@/app/index/utils/no-ssr';
-import {MailIcon} from 'lucide-react';
-import {Chip} from '@nextui-org/chip';
 import {SelectionButton} from '@/app/index/SelectionButton';
 
 export default async function Page() {
@@ -32,11 +30,6 @@ export default async function Page() {
             </NoSSR>
             <div className='mb-12 mt-16'>
                 <SelectionButton />
-                <Chip
-                    startContent={<MailIcon />}
-                    radius='sm'>
-                    <p className='text-default-600'>Email: email[at]aida0710.work</p>
-                </Chip>
             </div>
         </div>
     );
