@@ -13,6 +13,40 @@ export interface ProjectsProps {
 
 export const projects: ProjectsProps[] = [
     {
+        title: '教育目的、演習目的のDosツール',
+        description: [
+            "syn flood攻撃やudp flood攻撃、不正なip headerの送信などが可能なツールです。",
+            '※ 犯罪ですので、攻撃目的の使用はしないでください。',
+        ],
+        image: 'dos-attack-tool.png',
+        links: {
+            github_single: {
+                description: '単一スレッド処理のプロジェクト',
+                url: 'https://github.com/aida0710/dos-attack-tool',
+            },
+            github_multi: {
+                description: '複数スレッド処理のプロジェクト',
+                url: 'https://github.com/aida0710/parallel-dos-attack-tool',
+            }
+        },
+        language: 'Rust',
+    },
+    {
+        title: 'ネットワークパケット傍聴ツール',
+        description: [
+            'パケットをキャプチャし、ip fragmentsの再構築とtcp streamの再構成を行います。',
+            '非暗号通信のみにはなりますが、中身を見ることが可能です。',
+        ],
+        image: 'ip-reassembly.png',
+        links: {
+            github: {
+                description: 'Github Repository',
+                url: 'https://github.com/aida0710/ip-reassembly',
+            },
+        },
+        language: 'Rust',
+    },
+    {
         title: 'Catsial',
         description: ['Web単語帳アプリ', '現在開発中 データベースはMySQLを使用'],
         image: 'catsial.png',
