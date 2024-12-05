@@ -109,7 +109,7 @@ export const NavigationBar = () => {
                         isActive={isActive(item.Link)}>
                         <Link
                             color='foreground'
-                            href={`${item.Link}`}>
+                            href={item.Link}>
                             {item.Display}
                         </Link>
                     </NavbarItem>

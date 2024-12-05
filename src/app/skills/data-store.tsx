@@ -10,7 +10,6 @@ import {
     SiC,
     SiChakraui,
     SiCplusplus,
-    SiCsharp,
     SiDocker,
     SiElectron,
     SiExpress,
@@ -31,6 +30,7 @@ import {GrMysql} from 'react-icons/gr';
 import {FaGitAlt, FaNodeJs, FaUbuntu} from 'react-icons/fa';
 import {LibraryIcon} from 'lucide-react';
 import {FaDebian} from 'react-icons/fa6';
+import {PiFileCSharpDuotone} from 'react-icons/pi';
 
 export interface SkillProps {
     title: string;
@@ -132,7 +132,7 @@ export const programmingLanguages: SkillProps[] = [
     {
         title: 'C#',
         icon: (
-            <SiCsharp
+            <PiFileCSharpDuotone
                 size={19}
                 className='mr-2'
             />
