@@ -15,7 +15,7 @@ export const projects: ProjectsProps[] = [
     {
         title: 'rdb tunnel',
         description: [
-            "rdbを介したl2レベルでのパケットの転送を行い、仮想的に別々のネットワーク空間をつなげることが可能",
+            'rdbを介したl2レベルでのパケットの転送を行い、仮想的に別々のネットワーク空間をつなげることが可能',
             'パケットを確実に洩れなくすべて保存するため、時系列データとして解析なども可能',
         ],
         image: 'rdb-tunnel.png',
@@ -29,10 +29,7 @@ export const projects: ProjectsProps[] = [
     },
     {
         title: '教育目的、演習目的のDosツール',
-        description: [
-            "syn flood攻撃やudp flood攻撃、不正なip headerの送信などが可能なツールです。",
-            '※ 犯罪ですので、攻撃目的の使用はしないでください。',
-        ],
+        description: ['syn flood攻撃やudp flood攻撃、不正なip headerの送信などが可能なツールです。', '※ 犯罪ですので、攻撃目的の使用はしないでください。'],
         image: 'dos-attack-tool.png',
         links: {
             github_single: {
@@ -42,7 +39,7 @@ export const projects: ProjectsProps[] = [
             github_multi: {
                 description: '複数スレッド処理のプロジェクト',
                 url: 'https://github.com/aida0710/parallel-dos-attack-tool',
-            }
+            },
         },
         language: 'Rust',
     },
