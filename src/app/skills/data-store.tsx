@@ -35,7 +35,7 @@ export const skillCategories: SkillCategory[] = [
     {
         key: 'databases',
         title: 'Databases',
-        contents: ['MySQL 5.6/8', 'Postgresql v16', 'Timescale db v2', 'sqlite', 'ProxySql', 'MinIO'],
+        contents: ['MySQL 5.6/8', 'Postgresql v16', 'Timescale db v2', 'sqlite', 'ProxySql'],
     },
     {
         key: 'operating-systems',
@@ -57,6 +57,7 @@ export const skillCategories: SkillCategory[] = [
             'Unity(コントローラー層の実装のみ)',
             'Packet Capture(pcap, pnet)',
             'Linux Kernel v6のパケット周り',
+            'MinIO',
         ],
     },
 ];
