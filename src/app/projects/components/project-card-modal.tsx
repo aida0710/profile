@@ -16,6 +16,7 @@ export default function ProjectCardModal(props: ProjectsProps) {
                 onOpen={onOpen}
             />
             <Modal
+                size='xl'
                 placement='center'
                 isOpen={isOpen}
                 onOpenChange={onOpenChange}>
