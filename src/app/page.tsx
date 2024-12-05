@@ -4,6 +4,7 @@ import {SnsIcons} from '@/app/index/sns-icons';
 import {StatusMessage} from '@/app/index/status-message';
 import {NoSSR} from '@/app/index/utils/no-ssr';
 import {SelectionButton} from '@/app/index/SelectionButton';
+import {Timeline} from '@/app/index/time-table';
 
 export default async function Page() {
     return (
@@ -31,6 +32,7 @@ export default async function Page() {
             <div className='mb-12 mt-16'>
                 <SelectionButton />
             </div>
+            <Timeline />
         </div>
     );
 }
