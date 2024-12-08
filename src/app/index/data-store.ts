@@ -1,5 +1,5 @@
 export const statusMessages: () => string[] = (): string[] => {
-    return ['風景の撮影や旅行趣味です', '最近の技術トレンドは、rustを利用したネットワークプログラミングです'];
+    return ['風景の撮影や旅行が趣味です', '個人的な最近の技術トレンドは、rustを利用したネットワークプログラミングです'];
 };
 
 export interface TimeLineItem {
