@@ -12,12 +12,12 @@ export const ImageCard: React.FC<ImageCardProps> = ({image, onImageClick}) => {
         <button
             onClick={() => onImageClick(image)}
             className='group w-full overflow-hidden bg-background transition-transform hover:opacity-95 hover:outline-none hover:ring-2 hover:ring-primary'
-            aria-label="画像を拡大表示">
+            aria-label='画像を拡大表示'>
             <div className='relative w-full'>
                 <div className='relative h-0 w-full pb-[75%]'>
                     <Image
                         src={image.src}
-                        alt="写真"
+                        alt='写真'
                         fill
                         className='object-cover'
                         sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
