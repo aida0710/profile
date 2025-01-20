@@ -3,7 +3,7 @@ import {Image} from '@nextui-org/image';
 import {SnsIcons} from '@/app/index/sns-icons';
 import {StatusMessage} from '@/app/index/status-message';
 import {NoSSR} from '@/app/index/utils/no-ssr';
-import {SelectionButton} from '@/app/index/SelectionButton';
+import {SelectionButton} from '@/app/index/selection-button';
 import {Timeline} from '@/app/index/time-table';
 
 export default async function Page() {
