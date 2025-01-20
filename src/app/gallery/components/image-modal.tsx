@@ -67,7 +67,7 @@ export const ImageModal: React.FC<ImageModalProps> = ({image, isOpen, onClose}) 
                             <Image
                                 key={image.src} // 画像が変更された時に強制的に再レンダリング
                                 src={image.src}
-                                alt="写真"
+                                alt='写真'
                                 fill
                                 className={`object-contain transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
                                 sizes='100vw'
