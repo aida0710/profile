@@ -1,8 +1,9 @@
 import React from 'react';
 import {Metadata} from 'next';
 import {Skills} from '@/components/skills';
-import {projects, ProjectsProps} from '@/app/projects/data-store';
+import {projects} from '@/app/projects/data-store';
 import ProjectCardModal from '@/app/projects/components/project-card-modal';
+import {ProjectsProps} from '@/app/projects/types/projects';
 
 export const metadata: Metadata = {
     title: 'Projects',

@@ -1,10 +1,4 @@
-export interface AwardsProps {
-    organization: string;
-    description: string;
-    image: string;
-    link: string;
-    date: string;
-}
+import {AwardsProps} from '@/app/awards/types/award';
 
 export const Awards: AwardsProps[] = [
     {

@@ -4,7 +4,8 @@ import {Skills} from '@/components/skills';
 import {Card, CardBody} from '@nextui-org/card';
 import Image from 'next/image';
 import Link from 'next/link';
-import {Awards, AwardsProps} from '@/app/awards/data-store';
+import {Awards} from '@/app/awards/data-store';
+import {AwardsProps} from '@/app/awards/types/award';
 
 export const metadata: Metadata = {
     title: 'Awards',
