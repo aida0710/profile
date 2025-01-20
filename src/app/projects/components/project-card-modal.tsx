@@ -2,9 +2,9 @@
 
 import React from 'react';
 import {Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure} from '@nextui-org/react';
-import {ProjectsProps} from '@/app/projects/data-store';
 import ProjectCard from './project-card';
 import Link from 'next/link';
+import {ProjectsProps} from '@/app/projects/types/projects';
 
 export default function ProjectCardModal(props: ProjectsProps) {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();

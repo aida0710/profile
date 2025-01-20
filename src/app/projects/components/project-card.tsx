@@ -1,7 +1,7 @@
 import React from 'react';
 import {Card, CardBody} from '@nextui-org/card';
 import Image from 'next/image';
-import {ProjectsProps} from '@/app/projects/data-store';
+import {ProjectsProps} from '@/app/projects/types/projects';
 
 interface ProjectCardProps extends ProjectsProps {
     onOpen: () => void;
