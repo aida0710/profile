@@ -7,7 +7,7 @@ import React from 'react';
 import {PhoneMenu} from '@/components/layout/phone-menu';
 import {ThemeButton} from '@/components/layout/theme-button';
 import {ProjectIcon} from '@/components/icons/project-icon';
-import {AppWindowIcon, AwardIcon, HomeIcon, PenToolIcon} from 'lucide-react';
+import {AppWindowIcon, AwardIcon, HomeIcon, ImagesIcon, PenToolIcon} from 'lucide-react';
 import {BsGithub} from 'react-icons/bs';
 
 export interface NavItemProps {
@@ -58,6 +58,17 @@ export const NavigationBar = () => {
             Link: '/skills',
             Icon: (
                 <PenToolIcon
+                    size={32}
+                    color='currentColor'
+                    strokeWidth={3}
+                />
+            ),
+        },
+        {
+            Display: 'Gallery',
+            Link: '/gallery',
+            Icon: (
+                <ImagesIcon
                     size={32}
                     color='currentColor'
                     strokeWidth={3}
