@@ -3,7 +3,7 @@ import type {ImageData} from '@/app/gallery/types/gallery';
 export const images: ImageData[] = [
     {
         src: '/images/gallery/荒川河川敷.JPG',
-        description: '土浦市の荒川河川敷にて撮影した写真。',
+        description: '熊谷市の荒川河川敷にて撮影した写真。',
         date: '2025年1月4日',
         detail: '',
     },
