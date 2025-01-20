@@ -1,7 +1,8 @@
 import React from 'react';
 import {Card, CardBody} from '@nextui-org/react';
 import {CalendarDays} from 'lucide-react';
-import {TimeLineItem, timeTableData} from '@/app/index/data-store';
+import {timeTableData} from '@/app/index/data-store';
+import {TimeLineItem} from '@/app/index/types/timeine';
 
 export const Timeline: () => React.JSX.Element = () => {
     const timelineData: TimeLineItem[] = timeTableData();
