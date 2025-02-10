@@ -7,6 +7,11 @@ export const statusMessages: () => string[] = (): string[] => {
 export const timeTableData = (): TimeLineItem[] => {
     return [
         {
+            date: "2025年02月03日~現在",
+            title: "100Programs アラムナイ メンター",
+            description: "100Programsのアラムナイメンターとして、第7期から運営のサポートを行っています。",
+        },
+        {
             date: '2024年5月25日~現在',
             title: 'SecHack365 2024',
             description: '学習駆動コース 坂井ゼミに所属。データベースを介してパケットの転送を行うアプリケーショントンネルを開発しています。',
