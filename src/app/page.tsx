@@ -32,7 +32,7 @@ export default async function Page() {
             <div className='mb-12 mt-16'>
                 <SelectionButton />
             </div>
-            <Timeline />
+            {/*<Timeline />*/}
         </div>
     );
 }
