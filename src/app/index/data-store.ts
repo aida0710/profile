@@ -1,15 +1,19 @@
 import {TimeLineItem} from '@/app/index/types/timeine';
 
 export const statusMessages: () => string[] = (): string[] => {
-    return ['風景の撮影や旅行が趣味です', '個人的な最近の技術トレンドは、rustを利用したネットワークプログラミングです', '100 Program アラムナイメンターをやってます'];
+    return [
+        '風景の撮影や旅行が趣味です',
+        '個人的な最近の技術トレンドは、rustを利用したネットワークプログラミングです',
+        '100 Program アラムナイメンターをやってます',
+    ];
 };
 
 export const timeTableData = (): TimeLineItem[] => {
     return [
         {
-            date: "2025年02月03日~現在",
-            title: "100Programs アラムナイ メンター",
-            description: "100Programsのアラムナイメンターとして、第7期から運営のサポートを行っています。",
+            date: '2025年02月03日~現在',
+            title: '100Programs アラムナイ メンター',
+            description: '100Programsのアラムナイメンターとして、第7期から運営のサポートを行っています。',
         },
         {
             date: '2024年05月25日~現在',
