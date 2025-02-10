@@ -7,9 +7,9 @@ export const statusMessages: () => string[] = (): string[] => {
 export const timeTableData = (): TimeLineItem[] => {
     return [
         {
-            date: "2025年02月03日~現在",
-            title: "100Programs アラムナイ メンター",
-            description: "100Programsのアラムナイメンターとして、第7期から運営のサポートを行っています。",
+            date: '2025年02月03日~現在',
+            title: '100Programs アラムナイ メンター',
+            description: '100Programsのアラムナイメンターとして、第7期から運営のサポートを行っています。',
         },
         {
             date: '2024年05月25日~現在',
