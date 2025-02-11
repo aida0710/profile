@@ -13,17 +13,14 @@ interface ImageModalProps {
 export const ImageModal: React.FC<ImageModalProps> = ({image, isOpen, onClose}) => {
     const [isLoading, setIsLoading] = useState(true);
 
-    // モーダルが開かれた時、または画像が変更された時に loading 状態をリセット
     useEffect(() => {
         if (isOpen && image) {
             setIsLoading(true);
         }
     }, [isOpen, image?.src]);
 
-    // モーダルが閉じられた時に loading 状態をリセット
     const handleClose = () => {
         onClose();
-        // モーダルのアニメーション後に loading 状態をリセット
         setTimeout(() => {
             setIsLoading(true);
         }, 300);
@@ -65,7 +62,7 @@ export const ImageModal: React.FC<ImageModalProps> = ({image, isOpen, onClose}) 
                                 </div>
                             )}
                             <Image
-                                key={image.src} // 画像が変更された時に強制的に再レンダリング
+                                key={image.src}
                                 src={image.src}
                                 alt='写真'
                                 fill
