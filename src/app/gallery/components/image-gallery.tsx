@@ -25,16 +25,18 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({images}) => {
                 className='grid grid-cols-2 gap-0.5 md:grid-cols-3 md:gap-4 lg:grid-cols-4 lg:gap-6'
                 role='list'
                 aria-label='画像ギャラリー'>
-                {images.map((image, index) => (
-                    <div
-                        key={index}
-                        role='listitem'>
-                        <ImageCard
-                            image={image}
-                            onImageClick={handleImageClick}
-                        />
-                    </div>
-                ))}
+                {images
+                    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+                    .map((image, index) => (
+                        <div
+                            key={index}
+                            role='listitem'>
+                            <ImageCard
+                                image={image}
+                                onImageClick={handleImageClick}
+                            />
+                        </div>
+                    ))}
             </div>
 
             <ImageModal

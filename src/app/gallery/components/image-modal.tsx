@@ -3,6 +3,7 @@ import {Button, Modal, ModalBody, ModalContent, Spinner} from '@nextui-org/react
 import {X} from 'lucide-react';
 import Image from 'next/image';
 import type {ImageData} from '@/app/gallery/types/gallery';
+import {galleryDirectory} from '@/app/gallery/data-store';
 
 interface ImageModalProps {
     image: ImageData | null;
@@ -17,7 +18,7 @@ export const ImageModal: React.FC<ImageModalProps> = ({image, isOpen, onClose}) 
         if (isOpen && image) {
             setIsLoading(true);
         }
-    }, [isOpen, image?.src]);
+    }, [isOpen, galleryDirectory + image?.src]);
 
     const handleClose = () => {
         onClose();
@@ -62,8 +63,8 @@ export const ImageModal: React.FC<ImageModalProps> = ({image, isOpen, onClose}) 
                                 </div>
                             )}
                             <Image
-                                key={image.src}
-                                src={image.src}
+                                key={galleryDirectory + image.src}
+                                src={galleryDirectory +image.src}
                                 alt='写真'
                                 fill
                                 className={`object-contain transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
