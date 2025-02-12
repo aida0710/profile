@@ -64,7 +64,7 @@ export const ImageModal: React.FC<ImageModalProps> = ({image, isOpen, onClose}) 
                             )}
                             <Image
                                 key={galleryDirectory + image.src}
-                                src={galleryDirectory +image.src}
+                                src={galleryDirectory + image.src}
                                 alt='写真'
                                 fill
                                 className={`object-contain transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
