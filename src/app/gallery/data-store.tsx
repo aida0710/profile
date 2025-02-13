@@ -36,7 +36,7 @@ export const images: ImageData[] = [
     {
         src: '2024年12月21日_虎ノ門ヒルズのバニラアイス.JPG',
         description: '虎ノ門ヒルズにて食べたバニラアイス',
-        date: "2024年12月21日",
+        date: '2024年12月21日',
         detail: 'めちゃくちゃ良く撮影できたので、記念に。',
     },
     {
