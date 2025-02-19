@@ -86,6 +86,7 @@ export const NavigationBar = () => {
     return (
         <Navbar
             isBordered
+            position="sticky"
             classNames={{
                 item: [
                     'flex',
