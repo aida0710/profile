@@ -20,8 +20,7 @@ export const ImageModal: React.FC<ImageModalProps> = ({image, isOpen, onClose}) 
         (e: React.MouseEvent | React.KeyboardEvent) => {
             if (
                 e.target === e.currentTarget &&
-                (e.type === 'click' || (e.type === 'keydown' && ((e as React.KeyboardEvent).key === 'Enter' || (e as React.KeyboardEvent).key === ' ')))
-            ) {
+                (e.type === 'click' || (e.type === 'keydown' && ((e as React.KeyboardEvent).key === 'Enter' || (e as React.KeyboardEvent).key === ' ' || (e as React.KeyboardEvent).key === 'Escape')))            ) {
                 onClose();
             }
         },
