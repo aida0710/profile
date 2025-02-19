@@ -70,9 +70,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
                 <Providers themeProps={{attribute: 'class', defaultTheme: 'dark'}}>
                     <div className='flex min-h-screen flex-col'>
                         <NavigationBar />
-                        <main className="mb-auto">
-                            {children}
-                        </main>
+                        <main className='mb-auto'>{children}</main>
                         <Footer />
                     </div>
                 </Providers>
