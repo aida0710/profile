@@ -2,6 +2,11 @@ import React from 'react';
 
 import {ImageGallery} from '@/app/gallery/components/image-gallery';
 import {images} from '@/app/gallery/data-store';
+import {Metadata} from 'next';
+
+export const metadata: Metadata = {
+    title: 'Gallery',
+};
 
 export default function GalleryPage() {
     return (
