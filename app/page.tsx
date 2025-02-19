@@ -25,11 +25,11 @@ export default function Home() {
                 <p>Frontend/Backend Engineer</p>
             </div>
             <SnsIcons />
-            <div>
+            <div className='p-6'>
                 {statusMessages().map((message: string, index: number) => (
                     <p
                         key={index}
-                        className='text-md mb-1 font-normal tracking-wide md:text-xl'>
+                        className='mb-3 text-base leading-relaxed md:text-lg'>
                         {message}
                     </p>
                 ))}
