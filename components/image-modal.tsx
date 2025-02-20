@@ -4,11 +4,11 @@ import Image from 'next/image';
 import {Modal, ModalBody, ModalContent} from '@heroui/modal';
 import {Button} from '@heroui/button';
 
-import {ImageData} from '@/app/gallery/types/gallery';
+import {ImageModalData} from '@/types/gallery';
 import {galleryDirectory} from '@/app/gallery/data-store';
 
 interface ImageModalProps {
-    image: ImageData | null;
+    image: ImageModalData | null;
     isOpen: boolean;
     onClose: () => void;
 }
@@ -17,10 +17,11 @@ export const ImageModal: React.FC<ImageModalProps> = ({image, isOpen, onClose}) 
     const [isLoading, setIsLoading] = useState(true);
 
     const handleBackdropInteraction = useCallback(
-        (e: React.MouseEvent | React.KeyboardEvent) => {
+        (e: React.MouseEvent | React.KeyboardEvent | React.TouchEvent) => {
             if (
                 e.target === e.currentTarget &&
                 (e.type === 'click' ||
+                    e.type === 'touchend' ||
                     (e.type === 'keydown' &&
                         ((e as React.KeyboardEvent).key === 'Enter' || (e as React.KeyboardEvent).key === ' ' || (e as React.KeyboardEvent).key === 'Escape')))
             ) {
@@ -48,7 +49,8 @@ export const ImageModal: React.FC<ImageModalProps> = ({image, isOpen, onClose}) 
                         role='button'
                         tabIndex={0}
                         onClick={handleBackdropInteraction}
-                        onKeyDown={handleBackdropInteraction}>
+                        onKeyDown={handleBackdropInteraction}
+                        onTouchEnd={handleBackdropInteraction}>
                         <Button
                             isIconOnly
                             aria-label='閉じる'
