@@ -6,7 +6,7 @@ interface Props {
     children: React.ReactNode;
 }
 
-export function Skills({title, description, children}: Props) {
+export function BlockFrame({title, description, children}: Props) {
     return (
         <div>
             <div className='m-5 mb-12 max-md:m-0 max-md:mt-5'>

@@ -2,7 +2,7 @@ import React from 'react';
 import {Metadata} from 'next';
 import {Card, CardBody} from '@heroui/card';
 
-import {Skills} from '@/components/skills';
+import {BlockFrame} from '@/components/block-frame';
 import SkillCard from '@/app/skills/components/skill-card';
 import {skillCategories} from '@/app/skills/data-store';
 
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default async function Page() {
     return (
         <div>
-            <Skills
+            <BlockFrame
                 description='保有資格'
                 title='Qualifications'>
                 <Card key='information-system-qualification'>
@@ -31,8 +31,8 @@ export default async function Page() {
                         <h3 className='my-3 font-semibold'>普通自動車運転免許 R5 Aug</h3>
                     </CardBody>
                 </Card>
-            </Skills>
-            <Skills
+            </BlockFrame>
+            <BlockFrame
                 description='経験したことのある技術や出来ること'
                 title='Skills'>
                 {skillCategories.map((category) => (
@@ -42,7 +42,7 @@ export default async function Page() {
                         title={category.title}
                     />
                 ))}
-            </Skills>
+            </BlockFrame>
         </div>
     );
 }

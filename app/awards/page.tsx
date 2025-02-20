@@ -4,7 +4,7 @@ import {Card, CardBody} from '@heroui/card';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import {Skills} from '@/components/skills';
+import {BlockFrame} from '@/components/block-frame';
 import {Awards} from '@/app/awards/data-store';
 import {AwardsProps} from '@/app/awards/types/award';
 
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default async function Page() {
     return (
-        <Skills
+        <BlockFrame
             description='頂いた賞の一覧'
             title='Award'>
             {Awards.map((award: AwardsProps, index: number) => (
@@ -43,6 +43,6 @@ export default async function Page() {
                     </Card>
                 </Link>
             ))}
-        </Skills>
+        </BlockFrame>
     );
 }
