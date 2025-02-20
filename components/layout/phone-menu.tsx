@@ -3,12 +3,12 @@ import {usePathname} from 'next/navigation';
 import React from 'react';
 import {MenuIcon, XIcon} from 'lucide-react';
 import {Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure} from '@heroui/modal';
-import Link from 'next/link';
 import {Divider} from '@heroui/divider';
 import {Button} from '@heroui/button';
 
 import {ProjectIcon} from '@/components/icons/project-icon';
 import {NavItemProps} from '@/components/layout/navigation-bar';
+import {Link} from '@heroui/link';
 
 interface Props {
     NavItems: NavItemProps[];
@@ -80,7 +80,7 @@ export const PhoneMenu = ({NavItems}: Props) => {
                                     })}
                                     color='foreground'
                                     href={item.Link}
-                                    onClick={onClose}>
+                                    onPress={onClose}>
                                     {item.Icon}
                                     <span className='ml-4 text-4xl'>{item.Display}</span>
                                 </Link>
