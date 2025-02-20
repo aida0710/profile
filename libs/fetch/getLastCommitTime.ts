@@ -43,7 +43,7 @@ async function getLastCommit(): Promise<CommitResult> {
             data: new Date(data[0].commit.author.date),
         };
     } catch (error) {
-        console.error(error);
+        // console.error(error);
 
         return {
             success: false,
