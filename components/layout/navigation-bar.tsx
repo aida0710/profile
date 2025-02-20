@@ -86,7 +86,6 @@ export const NavigationBar = () => {
     return (
         <Navbar
             isBordered
-            position='sticky'
             classNames={{
                 item: [
                     'flex',
@@ -102,7 +101,8 @@ export const NavigationBar = () => {
                     'data-[active=true]:after:rounded-[2px]',
                     'data-[active=true]:after:bg-primary',
                 ],
-            }}>
+            }}
+            position='sticky'>
             <NavbarContent>
                 <PhoneMenu NavItems={MenuItems} />
                 <NavbarBrand>
