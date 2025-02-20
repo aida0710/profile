@@ -1,4 +1,4 @@
-export interface ImageData {
+export interface ImageModalData {
     src: string;
     description: string;
     date: string;

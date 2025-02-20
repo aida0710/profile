@@ -1,4 +1,4 @@
-import type {ImageData} from '@/app/gallery/types/gallery';
+import type {ImageModalData} from '@/types/gallery';
 
 import React from 'react';
 import Image from 'next/image';
@@ -6,8 +6,8 @@ import Image from 'next/image';
 import {galleryDirectory} from '@/app/gallery/data-store';
 
 interface ImageCardProps {
-    image: ImageData;
-    onImageClick: (image: ImageData) => void;
+    image: ImageModalData;
+    onImageClick: (image: ImageModalData) => void;
 }
 
 export const ImageCard: React.FC<ImageCardProps> = ({image, onImageClick}) => {

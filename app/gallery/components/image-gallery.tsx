@@ -1,22 +1,22 @@
 'use client';
 
-import type {ImageData} from '@/app/gallery/types/gallery';
+import type {ImageModalData} from '@/types/gallery';
 
 import React, {useState} from 'react';
 import {useDisclosure} from '@heroui/modal';
 
 import {ImageCard} from '@/app/gallery/components/image-card';
-import {ImageModal} from '@/app/gallery/components/image-modal';
+import {ImageModal} from '@/components/image-modal';
 
 interface ImageGalleryProps {
-    images: ImageData[];
+    images: ImageModalData[];
 }
 
 export const ImageGallery: React.FC<ImageGalleryProps> = ({images}) => {
     const {isOpen, onOpen, onClose} = useDisclosure();
-    const [selectedImage, setSelectedImage] = useState<ImageData | null>(null);
+    const [selectedImage, setSelectedImage] = useState<ImageModalData | null>(null);
 
-    const handleImageClick = (image: ImageData) => {
+    const handleImageClick = (image: ImageModalData) => {
         setSelectedImage(image);
         onOpen();
     };
