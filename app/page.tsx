@@ -4,6 +4,7 @@ import {Image} from '@heroui/image';
 import {SnsIcons} from '@/app/index/sns-icons';
 import {SelectionButton} from '@/app/index/selection-button';
 import {statusMessages} from '@/app/index/data-store';
+import {TextBlock} from '@/components/text-block';
 
 export default function Home() {
     return (
@@ -25,15 +26,7 @@ export default function Home() {
                 <p>Frontend/Backend Engineer</p>
             </div>
             <SnsIcons />
-            <div className='p-6'>
-                {statusMessages().map((message: string, index: number) => (
-                    <p
-                        key={index}
-                        className='mb-3 text-base leading-relaxed md:text-lg'>
-                        {message}
-                    </p>
-                ))}
-            </div>
+            <TextBlock arrayString={statusMessages()} />
             <div className='mb-12 mt-16'>
                 <SelectionButton />
             </div>
