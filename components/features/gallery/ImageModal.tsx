@@ -6,6 +6,7 @@ import {Button} from '@heroui/button';
 
 import {GalleryImage} from '@/types';
 import {GALLERY_DIRECTORY} from '@/data/gallery';
+import {Spinner} from '@heroui/spinner';
 
 interface ImageModalProps {
     image: GalleryImage | null;
@@ -61,12 +62,12 @@ export function ImageModal({image, isOpen, onClose}: ImageModalProps) {
 
                         <div className='relative h-full max-h-[80vh] w-full max-w-5xl'>
                             {isLoading && (
-                                <div
-                                    aria-live='polite'
-                                    className='absolute inset-0 z-10 flex items-center justify-center'
-                                    role='status'>
-                                    <div className='text-white'>読み込み中...</div>
-                                </div>
+                                <Spinner
+                                    className='absolute inset-0 z-50'
+                                    color='white'
+                                    size='lg'
+                                    role='status'
+                                />
                             )}
 
                             <div className='relative h-full w-full'>
