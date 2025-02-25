@@ -11,6 +11,7 @@ export const blogPosts: BlogPost[] = [
         content: [
             'ブログ機能を追加しました。',
             'これからブログを通して適当なことを呟いていきたいなぁと考えています。',
+            '[urlテスト(google.comへ飛びます)](_www.google.com)テストテスト',
             '下に添付された画像は、サンプルです。',
         ],
         date: '2025年2月25日',
