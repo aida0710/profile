@@ -1,12 +1,12 @@
 import React from 'react';
-import {AppWindowIcon, AwardIcon, ImagesIcon, PenToolIcon} from 'lucide-react';
+import {AppWindowIcon, AwardIcon, BookOpenIcon, ImagesIcon, PenToolIcon} from 'lucide-react';
 import {Button} from '@heroui/button';
 import {Link} from '@heroui/link';
 
 export function NavigationButtons() {
     return (
         <div className='mb-4'>
-            <div className='mb-3 flex justify-center gap-3'>
+            <div className='mb-3 flex flex-wrap justify-center gap-3'>
                 <Link href='/awards'>
                     <Button
                         color='danger'
@@ -32,14 +32,23 @@ export function NavigationButtons() {
                     </Button>
                 </Link>
             </div>
-            <div className='flex justify-center'>
+            <div className='flex flex-wrap justify-center gap-3'>
                 <Link href='/gallery'>
                     <Button
-                        className='w-48'
+                        className='w-36'
                         color='primary'
                         startContent={<ImagesIcon />}
                         variant='flat'>
                         Gallery
+                    </Button>
+                </Link>
+                <Link href='/blog'>
+                    <Button
+                        className='w-36'
+                        color='secondary'
+                        startContent={<BookOpenIcon />}
+                        variant='flat'>
+                        Blog
                     </Button>
                 </Link>
             </div>
