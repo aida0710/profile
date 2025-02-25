@@ -38,6 +38,16 @@ export interface SkillCategory {
     contents: string[];
 }
 
+// Blog 関連の型
+export interface BlogPost {
+    slug: string;
+    title: string;
+    content: string[];
+    date: string;
+    images: string[];
+    tags?: string[];
+}
+
 // ナビゲーション関連の型
 export interface NavItem {
     path: string;
