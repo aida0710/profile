@@ -1,5 +1,3 @@
-export type SiteConfig = typeof siteConfig;
-
 export const siteConfig = {
     name: 'Aida Profile',
     description: '@aida_0710のプロフィールページ',

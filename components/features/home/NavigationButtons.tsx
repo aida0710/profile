@@ -1,9 +1,9 @@
 import React from 'react';
-import Link from 'next/link';
 import {AppWindowIcon, AwardIcon, ImagesIcon, PenToolIcon} from 'lucide-react';
 import {Button} from '@heroui/button';
+import {Link} from '@heroui/link';
 
-export const SelectionButton: () => React.JSX.Element = () => {
+export function NavigationButtons() {
     return (
         <div className='mb-4'>
             <div className='mb-3 flex justify-center gap-3'>
@@ -32,10 +32,10 @@ export const SelectionButton: () => React.JSX.Element = () => {
                     </Button>
                 </Link>
             </div>
-            <div>
+            <div className='flex justify-center'>
                 <Link href='/gallery'>
                     <Button
-                        className={'w-48'}
+                        className='w-48'
                         color='primary'
                         startContent={<ImagesIcon />}
                         variant='flat'>
@@ -45,4 +45,4 @@ export const SelectionButton: () => React.JSX.Element = () => {
             </div>
         </div>
     );
-};
+}

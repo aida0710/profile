@@ -4,16 +4,16 @@ import Image from 'next/image';
 import {Modal, ModalBody, ModalContent} from '@heroui/modal';
 import {Button} from '@heroui/button';
 
-import {ImageModalData} from '@/types/gallery';
-import {galleryDirectory} from '@/app/gallery/data-store';
+import {GalleryImage} from '@/types';
+import {GALLERY_DIRECTORY} from '@/data/gallery';
 
 interface ImageModalProps {
-    image: ImageModalData | null;
+    image: GalleryImage | null;
     isOpen: boolean;
     onClose: () => void;
 }
 
-export const ImageModal: React.FC<ImageModalProps> = ({image, isOpen, onClose}) => {
+export function ImageModal({image, isOpen, onClose}: ImageModalProps) {
     const [isLoading, setIsLoading] = useState(true);
 
     const handleBackdropInteraction = useCallback(
@@ -76,7 +76,7 @@ export const ImageModal: React.FC<ImageModalProps> = ({image, isOpen, onClose}) 
                                     alt={image.description || '画像'}
                                     className={`object-contain transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
                                     quality={100}
-                                    src={galleryDirectory + image.src}
+                                    src={GALLERY_DIRECTORY + image.src}
                                     onLoadingComplete={() => setIsLoading(false)}
                                 />
                             </div>
@@ -92,4 +92,4 @@ export const ImageModal: React.FC<ImageModalProps> = ({image, isOpen, onClose}) 
             </ModalContent>
         </Modal>
     );
-};
+}

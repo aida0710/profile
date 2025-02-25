@@ -1,6 +1,6 @@
-import {AwardsProps} from '@/app/awards/types/award';
+import {Award} from '@/types';
 
-export const Awards: AwardsProps[] = [
+export const awards: Award[] = [
     {
         organization: '東京大学 産学協創推進本部',
         description: '100program 5期 優秀アプリ賞 受賞',

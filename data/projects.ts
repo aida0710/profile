@@ -1,6 +1,6 @@
-import {ProjectsProps} from '@/app/projects/types/projects';
+import {Project} from '@/types';
 
-export const projects: ProjectsProps[] = [
+export const projects: Project[] = [
     {
         title: 'rdb tunnel',
         description: [

@@ -4,43 +4,47 @@ import {BsGithub, BsInstagram, BsTwitter} from 'react-icons/bs';
 import {Link} from '@heroui/link';
 import {Button} from '@heroui/button';
 
-interface SnsLinkProps {
-    href: string;
-    startContent: React.ReactNode;
-}
+import {SocialLink} from '@/types';
 
-const SnsLinks: SnsLinkProps[] = [
+// ソーシャルリンクの定義
+const SOCIAL_LINKS: SocialLink[] = [
     {
         href: 'https://github.com/aida0710',
-        startContent: <BsGithub className='h-full w-full' />,
+        icon: <BsGithub className='h-full w-full' />,
+        label: 'GitHub',
     },
     {
         href: 'https://twitter.com/aida_0710',
-        startContent: <BsTwitter className='h-full w-full' />,
+        icon: <BsTwitter className='h-full w-full' />,
+        label: 'Twitter',
     },
     {
         href: 'https://www.instagram.com/aida_07100/',
-        startContent: <BsInstagram className='h-full w-full' />,
+        icon: <BsInstagram className='h-full w-full' />,
+        label: 'Instagram',
     },
     {
         href: 'https://wakatime.com/@aida_0710',
-        startContent: <SiWakatime className='h-full w-full' />,
+        icon: <SiWakatime className='h-full w-full' />,
+        label: 'Wakatime',
     },
 ];
 
-export function SnsIcons() {
+export function SocialIcons() {
     return (
         <div className='my-4 flex w-full justify-center'>
             <div className='grid grid-cols-4 gap-x-10'>
-                {SnsLinks.map((snsLink: SnsLinkProps, index: number) => (
+                {SOCIAL_LINKS.map((link, index) => (
                     <Link
                         key={index}
-                        href={snsLink.href}>
+                        aria-label={link.label}
+                        href={link.href}
+                        target='_blank'>
                         <Button
                             isIconOnly
                             className='hover:scale-125 hover:rounded-md'
                             variant='light'>
-                            {snsLink.startContent}
+                            {link.icon}
                         </Button>
                     </Link>
                 ))}
