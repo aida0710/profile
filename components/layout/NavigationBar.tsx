@@ -69,6 +69,17 @@ const NAVIGATION_ITEMS: NavItem[] = [
             />
         ),
     },
+    {
+        path: '/blog',
+        label: 'Blog',
+        icon: (
+            <PenToolIcon
+                color='currentColor'
+                size={32}
+                strokeWidth={3}
+            />
+        ),
+    },
 ];
 
 const NAVBAR_ITEM_CLASSES = [
