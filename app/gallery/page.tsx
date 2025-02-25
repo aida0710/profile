@@ -15,7 +15,7 @@ export default function GalleryPage() {
         <main className='min-h-screen bg-background'>
             <div className='py-8'>
                 <div className='mb-8 text-center'>
-                    <h1 className='text-3xl font-medium md:text-4xl'>フォトギャラリー</h1>
+                    <h1 className='text-3xl font-medium md:text-4xl'>Photo Gallery</h1>
                     <TextBlock messages={GALLERY_INTRODUCTION} />
                 </div>
 
