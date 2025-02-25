@@ -10,6 +10,7 @@ import {awards} from '@/data/awards';
 
 export const metadata: Metadata = {
     title: 'Awards',
+    description: '受賞した賞の一覧を紹介しています',
 };
 
 export default function AwardsPage() {

@@ -8,6 +8,7 @@ import {QualificationCard} from '@/components/features/skills/QualificationCard'
 
 export const metadata: Metadata = {
     title: 'Skills',
+    description: '保有資格や経験した技術について紹介しています',
 };
 
 export default function SkillsPage() {

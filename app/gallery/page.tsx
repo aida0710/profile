@@ -7,6 +7,7 @@ import {ImageGallery} from '@/components/features/gallery/ImageGallery';
 
 export const metadata: Metadata = {
     title: 'Gallery',
+    description: '私が撮影した写真や撮影していただいた写真を掲載しています。',
 };
 
 export default function GalleryPage() {

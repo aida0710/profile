@@ -8,6 +8,7 @@ import {Project} from '@/types';
 
 export const metadata: Metadata = {
     title: 'Projects',
+    description: '自分が開発した又は携わったプロジェクト',
 };
 
 export default function ProjectsPage() {
