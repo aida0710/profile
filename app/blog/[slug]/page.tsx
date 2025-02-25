@@ -9,7 +9,6 @@ interface BlogPostPageParams {
     params: Promise<{slug: string}>;
 }
 
-// 動的メタデータ
 export async function generateMetadata({params}: BlogPostPageParams): Promise<Metadata> {
     const {slug} = await params;
     const post = getPostBySlug(slug);
