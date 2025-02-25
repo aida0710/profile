@@ -1,10 +1,10 @@
-import type {ImageModalData} from '@/types/gallery';
+import {GalleryImage} from '@/types';
 
-export const galleryDirectory = '/images/gallery/';
+export const GALLERY_DIRECTORY = '/images/gallery/';
 
-export const galleryIntroduction: string[] = ['私が撮影した写真や撮影していただいた写真を掲載しています。', '画像をクリックすると拡大表示されます。'];
+export const GALLERY_INTRODUCTION: string[] = ['私が撮影した写真や撮影していただいた写真を掲載しています。', '画像をクリックすると拡大表示されます。'];
 
-export const images: ImageModalData[] = [
+export const images: GalleryImage[] = [
     {
         src: '2025年1月4日_荒川河川敷.JPG',
         description: '熊谷市の荒川河川敷にて撮影した写真。',

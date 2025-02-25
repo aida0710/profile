@@ -7,9 +7,9 @@ import {SpeedInsights} from '@vercel/speed-insights/next';
 
 import {siteConfig} from '@/config/site';
 import {fontSans} from '@/config/fonts';
-import Footer from '@/components/layout/footer';
-import {NavigationBar} from '@/components/layout/navigation-bar';
+import {NavigationBar} from '@/components/layout/NavigationBar';
 import {Providers} from '@/app/providers';
+import {Footer} from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
     title: {

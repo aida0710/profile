@@ -5,17 +5,21 @@ import Link from 'next/link';
 import {Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure} from '@heroui/modal';
 import {Button} from '@heroui/button';
 
-import ProjectCard from './project-card';
+import {ProjectCard} from './ProjectCard';
 
-import {ProjectsProps} from '@/app/projects/types/projects';
+import {Project} from '@/types';
 
-export default function ProjectCardModal(props: ProjectsProps) {
+interface ProjectCardModalProps {
+    project: Project;
+}
+
+export function ProjectCardModal({project}: ProjectCardModalProps) {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
     return (
         <>
             <ProjectCard
-                {...props}
+                project={project}
                 onOpen={onOpen}
             />
             <Modal
@@ -26,10 +30,10 @@ export default function ProjectCardModal(props: ProjectsProps) {
                 <ModalContent>
                     {(onClose) => (
                         <>
-                            <ModalHeader>{props.title}</ModalHeader>
+                            <ModalHeader>{project.title}</ModalHeader>
                             <ModalBody>
                                 <div className='mb-1'>
-                                    {props.description.map((item: string, index: number) => (
+                                    {project.description.map((item, index) => (
                                         <p
                                             key={index}
                                             className='text-md'>
@@ -37,7 +41,7 @@ export default function ProjectCardModal(props: ProjectsProps) {
                                         </p>
                                     ))}
                                 </div>
-                                {Object.entries(props.links).map(([key, link]) => (
+                                {Object.entries(project.links).map(([key, link]) => (
                                     <Link
                                         key={key}
                                         className='block w-full'

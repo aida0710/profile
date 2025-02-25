@@ -1,16 +1,15 @@
-import type {ImageModalData} from '@/types/gallery';
-
 import React from 'react';
 import Image from 'next/image';
 
-import {galleryDirectory} from '@/app/gallery/data-store';
+import {GalleryImage} from '@/types';
+import {GALLERY_DIRECTORY} from '@/data/gallery';
 
 interface ImageCardProps {
-    image: ImageModalData;
-    onImageClick: (image: ImageModalData) => void;
+    image: GalleryImage;
+    onImageClick: (image: GalleryImage) => void;
 }
 
-export const ImageCard: React.FC<ImageCardProps> = ({image, onImageClick}) => {
+export function ImageCard({image, onImageClick}: ImageCardProps) {
     return (
         <button
             aria-label='画像を拡大表示'
@@ -20,11 +19,11 @@ export const ImageCard: React.FC<ImageCardProps> = ({image, onImageClick}) => {
                 <div className='relative h-0 w-full pb-[75%]'>
                     <Image
                         fill
-                        alt='写真'
+                        alt={image.description || '写真'}
                         className='rounded-lg object-cover'
                         quality={85}
                         sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-                        src={galleryDirectory + image.src}
+                        src={GALLERY_DIRECTORY + image.src}
                     />
                 </div>
             </div>
@@ -33,4 +32,4 @@ export const ImageCard: React.FC<ImageCardProps> = ({image, onImageClick}) => {
             </div>
         </button>
     );
-};
+}

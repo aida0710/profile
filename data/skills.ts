@@ -1,8 +1,4 @@
-export interface SkillCategory {
-    key: string;
-    title: string;
-    contents: string[];
-}
+import {SkillCategory} from '@/types';
 
 export const skillCategories: SkillCategory[] = [
     {

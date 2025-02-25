@@ -1,12 +1,12 @@
 import React from 'react';
 import {Image} from '@heroui/image';
 
-import {SnsIcons} from '@/app/index/sns-icons';
-import {SelectionButton} from '@/app/index/selection-button';
-import {statusMessages} from '@/app/index/data-store';
-import {TextBlock} from '@/components/text-block';
+import {SocialIcons} from '@/components/features/home/SocialIcons';
+import {NavigationButtons} from '@/components/features/home/NavigationButtons';
+import {profileMessages} from '@/data/profile';
+import {TextBlock} from '@/components/common/TextBlock';
 
-export default function Home() {
+export default function HomePage() {
     return (
         <div className='text-center'>
             <div className='mb-12 mt-12 flex justify-center'>
@@ -20,17 +20,21 @@ export default function Home() {
                     width='224px'
                 />
             </div>
-            <h6 className='text-lg font-medium tracking-wide md:text-2xl'>Masaki Aida / 相田 優希</h6>
+
+            <h1 className='text-lg font-medium tracking-wide md:text-2xl'>Masaki Aida / 相田 優希</h1>
+
             <div className='text-md my-3 font-normal tracking-wide md:text-xl'>
                 <p>19歳 千葉県船橋市在住</p>
                 <p>Frontend/Backend Engineer</p>
             </div>
-            <SnsIcons />
-            <TextBlock arrayString={statusMessages()} />
+
+            <SocialIcons />
+
+            <TextBlock messages={profileMessages} />
+
             <div className='mb-12 mt-16'>
-                <SelectionButton />
+                <NavigationButtons />
             </div>
-            {/*<Timeline />*/}
         </div>
     );
 }

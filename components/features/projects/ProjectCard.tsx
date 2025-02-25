@@ -2,24 +2,25 @@ import React from 'react';
 import {Card, CardBody} from '@heroui/card';
 import Image from 'next/image';
 
-import {ProjectsProps} from '@/app/projects/types/projects';
+import {Project} from '@/types';
 
-interface ProjectCardProps extends ProjectsProps {
+interface ProjectCardProps {
+    project: Project;
     onOpen: () => void;
 }
 
-export default function ProjectCard({onOpen, ...props}: ProjectCardProps) {
+export function ProjectCard({project, onOpen}: ProjectCardProps) {
     return (
         <Card
             isHoverable
             isPressable
-            className='h-full'
+            className='h-full transition-transform hover:scale-[1.02]'
             onPress={onOpen}>
             <CardBody>
-                <h2 className='text-sm'>言語：{props.language}</h2>
-                <h3 className='my-2 font-semibold'>{props.title}</h3>
+                <h2 className='text-sm'>言語：{project.language}</h2>
+                <h3 className='my-2 font-semibold'>{project.title}</h3>
                 <div className='mb-1'>
-                    {props.description.map((item: string, index: number) => (
+                    {project.description.map((item, index) => (
                         <p
                             key={index}
                             className='text-md'>
@@ -28,10 +29,10 @@ export default function ProjectCard({onOpen, ...props}: ProjectCardProps) {
                     ))}
                 </div>
                 <Image
-                    alt={props.title}
+                    alt={project.title}
                     className='mt-auto aspect-video rounded-lg'
                     height={1080}
-                    src={`/images/projects/${props.image}`}
+                    src={`/images/projects/${project.image}`}
                     width={1920}
                 />
             </CardBody>

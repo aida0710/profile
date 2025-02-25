@@ -7,64 +7,74 @@ import {Divider} from '@heroui/divider';
 import {Button} from '@heroui/button';
 import {Link} from '@heroui/link';
 
+import {SocialLink} from '@/types';
 import getLastCommitTime from '@/libs/fetch/getLastCommitTime';
 
-interface SnsLinkProps {
-    href: string;
-    startContent: React.ReactNode;
-    text: string;
-}
-
-const SnsLinks: SnsLinkProps[] = [
+const SOCIAL_LINKS: SocialLink[] = [
     {
         href: 'https://github.com/aida0710',
-        startContent: <BsGithub className='h-full w-full p-1' />,
-        text: 'GitHub',
+        icon: <BsGithub className='h-full w-full p-1' />,
+        label: 'GitHub',
     },
     {
         href: 'https://twitter.com/aida_0710',
-        startContent: <BsTwitter className='h-full w-full p-1' />,
-        text: 'Twitter',
+        icon: <BsTwitter className='h-full w-full p-1' />,
+        label: 'Twitter',
     },
     {
         href: 'https://www.instagram.com/aida_07100/',
-        startContent: <BsInstagram className='h-full w-full p-1' />,
-        text: 'Instagram',
+        icon: <BsInstagram className='h-full w-full p-1' />,
+        label: 'Instagram',
     },
     {
         href: 'https://wakatime.com/@aida_0710',
-        startContent: <SiWakatime className='h-full w-full p-1' />,
-        text: 'Wakatime',
+        icon: <SiWakatime className='h-full w-full p-1' />,
+        label: 'Wakatime',
     },
 ];
 
-export default function Footer() {
-    const [lastCommitTime, setLastCommitTime] = useState<string>('');
+export function Footer() {
+    const [lastCommitTime, setLastCommitTime] = useState<string>('Loading...');
+    const currentYear = new Date().getFullYear();
 
     useEffect(() => {
-        getLastCommitTime().then((time) => setLastCommitTime(time));
+        // コンポーネントのマウント時にコミット情報を取得
+        const fetchCommitTime = async () => {
+            try {
+                const time = await getLastCommitTime();
+
+                setLastCommitTime(time);
+            } catch (error) {
+                console.error('Failed to fetch commit time:', error);
+                setLastCommitTime('Failed to load commit time');
+            }
+        };
+
+        fetchCommitTime().then();
     }, []);
 
     return (
         <footer className='w-full'>
             <Divider className='my-14 mt-10' />
-            <div className='m-5'>
-                <div className='mb-3'>
-                    {SnsLinks.map((snsLink: SnsLinkProps, index: number) => (
+
+            <div className='mx-auto max-w-7xl px-5 pb-8'>
+                <div className='mb-3 flex flex-wrap gap-2'>
+                    {SOCIAL_LINKS.map((link, index) => (
                         <Link
                             key={index}
-                            href={snsLink.href}
+                            aria-label={link.label}
+                            href={link.href}
                             target='_blank'>
                             <Button
-                                className='mr-2'
                                 color='default'
-                                startContent={snsLink.startContent}
+                                startContent={link.icon}
                                 variant='light'>
-                                {snsLink.text}
+                                {link.label}
                             </Button>
                         </Link>
                     ))}
                 </div>
+
                 <Link
                     isBlock
                     showAnchorIcon
@@ -73,13 +83,14 @@ export default function Footer() {
                     target='_blank'>
                     <p>Last Commit: {lastCommitTime}</p>
                 </Link>
+
                 <Link
                     isBlock
                     showAnchorIcon
                     className='mb-3 text-medium font-normal'
                     href='https://twitter.com/aida_0710'
                     target='_blank'>
-                    <p>© {new Date().getFullYear()} Masaki Aida. All Rights Reserved.</p>
+                    <p>© {currentYear} Masaki Aida. All Rights Reserved.</p>
                 </Link>
             </div>
         </footer>
