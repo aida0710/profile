@@ -21,7 +21,6 @@ export function ImageCard({image, onImageClick}: ImageCardProps) {
                         fill
                         alt={image.description || '写真'}
                         className='rounded-lg object-cover'
-                        quality={85}
                         sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                         src={GALLERY_DIRECTORY + image.src}
                     />
