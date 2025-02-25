@@ -13,15 +13,18 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
     return (
-        <BlockFrame
-            description='自分が開発した又は携わったプロジェクト'
-            title='Projects'>
-            {projects.map((project: Project, index: number) => (
-                <ProjectCardModal
-                    key={index}
-                    project={project}
-                />
-            ))}
-        </BlockFrame>
+        <div className="pt-8">
+            <BlockFrame
+                description='自分が開発した又は携わったプロジェクト'
+                title='Projects'>
+                {projects.map((project: Project, index: number) => (
+                    <ProjectCardModal
+                        key={index}
+                        project={project}
+                    />
+                ))}
+            </BlockFrame>
+        </div>
+
     );
 }

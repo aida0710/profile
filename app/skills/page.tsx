@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function SkillsPage() {
     return (
-        <div>
+        <div className="pt-8">
             <BlockFrame
                 description='保有資格'
                 title='Qualifications'>
