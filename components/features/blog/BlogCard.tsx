@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import {Card, CardBody, CardFooter} from '@heroui/card';
 import {Chip} from '@heroui/chip';
@@ -7,6 +6,7 @@ import {CalendarDays} from 'lucide-react';
 
 import {BlogPost} from '@/types';
 import {HighlightText} from './HighlightText';
+import {Link} from '@heroui/link';
 
 interface BlogCardProps {
     post: BlogPost;
@@ -32,9 +32,8 @@ export function BlogCard({post, searchQuery = ''}: BlogCardProps) {
             className='block w-full'>
             <Card
                 isHoverable
-                isPressable
                 className='w-full transition-transform'>
-                <CardBody className='flex  flex-col gap-4 md:flex-row'>
+                <CardBody className='flex flex-col gap-4 md:flex-row'>
                     <div className='w-full md:w-2/3'>
                         <h2 className='mb-2 text-xl font-semibold'>
                             <HighlightText

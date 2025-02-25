@@ -15,7 +15,6 @@ export function AwardCard({award}: AwardCardProps) {
             target='_blank'>
             <Card
                 isHoverable
-                isPressable
                 className='h-full transition-transform hover:scale-[1.02]'>
                 <CardBody>
                     <h2 className='text-sm'>{award.organization}</h2>
