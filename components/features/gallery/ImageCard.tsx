@@ -13,7 +13,7 @@ export function ImageCard({image, onImageClick}: ImageCardProps) {
     return (
         <button
             aria-label='画像を拡大表示'
-            className='group w-full overflow-hidden rounded-lg bg-background shadow-lg transition-transform hover:opacity-95 hover:scale-[1.02]'
+            className='group w-full overflow-hidden rounded-lg bg-background shadow-lg transition-transform hover:scale-[1.02] hover:opacity-95'
             onClick={() => onImageClick(image)}>
             <div className='relative w-full p-1'>
                 <div className='relative h-0 w-full pb-[75%]'>
