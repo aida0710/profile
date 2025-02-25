@@ -1,7 +1,7 @@
 import React from 'react';
 import {Metadata} from 'next';
 
-import {getSortedPosts} from '@/data/blog';
+import {BLOG_INTRODUCTION, getSortedPosts} from '@/data/blog';
 import {TextBlock} from '@/components/common/TextBlock';
 import {BlogSearchContainer} from '@/components/features/blog/BlogSearchContainer';
 import {BlogPost} from '@/types';
@@ -19,7 +19,7 @@ export default function BlogPage() {
             <div className='py-8'>
                 <div className='text-center'>
                     <h1 className='text-3xl font-medium md:text-4xl'>Blog</h1>
-                    <TextBlock messages={['開発や日々の技術的な学びについて書いていきます']} />
+                    <TextBlock messages={BLOG_INTRODUCTION} />
                 </div>
 
                 <div className='mx-auto max-w-3xl px-4'>

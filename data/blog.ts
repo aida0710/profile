@@ -1,5 +1,9 @@
 import {BlogPost} from '@/types';
 
+export const BLOG_INTRODUCTION: string[] = ['これまでの経験や活動について書いていきます。'];
+
+// 記事のデータ
+// linkは[表示](リンク)で生成できます。リンクの先頭に_をつけると外部リンクになります。
 export const blogPosts: BlogPost[] = [
     {
         slug: 'first-post',
