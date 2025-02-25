@@ -10,7 +10,7 @@ import {Button} from '@heroui/button';
 import {Link} from '@heroui/link';
 
 import {NavItem} from '@/types';
-import {ProjectIcon} from '@/components/icons/project-icon';
+import {ProjectIcon} from '@/components/icons/ProjectIcon';
 
 const MOTION_VARIANTS = {
     enter: {
