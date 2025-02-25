@@ -6,12 +6,12 @@ export const blogPosts: BlogPost[] = [
         title: '新しくブログを実装しました',
         content: [
             'ブログ機能を追加しました。',
-            'これからブログを通して技術的な学びや日々の活動を発信していきます。',
+            'これからブログを通して適当なことを呟いていきたいなぁと考えています。',
             '下に添付された画像は、サンプルです。',
         ],
         date: '2025年2月25日',
         images: ['/images/gallery/2025年1月4日_荒川河川敷.JPG', '/images/gallery/2024年12月7日_お台場の夕日.JPG'],
-        tags: ['Blog', 'Next.js', 'React'],
+        tags: ['Blog', 'Init'],
     },
 ];
 

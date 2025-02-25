@@ -7,7 +7,7 @@ import {BlogSearchContainer} from '@/components/features/blog/BlogSearchContaine
 import {BlogPost} from '@/types';
 
 export const metadata: Metadata = {
-    title: 'ブログ',
+    title: 'Blog',
     description: '開発や技術に関する記事を公開しています',
 };
 
