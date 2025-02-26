@@ -75,7 +75,7 @@ export const blogPosts: BlogPost[] = [
             '- [GitHub: update-notice](_https://github.com/aida0710/nkserver-update)',
         ],
         date: '2023年09月16日',
-        images: ["2023年09月16日-nkserver-homepage.png", "2023年09月16日-nkserver-last.png"],
+        images: ['2023年09月16日-nkserver-homepage.png', '2023年09月16日-nkserver-last.png'],
         tags: ['Minecraft', 'PocketMine-MP'],
     },
 ];

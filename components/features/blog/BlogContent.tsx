@@ -96,7 +96,7 @@ export function BlogContent({post}: BlogContentProps) {
 
             {post.images.length > 0 && (
                 <>
-                    <Divider className="my-3" />
+                    <Divider className='my-3' />
                     <h2 className='mb-2 text-xl font-semibold'>記事に紐図けられた画像一覧</h2>
                     <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
                         {post.images.map((image, index) => (
