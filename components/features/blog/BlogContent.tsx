@@ -5,6 +5,8 @@ import {Chip} from '@heroui/chip';
 import {Button} from '@heroui/button';
 import {BlogPost} from '@/types';
 import {Link} from '@heroui/link';
+import {BLOG_PICTURE_DIRECTORY} from '@/data/blog';
+import {Divider} from '@heroui/divider';
 
 interface BlogContentProps {
     post: BlogPost;
@@ -94,6 +96,7 @@ export function BlogContent({post}: BlogContentProps) {
 
             {post.images.length > 0 && (
                 <>
+                    <Divider className="my-3" />
                     <h2 className='mb-2 text-xl font-semibold'>記事に紐図けられた画像一覧</h2>
                     <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
                         {post.images.map((image, index) => (
@@ -102,7 +105,7 @@ export function BlogContent({post}: BlogContentProps) {
                                 className='flex aspect-auto w-full flex-col items-center justify-center'>
                                 <div className='relative w-full overflow-hidden rounded-lg'>
                                     <Image
-                                        src={image}
+                                        src={BLOG_PICTURE_DIRECTORY + image}
                                         alt={`${post.title}の画像 ${index + 1}`}
                                         width={1280}
                                         height={720}

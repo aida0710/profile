@@ -1,6 +1,7 @@
 import {BlogPost} from '@/types';
 
 export const BLOG_INTRODUCTION: string[] = ['これまでの経験や活動について書いていきます。'];
+export const BLOG_PICTURE_DIRECTORY = '/images/blog/';
 
 // 記事のデータ
 // linkは[表示](リンク)で生成できます。リンクの先頭に_をつけると外部リンクになります。
@@ -15,12 +16,12 @@ export const blogPosts: BlogPost[] = [
             '[SecHack365](_https://sechack365.nict.go.jp/)',
         ],
         date: '2024年05月25日',
-        images: [],
+        images: ['2024年05月25日-sechack365-homepage.png'],
         tags: ['SecHack365'],
     },
     {
         slug: '100Program-alumni-mentor',
-        title: '100Program 7期からアラムナイ メンターとして運営に協力します。',
+        title: '100Program アラムナイ メンターになりました。',
         content: [
             '100Program 7期からアラムナイメンターとして運営に協力させていただけることになりました。',
             'よろしくお願いいたします。',
@@ -28,7 +29,7 @@ export const blogPosts: BlogPost[] = [
             '[東京大学 産学協創本部主催 100Program](_https://100program.jp/)',
         ],
         date: '2025年02月03日',
-        images: [],
+        images: ['2025年02月03日-100program-mentor.png', '2025年02月03日-100program-homepage.png'],
         tags: ['100Program', 'メンター'],
     },
     {
@@ -43,7 +44,7 @@ export const blogPosts: BlogPost[] = [
             '[東京大学 産学協創本部主催 100Program](_https://100program.jp/)',
         ],
         date: '2024年2月5日',
-        images: [],
+        images: ['2024年02月05日-100program-desktop-mascot-1.png', '2024年02月05日-100program-desktop-mascot-2.png', '2025年02月03日-100program-homepage.png'],
         tags: ['100Program'],
     },
     {
@@ -56,7 +57,7 @@ export const blogPosts: BlogPost[] = [
             '[東京大学 産学協創本部主催 100Program](_https://100program.jp/)',
         ],
         date: '2024年08月03日',
-        images: [],
+        images: ['2024年08月03日-100program-nebula.png', '2025年02月03日-100program-homepage.png'],
         tags: ['100Program'],
     },
     {
@@ -74,7 +75,7 @@ export const blogPosts: BlogPost[] = [
             '- [GitHub: update-notice](_https://github.com/aida0710/nkserver-update)',
         ],
         date: '2023年09月16日',
-        images: [],
+        images: ["2023年09月16日-nkserver-homepage.png", "2023年09月16日-nkserver-last.png"],
         tags: ['Minecraft', 'PocketMine-MP'],
     },
 ];

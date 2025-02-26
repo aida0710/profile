@@ -7,6 +7,7 @@ import {CalendarDays} from 'lucide-react';
 import {BlogPost} from '@/types';
 import {HighlightText} from './HighlightText';
 import {Link} from '@heroui/link';
+import {BLOG_PICTURE_DIRECTORY} from '@/data/blog';
 
 interface BlogCardProps {
     post: BlogPost;
@@ -53,7 +54,7 @@ export function BlogCard({post, searchQuery = ''}: BlogCardProps) {
                         <div className='order-first w-full flex-shrink-0 md:order-last md:w-1/3'>
                             <div className='relative h-32 w-full overflow-hidden rounded-lg'>
                                 <Image
-                                    src={post.images[0]}
+                                    src={BLOG_PICTURE_DIRECTORY + post.images[0]}
                                     alt={post.title}
                                     fill
                                     className='object-cover'
