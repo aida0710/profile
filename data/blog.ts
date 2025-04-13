@@ -7,16 +7,12 @@ export const BLOG_PICTURE_DIRECTORY = '/images/blog/';
 // linkは[表示](リンク)で生成できます。リンクの先頭に_をつけると外部リンクになります。
 export const blogPosts: BlogPost[] = [
     {
-        slug: "enrolled-in-open-university-of-japan",
-        title: "放送大学に入学しました。",
-        content: [
-            "放送大学に入学しました。",
-            "",
-            "[放送大学](_https://www.ouj.ac.jp/)",
-        ],
-        date: "2025年04月012日",
-        images: ["2025年04月01日-open-university.png"],
-        tags: ["放送大学", "大学"],
+        slug: 'enrolled-in-open-university-of-japan',
+        title: '放送大学に入学しました。',
+        content: ['放送大学に入学しました。', '', '[放送大学](_https://www.ouj.ac.jp/)'],
+        date: '2025年04月012日',
+        images: ['2025年04月01日-open-university.png'],
+        tags: ['放送大学', '大学'],
     },
     {
         slug: 'SecHack365-complete',
