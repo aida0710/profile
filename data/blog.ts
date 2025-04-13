@@ -7,16 +7,18 @@ export const BLOG_PICTURE_DIRECTORY = '/images/blog/';
 // linkは[表示](リンク)で生成できます。リンクの先頭に_をつけると外部リンクになります。
 export const blogPosts: BlogPost[] = [
     {
-        slug: 'SecHack365-2024',
-        title: 'SecHack365 2024年度に採択されました。',
+        slug: 'SecHack365-complete',
+        title: 'SecHack365 2024年度が修了しました。',
         content: [
-            'SecHack365 2024年度 学習駆動コース　坂井ゼミにて採択されました。',
-            'ネットワーク関係の技術に疎いため、学習を兼ねてIDSを作っていきたい所存です。',
+            'SecHack365 2024年度 学習駆動コース　坂井ゼミが修了しました。',
+            '最終的に、RDBを介したL2アプリケーショントンネルを開発しました。',
+            'Rustで開発したのはSechack365が初めてで、LinuxカーネルやSocketレイヤーの知識も得れたことで、非常に良い経験になりました。',
             '',
-            '[SecHack365](_https://sechack365.nict.go.jp/)',
+            '[Sechack365 最終成果発表ポスターを掲示しているページ](_https://sechack365.nict.go.jp/achievement/2024/#area_01Ss)',
+            '[SecHack365 最終成果発表ポスター (pdf)](_https://sechack365.nict.go.jp/achievement/2024/pdf/01Ss.pdf)',
         ],
-        date: '2024年05月25日',
-        images: ['2024年05月25日-sechack365-homepage.png'],
+        date: '2025年03月09日',
+        images: ['2025年04月09日-sechack365-web.png', '2025年04月09日-sechack365-poster.png', '2025年04月09日-sechack365-final.jpg'],
         tags: ['SecHack365'],
     },
     {
@@ -31,6 +33,19 @@ export const blogPosts: BlogPost[] = [
         date: '2025年02月03日',
         images: ['2025年02月03日-100program-mentor.png', '2025年02月03日-100program-homepage.png'],
         tags: ['100Program', 'メンター'],
+    },
+    {
+        slug: 'SecHack365-2024',
+        title: 'SecHack365 2024年度に採択されました。',
+        content: [
+            'SecHack365 2024年度 学習駆動コース　坂井ゼミにて採択されました。',
+            'ネットワーク関係の技術に疎いため、学習を兼ねてIDSを作っていきたい所存です。',
+            '',
+            '[SecHack365](_https://sechack365.nict.go.jp/)',
+        ],
+        date: '2024年05月25日',
+        images: ['2024年05月25日-sechack365-homepage.png'],
+        tags: ['SecHack365'],
     },
     {
         slug: '100Program-5th',
@@ -75,7 +90,7 @@ export const blogPosts: BlogPost[] = [
             '- [GitHub: update-notice](_https://github.com/aida0710/nkserver-update)',
         ],
         date: '2023年09月16日',
-        images: ["2023年09月16日-nkserver-homepage.png", "2023年09月16日-nkserver-last.png"],
+        images: ['2023年09月16日-nkserver-homepage.png', '2023年09月16日-nkserver-last.png'],
         tags: ['Minecraft', 'PocketMine-MP'],
     },
 ];
