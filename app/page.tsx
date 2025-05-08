@@ -24,7 +24,7 @@ export default function HomePage() {
             <h1 className='text-lg font-medium tracking-wide md:text-2xl'>Masaki Aida / 相田 優希</h1>
 
             <div className='text-md my-3 font-normal tracking-wide md:text-xl'>
-                <p>19歳 千葉県船橋市在住</p>
+                <p>19歳 茨城県土浦市在住</p>
                 <p>Frontend/Backend Engineer</p>
             </div>
 
