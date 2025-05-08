@@ -1,7 +1,8 @@
+"use client";
+
 import React from 'react';
 import {SiWakatime} from 'react-icons/si';
 import {BsGithub, BsInstagram, BsTwitter} from 'react-icons/bs';
-import {Link} from '@heroui/link';
 import {Button} from '@heroui/button';
 
 import {SocialLink} from '@/types';
@@ -34,19 +35,17 @@ export function SocialIcons() {
     return (
         <div className='my-4 flex w-full justify-center'>
             <div className='grid grid-cols-4 gap-x-10'>
-                {SOCIAL_LINKS.map((link, index) => (
-                    <Link
-                        key={index}
-                        aria-label={link.label}
-                        href={link.href}
-                        target='_blank'>
-                        <Button
-                            isIconOnly
-                            className='hover:scale-125 hover:rounded-md'
-                            variant='light'>
-                            {link.icon}
-                        </Button>
-                    </Link>
+                {SOCIAL_LINKS.map((link) => (
+                    <Button
+                        key={link.label}
+                        isIconOnly
+                        className='hover:scale-125 hover:rounded-md'
+                        onPress={() => {
+                            window.open(link.href, '_blank');
+                        }}
+                        variant='light'>
+                        {link.icon}
+                    </Button>
                 ))}
             </div>
         </div>
