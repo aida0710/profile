@@ -8,7 +8,7 @@ export function TextBlock({messages}: TextBlockProps) {
             {messages.map((message, index) => (
                 <p
                     key={index}
-                    className='mb-3 text-base leading-relaxed md:text-lg'>
+                    className='text-base leading-relaxed md:text-lg'>
                     {message}
                 </p>
             ))}
