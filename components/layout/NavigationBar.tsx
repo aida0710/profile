@@ -48,8 +48,8 @@ const NAVIGATION_ITEMS: NavItem[] = [
         ),
     },
     {
-        path: '/skills',
-        label: 'Skills',
+        path: '/blog',
+        label: 'Blog',
         icon: (
             <PenToolIcon
                 color='currentColor'
@@ -63,17 +63,6 @@ const NAVIGATION_ITEMS: NavItem[] = [
         label: 'Gallery',
         icon: (
             <ImagesIcon
-                color='currentColor'
-                size={32}
-                strokeWidth={3}
-            />
-        ),
-    },
-    {
-        path: '/blog',
-        label: 'Blog',
-        icon: (
-            <PenToolIcon
                 color='currentColor'
                 size={32}
                 strokeWidth={3}
