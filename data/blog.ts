@@ -7,6 +7,26 @@ export const BLOG_PICTURE_DIRECTORY = '/images/blog/';
 // linkは[表示](リンク)で生成できます。リンクの先頭に_をつけると外部リンクになります。
 export const blogPosts: BlogPost[] = [
     {
+        slug: 'php-conference-2025',
+        title: 'PHPカンファレンス2025に参加しました。',
+        content: [
+            'PHPカンファレンス2025に当日スタッフとして参加しました。',
+            '言語カンファレンスの参加自体が初めてでしたが、優しい方が本当に多く、とても楽しい2日間になりました！',
+            'ありがとうございました！',
+            'また来年～～！！！',
+            '',
+            '[PHPカンファレンス2025](https://phpcon.php.gr.jp/2025/)',
+        ],
+        date: '2025年06月28日',
+        images: [
+            '2025年06月28日-php-conference-2025-1.png',
+            '2025年06月28日-php-conference-2025-2.png',
+            '2025年06月28日-php-conference-2025-3.png',
+            '2025年06月28日-php-conference-2025-4.png',
+        ],
+        tags: ['PHP', 'カンファレンス'],
+    },
+    {
         slug: 'enrolled-in-open-university-of-japan',
         title: '放送大学に入学しました。',
         content: ['放送大学に入学しました。', '', '[放送大学](_https://www.ouj.ac.jp/)'],
