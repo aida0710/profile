@@ -1,12 +1,12 @@
-import { Button } from "@heroui/button";
-import { Modal, ModalBody, ModalContent } from "@heroui/modal";
-import { Spinner } from "@heroui/spinner";
-import { X } from "lucide-react";
-import Image from "next/image";
-import type React from "react";
-import { useCallback, useState } from "react";
-import { GALLERY_DIRECTORY } from "@/data/gallery";
-import type { GalleryImage } from "@/types";
+import { Button } from '@heroui/button';
+import { Modal, ModalBody, ModalContent } from '@heroui/modal';
+import { Spinner } from '@heroui/spinner';
+import { X } from 'lucide-react';
+import Image from 'next/image';
+import type React from 'react';
+import { useCallback, useState } from 'react';
+import { GALLERY_DIRECTORY } from '@/data/gallery';
+import type { GalleryImage } from '@/types';
 
 interface ImageModalProps {
   image: GalleryImage | null;
@@ -21,12 +21,12 @@ export function ImageModal({ image, isOpen, onClose }: ImageModalProps) {
     (e: React.MouseEvent | React.KeyboardEvent | React.TouchEvent) => {
       if (
         e.target === e.currentTarget &&
-        (e.type === "click" ||
-          e.type === "touchend" ||
-          (e.type === "keydown" &&
-            ((e as React.KeyboardEvent).key === "Enter" ||
-              (e as React.KeyboardEvent).key === " " ||
-              (e as React.KeyboardEvent).key === "Escape")))
+        (e.type === 'click' ||
+          e.type === 'touchend' ||
+          (e.type === 'keydown' &&
+            ((e as React.KeyboardEvent).key === 'Enter' ||
+              (e as React.KeyboardEvent).key === ' ' ||
+              (e as React.KeyboardEvent).key === 'Escape')))
       ) {
         onClose();
       }
@@ -37,14 +37,7 @@ export function ImageModal({ image, isOpen, onClose }: ImageModalProps) {
   if (!image) return null;
 
   return (
-    <Modal
-      hideCloseButton
-      backdrop="opaque"
-      className="bg-black/75"
-      isOpen={isOpen}
-      size="full"
-      onClose={onClose}
-    >
+    <Modal hideCloseButton backdrop="opaque" className="bg-black/75" isOpen={isOpen} size="full" onClose={onClose}>
       <ModalContent>
         <ModalBody>
           <div
@@ -63,21 +56,14 @@ export function ImageModal({ image, isOpen, onClose }: ImageModalProps) {
             </Button>
 
             <div className="relative h-full max-h-[80vh] w-full max-w-5xl">
-              {isLoading && (
-                <Spinner
-                  className="absolute inset-0 z-50"
-                  color="white"
-                  size="lg"
-                  role="status"
-                />
-              )}
+              {isLoading && <Spinner className="absolute inset-0 z-50" color="white" size="lg" role="status" />}
 
               <div className="relative h-full w-full">
                 <Image
                   fill
                   priority
-                  alt={image.description || "画像"}
-                  className={`object-contain transition-opacity duration-300 ${isLoading ? "opacity-0" : "opacity-100"}`}
+                  alt={image.description || '画像'}
+                  className={`object-contain transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
                   quality={100}
                   src={GALLERY_DIRECTORY + image.src}
                   onLoadingComplete={() => setIsLoading(false)}

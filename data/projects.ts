@@ -1,163 +1,152 @@
-import type { Project } from "@/types";
+import type { Project } from '@/types';
 
 export const projects: Project[] = [
   {
-    title: "rdb tunnel",
+    title: 'rdb tunnel',
     description: [
-      "rdbを介したl2レベルでのパケットの転送を行い、仮想的に別々のネットワーク空間をつなげることが可能",
-      "パケットを確実に洩れなくすべて保存するため、時系列データとして解析なども可能",
+      'rdbを介したl2レベルでのパケットの転送を行い、仮想的に別々のネットワーク空間をつなげることが可能',
+      'パケットを確実に洩れなくすべて保存するため、時系列データとして解析なども可能',
     ],
-    image: "rdb-tunnel.png",
+    image: 'rdb-tunnel.png',
     links: {
       github: {
-        description: "Github Repository",
-        url: "https://github.com/aida0710/rdb-tunnel",
+        description: 'Github Repository',
+        url: 'https://github.com/aida0710/rdb-tunnel',
       },
     },
-    language: "Rust",
+    language: 'Rust',
   },
   {
-    title: "教育目的、演習目的のDosツール",
+    title: '教育目的、演習目的のDosツール',
     description: [
-      "syn flood攻撃やudp flood攻撃、不正なip headerの送信などが可能なツールです。",
-      "※ 犯罪ですので、攻撃目的の使用はしないでください。",
+      'syn flood攻撃やudp flood攻撃、不正なip headerの送信などが可能なツールです。',
+      '※ 犯罪ですので、攻撃目的の使用はしないでください。',
     ],
-    image: "dos-attack-tool.png",
+    image: 'dos-attack-tool.png',
     links: {
       github_single: {
-        description: "単一スレッド処理のプロジェクト",
-        url: "https://github.com/aida0710/dos-attack-tool",
+        description: '単一スレッド処理のプロジェクト',
+        url: 'https://github.com/aida0710/dos-attack-tool',
       },
       github_multi: {
-        description: "複数スレッド処理のプロジェクト",
-        url: "https://github.com/aida0710/parallel-dos-attack-tool",
+        description: '複数スレッド処理のプロジェクト',
+        url: 'https://github.com/aida0710/parallel-dos-attack-tool',
       },
     },
-    language: "Rust",
+    language: 'Rust',
   },
   {
-    title: "ネットワークパケット傍聴ツール",
+    title: 'ネットワークパケット傍聴ツール',
     description: [
-      "パケットをキャプチャし、ip fragmentsの再構築とtcp streamの再構成を行います。",
-      "非暗号通信のみにはなりますが、中身を見ることが可能です。",
+      'パケットをキャプチャし、ip fragmentsの再構築とtcp streamの再構成を行います。',
+      '非暗号通信のみにはなりますが、中身を見ることが可能です。',
     ],
-    image: "ip-reassembly.png",
+    image: 'ip-reassembly.png',
     links: {
       github: {
-        description: "Github Repository",
-        url: "https://github.com/aida0710/ip-reassembly",
+        description: 'Github Repository',
+        url: 'https://github.com/aida0710/ip-reassembly',
       },
     },
-    language: "Rust",
+    language: 'Rust',
   },
   {
-    title: "Catsial",
-    description: ["Web単語帳アプリ", "現在開発中 データベースはMySQLを使用"],
-    image: "catsial.png",
+    title: 'Catsial',
+    description: ['Web単語帳アプリ', '現在開発中 データベースはMySQLを使用'],
+    image: 'catsial.png',
     links: {
       web: {
-        description: "公開サイト(現在公開停止中)",
-        url: "https://www.catsial.app",
+        description: '公開サイト(現在公開停止中)',
+        url: 'https://www.catsial.app',
       },
       awards: {
-        description: "岐阜協立大学 第6回 高校生ビジネスアイデアコンテスト",
-        url: "https://www.gku.ac.jp/topics/event/post-354.html",
+        description: '岐阜協立大学 第6回 高校生ビジネスアイデアコンテスト',
+        url: 'https://www.gku.ac.jp/topics/event/post-354.html',
       },
     },
-    language: "TypeScript",
+    language: 'TypeScript',
   },
   {
-    title: "Web Network Simulator",
-    description: [
-      "100pro 5期で作成したネットワークシミュレータ",
-      "主にフロントエンドなどを担当し、Next.jsで開発",
-    ],
-    image: "network-simulator.png",
+    title: 'Web Network Simulator',
+    description: ['100pro 5期で作成したネットワークシミュレータ', '主にフロントエンドなどを担当し、Next.jsで開発'],
+    image: 'network-simulator.png',
     links: {
       web: {
-        description: "公開サイト",
-        url: "https://www.nw-sim.net/",
+        description: '公開サイト',
+        url: 'https://www.nw-sim.net/',
       },
       github: {
-        description: "Github Repositories",
-        url: "https://github.com/orgs/web-network-simulator/repositories",
+        description: 'Github Repositories',
+        url: 'https://github.com/orgs/web-network-simulator/repositories',
       },
     },
-    language: "TypeScript / Python",
+    language: 'TypeScript / Python',
   },
   {
-    title: "Desktop Mascot",
-    description: [
-      "100pro 5期で作成したデスクトップマスコット",
-      "Unity + C# + Google Calendar Api for .Netで開発",
-    ],
-    image: "desktop-mascot.png",
+    title: 'Desktop Mascot',
+    description: ['100pro 5期で作成したデスクトップマスコット', 'Unity + C# + Google Calendar Api for .Netで開発'],
+    image: 'desktop-mascot.png',
     links: {
       web: {
-        description: "100Program公式サイト",
-        url: "https://100program.jp/",
+        description: '100Program公式サイト',
+        url: 'https://100program.jp/',
       },
     },
-    language: "C#",
+    language: 'C#',
   },
   {
-    title: "Zircon Lang",
-    description: [
-      "Kotlin製自作インタープリター言語",
-      "開発中(字句解析器/構文解析器/インタープリター実装済み)",
-    ],
-    image: "zircon-lang.png",
+    title: 'Zircon Lang',
+    description: ['Kotlin製自作インタープリター言語', '開発中(字句解析器/構文解析器/インタープリター実装済み)'],
+    image: 'zircon-lang.png',
     links: {
       github: {
-        description: "Github Repository",
-        url: "https://github.com/aida0710/zircon-lang",
+        description: 'Github Repository',
+        url: 'https://github.com/aida0710/zircon-lang',
       },
     },
-    language: "Kotlin",
+    language: 'Kotlin',
   },
   {
-    title: "Blur Focus",
+    title: 'Blur Focus',
     description: [
-      "初めて作成したクローム拡張機能。",
-      "文章を読むときに文字が滑るので、文字が滑らないように対策する拡張機能",
+      '初めて作成したクローム拡張機能。',
+      '文章を読むときに文字が滑るので、文字が滑らないように対策する拡張機能',
     ],
-    image: "blur-focus.png",
+    image: 'blur-focus.png',
     links: {
       github: {
-        description: "Github Repository",
-        url: "https://github.com/aida0710/blur-focus",
+        description: 'Github Repository',
+        url: 'https://github.com/aida0710/blur-focus',
       },
     },
-    language: "TypeScript",
+    language: 'TypeScript',
   },
   {
-    title: "Folivora",
-    description: [
-      "マインクラフトサーバのプラグイン。真面目に設計を頑張ったプロジェクト",
-    ],
-    image: "folivora.png",
+    title: 'Folivora',
+    description: ['マインクラフトサーバのプラグイン。真面目に設計を頑張ったプロジェクト'],
+    image: 'folivora.png',
     links: {
       github: {
-        description: "Github Repository",
-        url: "https://github.com/aida0710/Folivora",
+        description: 'Github Repository',
+        url: 'https://github.com/aida0710/Folivora',
       },
     },
-    language: "PHP",
+    language: 'PHP',
   },
   {
-    title: "Profile",
-    description: ["この自己紹介サイトのソースコード"],
-    image: "profile.png",
+    title: 'Profile',
+    description: ['この自己紹介サイトのソースコード'],
+    image: 'profile.png',
     links: {
       web: {
-        description: "公開サイト",
-        url: "https://www.aida0710.work/",
+        description: '公開サイト',
+        url: 'https://www.aida0710.work/',
       },
       github: {
-        description: "Github Repository",
-        url: "https://github.com/aida0710/profile",
+        description: 'Github Repository',
+        url: 'https://github.com/aida0710/profile',
       },
     },
-    language: "TypeScript",
+    language: 'TypeScript',
   },
 ];

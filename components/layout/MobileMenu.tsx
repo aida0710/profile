@@ -1,22 +1,15 @@
-"use client";
+'use client';
 
-import { Button } from "@heroui/button";
-import { Divider } from "@heroui/divider";
-import { Link } from "@heroui/link";
-import {
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  useDisclosure,
-} from "@heroui/modal";
-import clsx from "clsx";
-import { MenuIcon, XIcon } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { Button } from '@heroui/button';
+import { Divider } from '@heroui/divider';
+import { Link } from '@heroui/link';
+import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from '@heroui/modal';
+import clsx from 'clsx';
+import { MenuIcon, XIcon } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
-import { ProjectIcon } from "@/components/icons/ProjectIcon";
-import type { NavItem } from "@/types";
+import { ProjectIcon } from '@/components/icons/ProjectIcon';
+import type { NavItem } from '@/types';
 
 const MOTION_VARIANTS = {
   enter: {
@@ -76,8 +69,8 @@ export function MobileMenu({ navItems }: MobileMenuProps) {
             {navItems.map((item) => (
               <div key={item.path} className="flex w-full items-center">
                 <Link
-                  className={clsx("m-3 flex w-full items-center text-4xl", {
-                    "text-primary": isActive(item.path),
+                  className={clsx('m-3 flex w-full items-center text-4xl', {
+                    'text-primary': isActive(item.path),
                   })}
                   color="foreground"
                   href={item.path}

@@ -129,13 +129,11 @@
 ### 3.2 サーバーコンポーネント vs クライアントコンポーネント
 
 **サーバーコンポーネント（デフォルト）:**
-
 - ページ（`page.tsx`）: `app/page.tsx`、`app/blog/[slug]/page.tsx`
 - レイアウト（`layout.tsx`）
 - 理由：SEO、メタデータ生成、データフェッチに最適
 
 **クライアントコンポーネント（`'use client'`宣言）:**
-
 - インタラクティブUI：`NavigationBar.tsx`、`MobileMenu.tsx`、`ThemeToggle.tsx`
 - 状態管理：`SearchBar.tsx`、`BlogSearchContainer.tsx`
 - フッター：`Footer.tsx`（GitHub APIの非同期フェッチ）
@@ -146,7 +144,6 @@
 ### 3.3 データフェッチのパターン
 
 **静的データ:**
-
 ```typescript
 // data/blog.ts
 export const blogPosts: BlogPost[] = [...]
@@ -155,35 +152,29 @@ export function getPostBySlug(slug: string): BlogPost | undefined { ... }
 ```
 
 **APIフェッチ:**
-
 ```typescript
 // libs/fetch/getLastCommitTime.ts
-"use server";
+'use server'
 // GitHubから最後のコミット時刻を非同期で取得
 ```
 
 **メタデータ生成:**
-
 ```typescript
 // app/blog/[slug]/page.tsx
-export async function generateMetadata({
-  params,
-}: BlogPostPageParams): Promise<Metadata> {
-  const post = getPostBySlug(slug);
-  // 動的メタデータの生成
+export async function generateMetadata({params}: BlogPostPageParams): Promise<Metadata> {
+    const post = getPostBySlug(slug)
+    // 動的メタデータの生成
 }
 ```
 
 ### 3.4 状態管理
 
 **使用状態:**
-
 - React Hooks（`useState`、`useEffect`、`useMemo`）
 - `next-themes`：ダークモード状態管理
 - `useRouter`、`usePathname`：ナビゲーション状態
 
 **グローバル状態は最小限:**
-
 - テーマ情報（HeroUIProvider + NextThemesProvider経由）
 - ナビゲーション状態（URLベース）
 
@@ -193,46 +184,46 @@ export async function generateMetadata({
 
 ### コア技術
 
-| 技術              | バージョン | 用途                              |
-| ----------------- | ---------- | --------------------------------- |
-| Next.js           | 16.0.1     | Reactフレームワーク（App Router） |
-| React             | 19.2.0     | UIライブラリ                      |
-| TypeScript        | 5.9.3      | 型安全性                          |
-| Tailwind CSS      | 4.1.16     | ユーティリティファーストCSS       |
-| Tailwind Variants | 3.1.1      | CSS変数の管理                     |
+| 技術 | バージョン | 用途 |
+|------|---------|------|
+| Next.js | 16.0.1 | Reactフレームワーク（App Router） |
+| React | 19.2.0 | UIライブラリ |
+| TypeScript | 5.9.3 | 型安全性 |
+| Tailwind CSS | 4.1.16 | ユーティリティファーストCSS |
+| Tailwind Variants | 3.1.1 | CSS変数の管理 |
 
 ### UIコンポーネント
 
-| ライブラリ   | バージョン | 用途                                              |
-| ------------ | ---------- | ------------------------------------------------- |
-| HeroUI       | v2.x       | UIコンポーネント（Button、Card、Modal、Navbar等） |
-| Lucide React | ^0.548.0   | SVGアイコン                                       |
-| React Icons  | ^5.5.0     | ブランドアイコン（GitHub、Twitter等）             |
+| ライブラリ | バージョン | 用途 |
+|----------|---------|------|
+| HeroUI | v2.x | UIコンポーネント（Button、Card、Modal、Navbar等） |
+| Lucide React | ^0.548.0 | SVGアイコン |
+| React Icons | ^5.5.0 | ブランドアイコン（GitHub、Twitter等） |
 
 ### 機能・ユーティリティ
 
-| ライブラリ         | バージョン | 用途                               |
-| ------------------ | ---------- | ---------------------------------- |
-| next-themes        | ^0.4.6     | ダークモード管理                   |
-| framer-motion      | 12.23.24   | アニメーション（MobileMenuで使用） |
-| clsx               | 2.1.1      | 条件付きクラス名結合               |
-| intl-messageformat | ^10.5.0    | 国際化フォーマット                 |
+| ライブラリ | バージョン | 用途 |
+|----------|---------|------|
+| next-themes | ^0.4.6 | ダークモード管理 |
+| framer-motion | 12.23.24 | アニメーション（MobileMenuで使用） |
+| clsx | 2.1.1 | 条件付きクラス名結合 |
+| intl-messageformat | ^10.5.0 | 国際化フォーマット |
 
 ### 分析・パフォーマンス
 
-| ライブラリ             | バージョン | 用途               |
-| ---------------------- | ---------- | ------------------ |
-| @vercel/analytics      | ^1.4.1     | Web Analytics      |
-| @vercel/speed-insights | ^1.1.0     | パフォーマンス計測 |
+| ライブラリ | バージョン | 用途 |
+|----------|---------|------|
+| @vercel/analytics | ^1.4.1 | Web Analytics |
+| @vercel/speed-insights | ^1.1.0 | パフォーマンス計測 |
 
 ### 開発ツール
 
-| ツール               | バージョン | 用途                                                       |
-| -------------------- | ---------- | ---------------------------------------------------------- |
-| Biome                | 2.0.6      | コード品質チェック＋コード整形（ESLint + Prettier の代替） |
-| PostCSS              | 8.5.6      | CSS処理                                                    |
-| Autoprefixer         | 10.4.21    | ベンダープレフィックス自動追加                             |
-| @tailwindcss/postcss | 4.1.16     | Tailwind CSS v4 PostCSS プラグイン                         |
+| ツール | バージョン | 用途 |
+|-------|---------|------|
+| Biome | 2.0.6 | コード品質チェック＋コード整形（ESLint + Prettier の代替） |
+| PostCSS | 8.5.6 | CSS処理 |
+| Autoprefixer | 10.4.21 | ベンダープレフィックス自動追加 |
+| @tailwindcss/postcss | 4.1.16 | Tailwind CSS v4 PostCSS プラグイン |
 
 ---
 
@@ -247,7 +238,7 @@ export async function generateMetadata({
     "strict": true,
     "jsx": "preserve",
     "paths": {
-      "@/*": ["./*"] // @ エイリアスで根ルートアクセス可能
+      "@/*": ["./*"]  // @ エイリアスで根ルートアクセス可能
     },
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
@@ -256,7 +247,6 @@ export async function generateMetadata({
 ```
 
 **重点:**
-
 - `@/*` パスエイリアスで絶対パスインポート
 - `strict: true` で厳格な型チェック
 - `jsx: "preserve"` でNext.jsがJSX変換を処理
@@ -277,14 +267,13 @@ module.exports = nextConfig;
 ```javascript
 module.exports = {
   plugins: {
-    "@tailwindcss/postcss": {},
+    '@tailwindcss/postcss': {},
     autoprefixer: {},
   },
 };
 ```
 
 **重要な変更点:**
-
 - **v3以前:** `tailwindcss` パッケージ内にPostCSSプラグインが含まれていた
 - **v4:** `@tailwindcss/postcss` という専用パッケージが必要
 - `npm install @tailwindcss/postcss` で追加インストールが必要
@@ -298,7 +287,6 @@ module.exports = {
 ```
 
 **変更点:**
-
 - **v3以前:** `@tailwind base;` `@tailwind components;` `@tailwind utilities;` の3行が必要
 - **v4:** `@import "tailwindcss";` の1行のみ
 - よりシンプルで直感的な構文に進化
@@ -308,25 +296,24 @@ module.exports = {
 ```javascript
 module.exports = {
   content: [
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)"],
-        mono: ["var(--font-mono)"],
-      },
-    },
+        sans: ['var(--font-sans)'],
+        mono: ['var(--font-mono)']
+      }
+    }
   },
-  darkMode: "class",
-  plugins: [heroui()],
+  darkMode: 'class',
+  plugins: [heroui()]
 };
 ```
 
 **重点:**
-
 - HeroUIプラグイン統合
 - カスタムフォント変数（CSS変数）
 - ダークモード: `class` ベース（next-themes統合）
@@ -386,27 +373,22 @@ module.exports = {
 **重要なルール解説:**
 
 #### コード品質
-
 - `noConsole: "warn"` - console.log等の使用を警告（本番環境での不要なログを防止）
 - `noUnusedVariables: "warn"` - 未使用変数を警告
 - `noUnusedImports: "warn"` - 未使用インポートを警告
 
 #### React関連
-
 - `useExhaustiveDependencies: "off"` - useEffectの依存配列チェックを無効化
 - `useSelfClosingElements: "warn"` - 子要素がない場合は自己クロージングタグを強制
 
 #### アクセシビリティ
-
 - `useFocusableInteractive: "warn"` - インタラクティブ要素にフォーカス可能性を要求
 - `useKeyWithClickEvents: "warn"` - クリックイベントにキーボードイベントも追加
 
 #### インポート管理
-
 - `organizeImports: true` - インポートの自動整理を有効化
 
 #### コードフォーマット
-
 - `quoteStyle: "single"` - シングルクォート使用
 - `semicolons: "always"` - セミコロン必須
 - `trailingCommas: "all"` - 末尾カンマを全て追加
@@ -428,7 +410,6 @@ module.exports = {
 ```
 
 **開発フロー:**
-
 - `npm run dev` - 開発サーバー起動（Next.js 16からTurbopackがデフォルト）
 - `npm run build` - 本番ビルド
 - `npm run lint` - Biomeでコードチェック+自動修正
@@ -441,41 +422,36 @@ module.exports = {
 ### 6.1 ブログシステム（data/blog.ts）
 
 **データ構造:**
-
 ```typescript
 export interface BlogPost {
-  slug: string; // URL用ID（例："php-conference-2025"）
-  title: string; // 記事タイトル
-  content: string[]; // 段落配列（改行で分割）
-  date: string; // 発行日（日本語形式）
-  images: string[]; // 記事内画像ファイル名
-  tags?: string[]; // タグ（オプション）
+  slug: string;           // URL用ID（例："php-conference-2025"）
+  title: string;          // 記事タイトル
+  content: string[];      // 段落配列（改行で分割）
+  date: string;           // 発行日（日本語形式）
+  images: string[];       // 記事内画像ファイル名
+  tags?: string[];        // タグ（オプション）
 }
 ```
 
 **リンク記法:**
-
 ```
 [表示テキスト](URL)      // 内部リンク
 [表示テキスト](_URL)     // 外部リンク（先頭に_）
 ```
 
 **ユーティリティ関数:**
-
 ```typescript
-getSortedPosts(); // 日付降順でソート
-getPostBySlug(slug); // スラッグから記事を検索
+getSortedPosts()          // 日付降順でソート
+getPostBySlug(slug)       // スラッグから記事を検索
 ```
 
 **画像管理:**
-
 - 保存先: `/public/images/blog/`
 - 命名規則: `YYYY年MM月DD日-記事ID-番号.拡張子`
 
 ### 6.2 プロジェクト管理（data/projects.ts）
 
 **データ構造:**
-
 ```typescript
 export interface Project {
   title: string;
@@ -485,14 +461,13 @@ export interface Project {
     [key: string]: {
       description: string;
       url: string;
-    };
+    }
   };
-  language: string; // 開発言語（Rust、PHP等）
+  language: string;  // 開発言語（Rust、PHP等）
 }
 ```
 
 **例:**
-
 ```typescript
 {
   title: 'rdb tunnel',
@@ -515,11 +490,11 @@ export interface Project {
 
 ```typescript
 export interface Award {
-  organization: string; // 団体名
-  description: string; // 受賞内容
-  image: string; // サムネイル画像
-  link: string; // 詳細ページURL
-  date: string; // 受賞日
+  organization: string;   // 団体名
+  description: string;    // 受賞内容
+  image: string;          // サムネイル画像
+  link: string;           // 詳細ページURL
+  date: string;           // 受賞日
 }
 ```
 
@@ -527,10 +502,10 @@ export interface Award {
 
 ```typescript
 export interface GalleryImage {
-  src: string; // 画像ファイル名
-  description: string; // 説明
-  date: string; // 撮影日
-  detail: string; // 詳細情報
+  src: string;            // 画像ファイル名
+  description: string;    // 説明
+  date: string;           // 撮影日
+  detail: string;         // 詳細情報
 }
 ```
 
@@ -538,11 +513,11 @@ export interface GalleryImage {
 
 ```typescript
 export const siteConfig = {
-  name: "Aida Profile",
-  description: "@aida_0710のプロフィールページ",
-  twitter_id: "@aida_0710",
-  url: "https://www.aida0710.work",
-  image: "https://www.aida0710.work/public_image.png",
+  name: 'Aida Profile',
+  description: '@aida_0710のプロフィールページ',
+  twitter_id: '@aida_0710',
+  url: 'https://www.aida0710.work',
+  image: 'https://www.aida0710.work/public_image.png'
 };
 ```
 
@@ -557,23 +532,22 @@ OGメタデータの生成に使用。
 **使用場所:** Footer.tsx（最終更新時刻の表示）
 
 **コード構造:**
-
 ```typescript
-"use server"; // Server Actionとして実行
+'use server';  // Server Actionとして実行
 
 type CommitResult = {
   success: boolean;
-  data: Date | string; // 成功時はDate、失敗時はエラーメッセージ
+  data: Date | string;  // 成功時はDate、失敗時はエラーメッセージ
 };
 
 // メイン関数（外部から呼び出される）
-export default async function getLastCommitTime(): Promise<string>;
+export default async function getLastCommitTime(): Promise<string>
 
 // GitHub APIからコミット情報を取得
-async function getLastCommit(): Promise<CommitResult>;
+async function getLastCommit(): Promise<CommitResult>
 
 // 日本時間にフォーマット
-async function formatDate(date: Date): Promise<string>;
+async function formatDate(date: Date): Promise<string>
 ```
 
 **実装の詳細:**
@@ -595,7 +569,6 @@ async function formatDate(date: Date): Promise<string>;
    - 失敗時: エラーメッセージをそのまま返す
 
 **使用例:**
-
 ```typescript
 // components/layout/Footer.tsx
 'use client';
@@ -614,7 +587,6 @@ export function Footer() {
 ```
 
 **注意点:**
-
 - `'use server'`ディレクティブでサーバー側実行を保証
 - GitHub APIはレート制限あり（未認証: 60リクエスト/時）
 - エラー時もUIを崩さないよう文字列を返す設計
@@ -629,11 +601,11 @@ export function Footer() {
 
 ```typescript
 export interface Award {
-  organization: string; // 主催団体名（例: "SecHack365"）
-  description: string; // 受賞内容の説明
-  image: string; // サムネイル画像ファイル名
-  link: string; // 詳細ページURL
-  date: string; // 受賞日（例: "2025年03月09日"）
+  organization: string;   // 主催団体名（例: "SecHack365"）
+  description: string;    // 受賞内容の説明
+  image: string;          // サムネイル画像ファイル名
+  link: string;           // 詳細ページURL
+  date: string;           // 受賞日（例: "2025年03月09日"）
 }
 ```
 
@@ -643,10 +615,10 @@ export interface Award {
 
 ```typescript
 export interface GalleryImage {
-  src: string; // 画像ファイル名（public/images/gallery/内）
-  description: string; // 画像の説明文
-  date: string; // 撮影日（例: "2025年01月15日"）
-  detail: string; // 詳細情報（撮影場所、カメラ設定等）
+  src: string;            // 画像ファイル名（public/images/gallery/内）
+  description: string;    // 画像の説明文
+  date: string;           // 撮影日（例: "2025年01月15日"）
+  detail: string;         // 詳細情報（撮影場所、カメラ設定等）
 }
 ```
 
@@ -656,25 +628,22 @@ export interface GalleryImage {
 
 ```typescript
 export interface Project {
-  title: string; // プロジェクト名
-  description: string[]; // 説明文の配列（段落ごと）
-  image: string; // サムネイル画像
-  links: {
-    // 関連リンク（柔軟な構造）
-    [key: string]: {
-      // 例: "github", "demo", "docs"
-      description: string; // リンクの説明
-      url: string; // URL
+  title: string;              // プロジェクト名
+  description: string[];      // 説明文の配列（段落ごと）
+  image: string;              // サムネイル画像
+  links: {                    // 関連リンク（柔軟な構造）
+    [key: string]: {          // 例: "github", "demo", "docs"
+      description: string;    // リンクの説明
+      url: string;            // URL
     };
   };
-  language: string; // 主要開発言語（例: "Rust", "TypeScript"）
+  language: string;           // 主要開発言語（例: "Rust", "TypeScript"）
 }
 ```
 
 **使用箇所:** `data/projects.ts`, `components/features/projects/ProjectCard.tsx`
 
 **リンクの例:**
-
 ```typescript
 links: {
   github: {
@@ -692,9 +661,9 @@ links: {
 
 ```typescript
 export interface SkillCategory {
-  key: string; // カテゴリーID（例: "languages", "frameworks"）
-  title: string; // カテゴリー名（例: "プログラミング言語"）
-  contents: string[]; // スキルのリスト
+  key: string;            // カテゴリーID（例: "languages", "frameworks"）
+  title: string;          // カテゴリー名（例: "プログラミング言語"）
+  contents: string[];     // スキルのリスト
 }
 ```
 
@@ -704,19 +673,18 @@ export interface SkillCategory {
 
 ```typescript
 export interface BlogPost {
-  slug: string; // URL用の一意識別子（例: "php-conference-2025"）
-  title: string; // 記事タイトル
-  content: string[]; // 本文の段落配列
-  date: string; // 公開日（例: "2025年06月28日"）
-  images: string[]; // 記事内画像のファイル名配列
-  tags?: string[]; // タグ（オプション）
+  slug: string;           // URL用の一意識別子（例: "php-conference-2025"）
+  title: string;          // 記事タイトル
+  content: string[];      // 本文の段落配列
+  date: string;           // 公開日（例: "2025年06月28日"）
+  images: string[];       // 記事内画像のファイル名配列
+  tags?: string[];        // タグ（オプション）
 }
 ```
 
 **使用箇所:** `data/blog.ts`, `components/features/blog/`配下の全コンポーネント
 
 **content配列の特殊記法:**
-
 - `[表示テキスト](URL)` - 内部リンク
 - `[表示テキスト](_URL)` - 外部リンク（`_`プレフィックス）
 
@@ -724,9 +692,9 @@ export interface BlogPost {
 
 ```typescript
 export interface NavItem {
-  path: string; // ルートパス（例: "/blog"）
-  label: string; // 表示ラベル（例: "Blog"）
-  icon: ReactNode; // アイコンコンポーネント（lucide-react使用）
+  path: string;           // ルートパス（例: "/blog"）
+  label: string;          // 表示ラベル（例: "Blog"）
+  icon: ReactNode;        // アイコンコンポーネント（lucide-react使用）
 }
 ```
 
@@ -735,34 +703,31 @@ export interface NavItem {
 ### 7.7 共通コンポーネントProps
 
 #### BlockFrameProps
-
 ```typescript
 export interface BlockFrameProps {
-  title: string; // セクションタイトル
-  description: string; // セクション説明
-  children: ReactNode; // グリッド内に表示する子要素
+  title: string;          // セクションタイトル
+  description: string;    // セクション説明
+  children: ReactNode;    // グリッド内に表示する子要素
 }
 ```
 
 **使用箇所:** `components/common/BlockFrame.tsx`
 
 #### TextBlockProps
-
 ```typescript
 export interface TextBlockProps {
-  messages: string[]; // 表示する段落の配列
+  messages: string[];     // 表示する段落の配列
 }
 ```
 
 **使用箇所:** `components/common/TextBlock.tsx`
 
 #### SocialLink
-
 ```typescript
 export interface SocialLink {
-  href: string; // リンク先URL
-  icon: ReactNode; // アイコン（react-icons使用）
-  label: string; // アクセシビリティ用ラベル
+  href: string;           // リンク先URL
+  icon: ReactNode;        // アイコン（react-icons使用）
+  label: string;          // アクセシビリティ用ラベル
 }
 ```
 
@@ -772,17 +737,16 @@ export interface SocialLink {
 
 ```typescript
 // 単一の型をインポート
-import { BlogPost } from "@/types";
+import {BlogPost} from '@/types';
 
 // 複数の型をインポート
-import { Award, Project, GalleryImage } from "@/types";
+import {Award, Project, GalleryImage} from '@/types';
 
 // 型のみをインポート（Type-Only Import）
-import type { NavItem, SocialLink } from "@/types";
+import type {NavItem, SocialLink} from '@/types';
 ```
 
 **ベストプラクティス:**
-
 - コンポーネントのpropsは必ず型定義
 - 新しいデータ構造は`types/index.ts`に追加
 - オプショナルフィールドには`?`を使用
@@ -795,7 +759,6 @@ import type { NavItem, SocialLink } from "@/types";
 ### 8.1 共通コンポーネント
 
 #### TextBlock.tsx
-
 ```typescript
 interface TextBlockProps {
   messages: string[];
@@ -813,11 +776,9 @@ export function TextBlock({messages}: TextBlockProps) {
   );
 }
 ```
-
 **用途:** 複数の段落を表示する汎用コンポーネント
 
 #### BlockFrame.tsx
-
 ```typescript
 interface BlockFrameProps {
   title: string;
@@ -839,25 +800,21 @@ export function BlockFrame({title, description, children}: BlockFrameProps) {
   );
 }
 ```
-
 **用途:** セクション/グリッドレイアウト（Projects、Awards用）
 
 ### 8.2 ブログコンポーネント
 
 #### BlogCard.tsx
-
 - ブログ記事プレビューカード
 - 画像、タイトル、内容抜粋を表示
 - 検索ハイライト機能搭載
 
 #### BlogContent.tsx
-
 - 記事詳細ページのメイン表示
 - リンク解析（`parseContentWithLinks`）で Markdown形式のリンクを自動変換
 - 画像ギャラリー統合
 
 #### SearchBar.tsx + BlogSearchContainer.tsx
-
 - **特徴:** デバウンス検索（500ms待機）
 - **検索対象:** タイトル、内容、タグ
 - **状態管理:** useState でローカル状態管理
@@ -866,8 +823,7 @@ export function BlockFrame({title, description, children}: BlockFrameProps) {
 ### 8.3 レイアウトコンポーネント
 
 #### NavigationBar.tsx
-
-- **機能:**
+- **機能:** 
   - ナビゲーション表示（パスに応じたアクティブ状態）
   - ダークモード切り替えボタン
   - GitHubリポジトリリンク
@@ -875,19 +831,16 @@ export function BlockFrame({title, description, children}: BlockFrameProps) {
 - **タイプ:** クライアントコンポーネント（usePathname、useTheme使用）
 
 #### MobileMenu.tsx
-
 - **機能:** モバイル用フルスクリーンメニュー（モーダル）
 - **特徴:** framer-motion でアニメーション対応
 - **条件表示:** `sm:hidden` でモバイルのみ表示
 
 #### ThemeToggle.tsx
-
 - **機能:** ダークモード/ライトモード切り替え
 - **特徴:** hydration ミスマッチ対策（useEffect でマウント後に表示）
 - **状態:** `next-themes` で管理
 
 #### Footer.tsx
-
 - **機能:** ソーシャルリンク表示、最新コミット時刻表示
 - **特徴:** GitHub API 非同期フェッチ（getLastCommitTime）
 - **型:** クライアントコンポーネント（useEffect 使用）
@@ -905,7 +858,6 @@ export function BlockFrame({title, description, children}: BlockFrameProps) {
 ```
 
 **例:**
-
 ```typescript
 // app/projects/page.tsx
 import {Metadata} from 'next';
@@ -941,7 +893,6 @@ export default function ProjectsPage() {
 ```
 
 **ベストプラクティス:**
-
 ```typescript
 'use client';  // 必要に応じて（インタラクティブなら）
 
@@ -1027,7 +978,6 @@ npm run format
 ```
 
 **Biomeルール:**
-
 - `noConsole: "warn"` - console 出力は警告
 - `noUnusedImports: "warn"` - 未使用インポートを警告
 - `noUnusedVariables: "warn"` - 未使用変数を警告
@@ -1075,12 +1025,16 @@ NEXT_PUBLIC_SITE_URL=https://www.aida0710.work
 // data/blog.ts
 export const blogPosts: BlogPost[] = [
   {
-    slug: "my-new-article",
-    title: "記事タイトル",
-    content: ["本文段落1", "本文段落2", "[リンク](URL)"],
-    date: "2025年01月01日",
-    images: ["image.png"],
-    tags: ["tag1", "tag2"],
+    slug: 'my-new-article',
+    title: '記事タイトル',
+    content: [
+      '本文段落1',
+      '本文段落2',
+      '[リンク](URL)'
+    ],
+    date: '2025年01月01日',
+    images: ['image.png'],
+    tags: ['tag1', 'tag2']
   },
   // ... 既存記事
 ];
@@ -1092,16 +1046,16 @@ export const blogPosts: BlogPost[] = [
 // data/projects.ts
 export const projects: Project[] = [
   {
-    title: "プロジェクト名",
-    description: ["説明1", "説明2"],
-    image: "image.png",
+    title: 'プロジェクト名',
+    description: ['説明1', '説明2'],
+    image: 'image.png',
     links: {
       github: {
-        description: "Github Repository",
-        url: "https://github.com/...",
-      },
+        description: 'Github Repository',
+        url: 'https://github.com/...'
+      }
     },
-    language: "TypeScript",
+    language: 'TypeScript'
   },
   // ... 既存プロジェクト
 ];
@@ -1159,13 +1113,12 @@ useEffect(() => {
   setMounted(true);
 }, []);
 
-if (!mounted) return null; // クライアント側でのみレンダリング
+if (!mounted) return null;  // クライアント側でのみレンダリング
 ```
 
 ### スタイルが反映されない
 
 **確認事項:**
-
 1. Tailwind CSS `content` 設定で対象ファイルが含まれているか
 2. HeroUI プラグインが tailwind.config.js に追加されているか
 3. ビルド後キャッシュをクリア（`.next/` 削除）
@@ -1173,7 +1126,6 @@ if (!mounted) return null; // クライアント側でのみレンダリング
 ### 画像が表示されない
 
 **確認事項:**
-
 1. `/public/` フォルダに画像があるか
 2. `next/image` の width/height が正しいか
 3. alt テキストは指定されているか
@@ -1189,23 +1141,22 @@ if (!mounted) return null; // クライアント側でのみレンダリング
 const variants = {
   enter: {
     transition: {
-      ease: "easeOut", // 文字列は型エラー
-    },
-  },
+      ease: 'easeOut'  // 文字列は型エラー
+    }
+  }
 };
 
 // ✅ 正しいコード（framer-motion 12対応）
 const variants = {
   enter: {
     transition: {
-      ease: [0, 0, 0.2, 1] as const, // cubic-bezier + readonly tuple
-    },
-  },
+      ease: [0, 0, 0.2, 1] as const  // cubic-bezier + readonly tuple
+    }
+  }
 };
 ```
 
 **一般的なeasing値の変換表:**
-
 - `'easeOut'` → `[0, 0, 0.2, 1] as const`
 - `'easeIn'` → `[0.4, 0, 1, 1] as const`
 - `'easeInOut'` → `[0.4, 0, 0.2, 1] as const`
@@ -1228,7 +1179,6 @@ const variants = {
 **最終更新:** 2025年10月29日
 **バージョン:** 2.1.0
 **更新内容:**
-
 - Next.js 15.0.4 → 16.0.1へアップグレード
 - React 18.3.1 → 19.2.0へアップグレード
 - Tailwind CSS 3.4.16 → 4.1.16へ完全移行

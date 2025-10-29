@@ -1,14 +1,8 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
-export default function ErrorBoundary({
-  error,
-  reset,
-}: {
-  error: Error;
-  reset: () => void;
-}) {
+export default function ErrorBoundary({ error, reset }: { error: Error; reset: () => void }) {
   useEffect(() => {
     // biome-ignore lint/suspicious/noConsole: Error logging is necessary for debugging
     console.error(error);

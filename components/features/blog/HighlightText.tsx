@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 interface HighlightTextProps {
   text: string;
@@ -10,10 +10,7 @@ export function HighlightText({ text, highlight }: HighlightTextProps) {
     return <>{text}</>;
   }
 
-  const regex = new RegExp(
-    `(${highlight.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`,
-    "gi",
-  );
+  const regex = new RegExp(`(${highlight.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
   const parts = text.split(regex);
 
   return (
