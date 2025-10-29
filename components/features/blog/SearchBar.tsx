@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { Button } from '@heroui/button';
-import { Input } from '@heroui/input';
-import { Skeleton } from '@heroui/skeleton';
-import { Search, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { Button } from "@heroui/button";
+import { Input } from "@heroui/input";
+import { Skeleton } from "@heroui/skeleton";
+import { Search, X } from "lucide-react";
+import { useEffect, useState } from "react";
 
 interface SearchBarProps {
   onSearchAction: (query: string) => void;
 }
 
 export function SearchBar({ onSearchAction }: SearchBarProps) {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -27,8 +27,8 @@ export function SearchBar({ onSearchAction }: SearchBarProps) {
   }, [searchQuery, onSearchAction]);
 
   const clearSearch = () => {
-    setSearchQuery('');
-    onSearchAction('');
+    setSearchQuery("");
+    onSearchAction("");
   };
 
   return (
@@ -42,7 +42,13 @@ export function SearchBar({ onSearchAction }: SearchBarProps) {
             startContent={<Search size={18} className="text-default-400" />}
             endContent={
               searchQuery && (
-                <Button isIconOnly size="sm" variant="light" onPress={clearSearch} aria-label="検索をクリア">
+                <Button
+                  isIconOnly
+                  size="sm"
+                  variant="light"
+                  onPress={clearSearch}
+                  aria-label="検索をクリア"
+                >
                   <X size={16} />
                 </Button>
               )

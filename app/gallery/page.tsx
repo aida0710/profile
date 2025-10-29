@@ -1,12 +1,12 @@
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 
-import { TextBlock } from '@/components/common/TextBlock';
-import { ImageGallery } from '@/components/features/gallery/ImageGallery';
-import { GALLERY_INTRODUCTION, images } from '@/data/gallery';
+import { TextBlock } from "@/components/common/TextBlock";
+import { ImageGallery } from "@/components/features/gallery/ImageGallery";
+import { GALLERY_INTRODUCTION, images } from "@/data/gallery";
 
 export const metadata: Metadata = {
-  title: 'Gallery',
-  description: '私が撮影した写真や撮影していただいた写真を掲載しています。',
+  title: "Gallery",
+  description: "私が撮影した写真や撮影していただいた写真を掲載しています。",
 };
 
 export default function GalleryPage() {

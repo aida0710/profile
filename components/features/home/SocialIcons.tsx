@@ -1,31 +1,31 @@
-'use client';
-import { Button } from '@heroui/button';
-import { BsGithub, BsInstagram, BsTwitter } from 'react-icons/bs';
-import { SiWakatime } from 'react-icons/si';
+"use client";
+import { Button } from "@heroui/button";
+import { BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
+import { SiWakatime } from "react-icons/si";
 
-import type { SocialLink } from '@/types';
+import type { SocialLink } from "@/types";
 
 // ソーシャルリンクの定義
 const SOCIAL_LINKS: SocialLink[] = [
   {
-    href: 'https://github.com/aida0710',
+    href: "https://github.com/aida0710",
     icon: <BsGithub className="h-full w-full" />,
-    label: 'GitHub',
+    label: "GitHub",
   },
   {
-    href: 'https://twitter.com/aida_0710',
+    href: "https://twitter.com/aida_0710",
     icon: <BsTwitter className="h-full w-full" />,
-    label: 'Twitter',
+    label: "Twitter",
   },
   {
-    href: 'https://www.instagram.com/aida_07100/',
+    href: "https://www.instagram.com/aida_07100/",
     icon: <BsInstagram className="h-full w-full" />,
-    label: 'Instagram',
+    label: "Instagram",
   },
   {
-    href: 'https://wakatime.com/@aida_0710',
+    href: "https://wakatime.com/@aida_0710",
     icon: <SiWakatime className="h-full w-full" />,
-    label: 'Wakatime',
+    label: "Wakatime",
   },
 ];
 
@@ -39,7 +39,7 @@ export function SocialIcons() {
             isIconOnly
             className="hover:scale-125 hover:rounded-md"
             onPress={() => {
-              window.open(link.href, '_blank');
+              window.open(link.href, "_blank");
             }}
             variant="light"
           >
