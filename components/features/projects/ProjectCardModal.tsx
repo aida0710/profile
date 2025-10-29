@@ -1,9 +1,16 @@
-'use client';
-import { Button } from '@heroui/button';
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from '@heroui/modal';
-import Link from 'next/link';
-import type { Project } from '@/types';
-import { ProjectCard } from './ProjectCard';
+"use client";
+import { Button } from "@heroui/button";
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  useDisclosure,
+} from "@heroui/modal";
+import Link from "next/link";
+import type { Project } from "@/types";
+import { ProjectCard } from "./ProjectCard";
 
 interface ProjectCardModalProps {
   project: Project;
@@ -15,7 +22,12 @@ export function ProjectCardModal({ project }: ProjectCardModalProps) {
   return (
     <>
       <ProjectCard project={project} onOpen={onOpen} />
-      <Modal isOpen={isOpen} placement="center" size="xl" onOpenChange={onOpenChange}>
+      <Modal
+        isOpen={isOpen}
+        placement="center"
+        size="xl"
+        onOpenChange={onOpenChange}
+      >
         <ModalContent>
           {(onClose) => (
             <>
@@ -29,7 +41,12 @@ export function ProjectCardModal({ project }: ProjectCardModalProps) {
                   ))}
                 </div>
                 {Object.entries(project.links).map(([key, link]) => (
-                  <Link key={key} className="block w-full" href={link.url} target="_blank">
+                  <Link
+                    key={key}
+                    className="block w-full"
+                    href={link.url}
+                    target="_blank"
+                  >
                     <Button
                       className="w-auto min-w-full whitespace-normal break-words px-4 py-6 text-left"
                       color="primary"

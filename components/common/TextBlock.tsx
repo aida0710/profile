@@ -1,4 +1,4 @@
-import type { TextBlockProps } from '@/types';
+import type { TextBlockProps } from "@/types";
 
 export function TextBlock({ messages }: TextBlockProps) {
   return (

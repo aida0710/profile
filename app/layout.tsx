@@ -1,15 +1,15 @@
-import '@/styles/globals.css';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import clsx from 'clsx';
-import type { Metadata, Viewport } from 'next';
-import type React from 'react';
+import "@/styles/globals.css";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import clsx from "clsx";
+import type { Metadata, Viewport } from "next";
+import type React from "react";
 
-import { Providers } from '@/app/providers';
-import { Footer } from '@/components/layout/Footer';
-import { NavigationBar } from '@/components/layout/NavigationBar';
-import { fontSans } from '@/config/fonts';
-import { siteConfig } from '@/config/site';
+import { Providers } from "@/app/providers";
+import { Footer } from "@/components/layout/Footer";
+import { NavigationBar } from "@/components/layout/NavigationBar";
+import { fontSans } from "@/config/fonts";
+import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: {
@@ -18,54 +18,73 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: '/favicon.ico',
+    icon: "/favicon.ico",
   },
-  keywords: ['aida0710', 'profile', '相田', '優希', 'Aida', 'Masaki', '相田優希', 'Masaki Aida', '相田 優希'],
+  keywords: [
+    "aida0710",
+    "profile",
+    "相田",
+    "優希",
+    "Aida",
+    "Masaki",
+    "相田優希",
+    "Masaki Aida",
+    "相田 優希",
+  ],
   openGraph: {
-    type: 'website',
-    locale: 'ja_JP',
+    type: "website",
+    locale: "ja_JP",
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
     url: siteConfig.url,
     images: {
       url: siteConfig.image,
-      type: 'image/png',
+      type: "image/png",
       width: 1200,
       height: 630,
-      alt: 'Profile Image',
+      alt: "Profile Image",
     },
   },
   twitter: {
     title: siteConfig.name,
     description: siteConfig.description,
-    card: 'summary_large_image',
+    card: "summary_large_image",
     images: {
       url: siteConfig.image,
-      type: 'image/png',
+      type: "image/png",
       width: 1200,
       height: 630,
-      alt: 'Profile Image',
+      alt: "Profile Image",
     },
     creator: siteConfig.twitter_id,
   },
-  metadataBase: new URL(siteConfig.url ?? 'http://localhost:3000'),
+  metadataBase: new URL(siteConfig.url ?? "http://localhost:3000"),
 };
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html suppressHydrationWarning lang="ja">
-      <body className={clsx('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
+      <body
+        className={clsx(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable,
+        )}
+      >
         <Analytics />
         <SpeedInsights />
-        <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
+        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="flex min-h-screen flex-col">
             <NavigationBar />
             <main className="mb-auto">{children}</main>

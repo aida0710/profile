@@ -1,24 +1,24 @@
-import { Card, CardBody, CardFooter } from '@heroui/card';
-import { Chip } from '@heroui/chip';
-import { Link } from '@heroui/link';
-import { CalendarDays } from 'lucide-react';
-import Image from 'next/image';
-import { BLOG_PICTURE_DIRECTORY } from '@/data/blog';
-import type { BlogPost } from '@/types';
-import { HighlightText } from './HighlightText';
+import { Card, CardBody, CardFooter } from "@heroui/card";
+import { Chip } from "@heroui/chip";
+import { Link } from "@heroui/link";
+import { CalendarDays } from "lucide-react";
+import Image from "next/image";
+import { BLOG_PICTURE_DIRECTORY } from "@/data/blog";
+import type { BlogPost } from "@/types";
+import { HighlightText } from "./HighlightText";
 
 interface BlogCardProps {
   post: BlogPost;
   searchQuery?: string;
 }
 
-export function BlogCard({ post, searchQuery = '' }: BlogCardProps) {
+export function BlogCard({ post, searchQuery = "" }: BlogCardProps) {
   const stripLinkMarkdown = (text: string): string => {
-    return text.replace(/\[(.*?)]\(.*?\)/g, '$1');
+    return text.replace(/\[(.*?)]\(.*?\)/g, "$1");
   };
 
   const getDisplayText = (): string => {
-    if (post.content.length === 0) return '';
+    if (post.content.length === 0) return "";
 
     return stripLinkMarkdown(post.content[0]);
   };
@@ -41,7 +41,12 @@ export function BlogCard({ post, searchQuery = '' }: BlogCardProps) {
           {post.images.length > 0 && (
             <div className="order-first w-full flex-shrink-0 md:order-last md:w-1/3">
               <div className="relative h-32 w-full overflow-hidden rounded-lg">
-                <Image src={BLOG_PICTURE_DIRECTORY + post.images[0]} alt={post.title} fill className="object-cover" />
+                <Image
+                  src={BLOG_PICTURE_DIRECTORY + post.images[0]}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
           )}
@@ -59,7 +64,12 @@ export function BlogCard({ post, searchQuery = '' }: BlogCardProps) {
                 <Chip
                   key={tag}
                   size="sm"
-                  color={searchQuery && tag.toLowerCase().includes(searchQuery.toLowerCase()) ? 'warning' : 'primary'}
+                  color={
+                    searchQuery &&
+                    tag.toLowerCase().includes(searchQuery.toLowerCase())
+                      ? "warning"
+                      : "primary"
+                  }
                   variant="flat"
                 >
                   <HighlightText text={tag} highlight={searchQuery} />

@@ -1,12 +1,12 @@
-import { Button } from '@heroui/button';
-import { Chip } from '@heroui/chip';
-import { Divider } from '@heroui/divider';
-import { Link } from '@heroui/link';
-import { CalendarDays, ChevronLeft } from 'lucide-react';
-import Image from 'next/image';
-import type React from 'react';
-import { BLOG_PICTURE_DIRECTORY } from '@/data/blog';
-import type { BlogPost } from '@/types';
+import { Button } from "@heroui/button";
+import { Chip } from "@heroui/chip";
+import { Divider } from "@heroui/divider";
+import { Link } from "@heroui/link";
+import { CalendarDays, ChevronLeft } from "lucide-react";
+import Image from "next/image";
+import type React from "react";
+import { BLOG_PICTURE_DIRECTORY } from "@/data/blog";
+import type { BlogPost } from "@/types";
 
 interface BlogContentProps {
   post: BlogPost;
@@ -25,7 +25,7 @@ function parseContentWithLinks(text: string): React.ReactNode {
       parts.push(text.substring(lastIndex, match.index));
     }
     const [, linkText, linkUrl] = match;
-    const isExternalLink = linkUrl.startsWith('_');
+    const isExternalLink = linkUrl.startsWith("_");
     const url = isExternalLink ? linkUrl.substring(1) : linkUrl;
 
     parts.push(
@@ -57,7 +57,11 @@ export function BlogContent({ post }: BlogContentProps) {
     <div className="mx-auto max-w-6xl p-6">
       <div className="mb-6">
         <Link href="/blog">
-          <Button variant="light" startContent={<ChevronLeft size={16} />} className="mb-4">
+          <Button
+            variant="light"
+            startContent={<ChevronLeft size={16} />}
+            className="mb-4"
+          >
             記事一覧に戻る
           </Button>
         </Link>
@@ -92,10 +96,15 @@ export function BlogContent({ post }: BlogContentProps) {
       {post.images.length > 0 && (
         <>
           <Divider className="my-3" />
-          <h2 className="mb-2 text-xl font-semibold">記事に紐図けられた画像一覧</h2>
+          <h2 className="mb-2 text-xl font-semibold">
+            記事に紐図けられた画像一覧
+          </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {post.images.map((image) => (
-              <div key={image} className="flex aspect-auto w-full flex-col items-center justify-center">
+              <div
+                key={image}
+                className="flex aspect-auto w-full flex-col items-center justify-center"
+              >
                 <div className="relative w-full overflow-hidden rounded-lg">
                   <Image
                     src={BLOG_PICTURE_DIRECTORY + image}
