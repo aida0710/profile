@@ -370,30 +370,111 @@ module.exports = {
 }
 ```
 
-**重要なルール解説:**
+**Biomeとは:**
 
-#### コード品質
-- `noConsole: "warn"` - console.log等の使用を警告（本番環境での不要なログを防止）
-- `noUnusedVariables: "warn"` - 未使用変数を警告
+Biomeは、ESLint + Prettierの代替となる高速なツールチェーンです。Rust製で、リンティングとフォーマットを単一ツールで実行でき、設定も簡潔です。
+
+**ESLint + Prettierからの移行メリット:**
+- **パフォーマンス:** Rust製のため、処理速度が大幅に向上（最大25倍高速）
+- **シンプル:** 1つの設定ファイルで完結（`.eslintrc.json` + `.prettierrc` → `biome.json`）
+- **統合型:** リンティング、フォーマット、インポート整理が一体化
+- **依存関係削減:** 多数のESLintプラグインが不要
+- **一貫性:** 設定の競合が発生しない
+
+**重要な設定解説:**
+
+#### VCS統合（バージョン管理システム）
+```json
+"vcs": {
+  "enabled": true,
+  "clientKind": "git",
+  "useIgnoreFile": true  // .gitignoreを尊重
+}
+```
+- Gitの設定を尊重し、無視されたファイルはチェック対象外
+
+#### コード品質ルール（correctness）
 - `noUnusedImports: "warn"` - 未使用インポートを警告
-
-#### React関連
+  - 自動削除可能で、コードの肥大化を防止
+- `noUnusedVariables: "warn"` - 未使用変数を警告
+  - デッドコードの早期発見
 - `useExhaustiveDependencies: "off"` - useEffectの依存配列チェックを無効化
-- `useSelfClosingElements: "warn"` - 子要素がない場合は自己クロージングタグを強制
+  - React 19では依存配列の扱いが変更されたため、意図的に無効化
+  - 必要に応じて手動で依存関係を管理
 
-#### アクセシビリティ
+#### 疑わしいコードパターン（suspicious）
+- `noConsole: "warn"` - console.log等の使用を警告
+  - 本番環境での不要なログ出力を防止
+  - デバッグ時のconsole.logの削除忘れを検出
+- `noExplicitAny: "off"` - `any`型の使用を許可
+  - TypeScriptの型システムを段階的に導入する場合に有用
+  - 厳格な型チェックが必要な場合は`"error"`に変更
+
+#### スタイルルール（style）
+- `useSelfClosingElements: "warn"` - 子要素がない場合は自己クロージングタグを強制
+  ```tsx
+  // ❌ 警告
+  <div></div>
+
+  // ✅ 正しい
+  <div />
+  ```
+
+#### アクセシビリティ（a11y）
 - `useFocusableInteractive: "warn"` - インタラクティブ要素にフォーカス可能性を要求
+  - キーボード操作の対応を促進
 - `useKeyWithClickEvents: "warn"` - クリックイベントにキーボードイベントも追加
+  ```tsx
+  // ❌ 警告：クリックのみ
+  <div onClick={handler}>Click me</div>
+
+  // ✅ 正しい：キーボードイベントも対応
+  <div onClick={handler} onKeyDown={handler} role="button" tabIndex={0}>
+    Click me
+  </div>
+  ```
 
 #### インポート管理
 - `organizeImports: true` - インポートの自動整理を有効化
+  - アルファベット順に自動ソート
+  - 未使用インポートの自動削除
+  - グループ化（外部ライブラリ → 内部モジュール）
 
-#### コードフォーマット
-- `quoteStyle: "single"` - シングルクォート使用
-- `semicolons: "always"` - セミコロン必須
-- `trailingCommas: "all"` - 末尾カンマを全て追加
-- `indentWidth: 2` - インデント幅2スペース
-- `lineWidth: 120` - 最大行幅120文字
+#### フォーマット設定
+```json
+"formatter": {
+  "indentWidth": 2,        // インデント幅2スペース
+  "lineWidth": 120,        // 最大行幅120文字（Prettier default: 80）
+  "indentStyle": "space"   // タブではなくスペース使用
+}
+```
+
+```json
+"javascript": {
+  "formatter": {
+    "quoteStyle": "single",      // シングルクォート使用
+    "semicolons": "always",      // セミコロン必須
+    "trailingCommas": "all"      // 末尾カンマを全て追加
+  }
+}
+```
+
+**実行例:**
+```bash
+# リンティング + フォーマット（自動修正）
+npm run lint
+
+# フォーマットのみ
+npm run format
+
+# チェックのみ（修正なし）
+npx biome check .
+```
+
+**推奨される設定カスタマイズ:**
+- プロダクション環境: `noConsole: "error"` に変更
+- 厳格な型チェック: `noExplicitAny: "error"` に変更
+- 行幅の調整: `lineWidth: 100` 程度が読みやすい場合も
 
 ### 5.7 package.json スクリプト
 
@@ -1177,16 +1258,23 @@ const variants = {
 ---
 
 **最終更新:** 2025年10月29日
-**バージョン:** 2.1.0
+**バージョン:** 2.1.1
 **更新内容:**
-- Next.js 15.0.4 → 16.0.1へアップグレード
-- React 18.3.1 → 19.2.0へアップグレード
-- Tailwind CSS 3.4.16 → 4.1.16へ完全移行
-  - `@tailwindcss/postcss` パッケージ導入
-  - `postcss.config.js` を v4 構文に更新
-  - `globals.css` を `@import "tailwindcss"` 構文に変更
-- framer-motion 12.23.24へアップグレード
-  - 型定義の厳格化に対応（MobileMenu.tsx の ease プロパティを cubic-bezier 配列に変更）
-- ESLint + Prettier → Biome 2.0.6へ移行
-- 開発ツールの一新とコード品質チェック方法の変更
-- React 19対応のコード修正（JSX.Element → React.ReactElement等）
+- **v2.1.1の変更:**
+  - Biomeルールの詳細説明を大幅拡充（ESLint + Prettierからの移行メリット、各ルールカテゴリの詳細解説）
+  - TypeScript型定義リファレンスの完全版を追加（セクション7）
+  - libsディレクトリ（ユーティリティライブラリ）の詳細説明を追加（セクション6.6）
+  - 実装例とベストプラクティスの追加
+
+- **v2.1.0の変更:**
+  - Next.js 15.0.4 → 16.0.1へアップグレード
+  - React 18.3.1 → 19.2.0へアップグレード
+  - Tailwind CSS 3.4.16 → 4.1.16へ完全移行
+    - `@tailwindcss/postcss` パッケージ導入
+    - `postcss.config.js` を v4 構文に更新
+    - `globals.css` を `@import "tailwindcss"` 構文に変更
+  - framer-motion 12.23.24へアップグレード
+    - 型定義の厳格化に対応（MobileMenu.tsx の ease プロパティを cubic-bezier 配列に変更）
+  - ESLint + Prettier → Biome 2.0.6へ移行
+  - 開発ツールの一新とコード品質チェック方法の変更
+  - React 19対応のコード修正（JSX.Element → React.ReactElement等）
