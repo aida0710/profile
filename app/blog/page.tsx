@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
-import { TextBlock } from "@/components/common/TextBlock";
-import { BlogSearchContainer } from "@/components/features/blog/BlogSearchContainer";
-import { BLOG_INTRODUCTION, getSortedPosts } from "@/data/blog";
-import type { BlogPost } from "@/types";
+import { TextBlock } from '@/components/common/TextBlock';
+import { BlogSearchContainer } from '@/components/features/blog/BlogSearchContainer';
+import { BLOG_INTRODUCTION, getSortedPosts } from '@/data/blog';
+import type { BlogPost } from '@/types';
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "開発や技術に関する記事を公開しています",
+  title: 'Blog',
+  description: '開発や技術に関する記事を公開しています',
 };
 
 export default function BlogPage() {
@@ -26,9 +26,7 @@ export default function BlogPage() {
             <BlogSearchContainer posts={posts} />
           ) : (
             <div className="py-12 text-center">
-              <p className="text-xl text-default-500">
-                現在投稿されている記事はありません。
-              </p>
+              <p className="text-xl text-default-500">現在投稿されている記事はありません。</p>
             </div>
           )}
         </div>

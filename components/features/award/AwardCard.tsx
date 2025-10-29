@@ -1,7 +1,7 @@
-import { Card, CardBody } from "@heroui/card";
-import Image from "next/image";
-import Link from "next/link";
-import type { Award } from "@/types";
+import { Card, CardBody } from '@heroui/card';
+import Image from 'next/image';
+import Link from 'next/link';
+import type { Award } from '@/types';
 
 interface AwardCardProps {
   award: Award;
@@ -10,10 +10,7 @@ interface AwardCardProps {
 export function AwardCard({ award }: AwardCardProps) {
   return (
     <Link href={award.link} target="_blank">
-      <Card
-        isHoverable
-        className="h-full transition-transform hover:scale-[1.02]"
-      >
+      <Card isHoverable className="h-full transition-transform hover:scale-[1.02]">
         <CardBody>
           <h2 className="text-sm">{award.organization}</h2>
           <p className="text-xs">日付：{award.date}</p>

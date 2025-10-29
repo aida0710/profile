@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import { Card } from "@heroui/card";
-import { Skeleton } from "@heroui/skeleton";
-import { useEffect, useMemo, useState } from "react";
-import { BlogCard } from "@/components/features/blog/BlogCard";
-import { SearchBar } from "@/components/features/blog/SearchBar";
-import type { BlogPost } from "@/types";
+import { Card } from '@heroui/card';
+import { Skeleton } from '@heroui/skeleton';
+import { useEffect, useMemo, useState } from 'react';
+import { BlogCard } from '@/components/features/blog/BlogCard';
+import { SearchBar } from '@/components/features/blog/SearchBar';
+import type { BlogPost } from '@/types';
 
 interface BlogSearchContainerProps {
   posts: BlogPost[];
 }
 
 export function BlogSearchContainer({ posts }: BlogSearchContainerProps) {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -20,15 +20,13 @@ export function BlogSearchContainer({ posts }: BlogSearchContainerProps) {
   }, []);
 
   const stripLinkMarkdown = (text: string): string => {
-    return text.replace(/\[(.*?)]\(.*?\)/g, "$1");
+    return text.replace(/\[(.*?)]\(.*?\)/g, '$1');
   };
 
   const getNormalizedText = (post: BlogPost): string => {
     const titleText = post.title.toLowerCase();
-    const contentText = post.content
-      .map((text) => stripLinkMarkdown(text).toLowerCase())
-      .join(" ");
-    const tagsText = post.tags ? post.tags.join(" ").toLowerCase() : "";
+    const contentText = post.content.map((text) => stripLinkMarkdown(text).toLowerCase()).join(' ');
+    const tagsText = post.tags ? post.tags.join(' ').toLowerCase() : '';
     return `${titleText} ${contentText} ${tagsText}`;
   };
 
@@ -85,9 +83,7 @@ export function BlogSearchContainer({ posts }: BlogSearchContainerProps) {
           ))
         ) : (
           <div className="py-12 text-center">
-            <p className="text-xl text-default-500">
-              「{searchQuery}」に一致する記事は見つかりませんでした。
-            </p>
+            <p className="text-xl text-default-500">「{searchQuery}」に一致する記事は見つかりませんでした。</p>
           </div>
         )}
       </div>

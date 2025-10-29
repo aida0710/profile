@@ -1,9 +1,9 @@
-import { Image } from "@heroui/image";
+import { Image } from '@heroui/image';
 
-import { TextBlock } from "@/components/common/TextBlock";
-import { NavigationButtons } from "@/components/features/home/NavigationButtons";
-import { SocialIcons } from "@/components/features/home/SocialIcons";
-import { profileMessages } from "@/data/profile";
+import { TextBlock } from '@/components/common/TextBlock';
+import { NavigationButtons } from '@/components/features/home/NavigationButtons';
+import { SocialIcons } from '@/components/features/home/SocialIcons';
+import { profileMessages } from '@/data/profile';
 
 export default function HomePage() {
   return (
@@ -20,9 +20,7 @@ export default function HomePage() {
         />
       </div>
 
-      <h1 className="text-lg font-medium tracking-wide md:text-2xl">
-        Masaki Aida / 相田 優希
-      </h1>
+      <h1 className="text-lg font-medium tracking-wide md:text-2xl">Masaki Aida / 相田 優希</h1>
 
       <div className="text-md my-3 font-normal tracking-wide md:text-xl">
         <p>20歳 茨城県土浦市在住</p>

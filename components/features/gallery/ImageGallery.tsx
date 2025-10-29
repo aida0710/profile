@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useDisclosure } from "@heroui/modal";
-import { Skeleton } from "@heroui/skeleton";
-import { useEffect, useState } from "react";
+import { useDisclosure } from '@heroui/modal';
+import { Skeleton } from '@heroui/skeleton';
+import { useEffect, useState } from 'react';
 
-import { ImageCard } from "@/components/features/gallery/ImageCard";
-import { ImageModal } from "@/components/features/gallery/ImageModal";
-import type { GalleryImage } from "@/types";
+import { ImageCard } from '@/components/features/gallery/ImageCard';
+import { ImageModal } from '@/components/features/gallery/ImageModal';
+import type { GalleryImage } from '@/types';
 
 interface ImageGalleryProps {
   images: GalleryImage[];
@@ -26,9 +26,7 @@ export function ImageGallery({ images }: ImageGalleryProps) {
     onOpen();
   };
 
-  const sortedImages = [...images].sort(
-    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
-  );
+  const sortedImages = [...images].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
   const skeletonCount = 8;
 
   const SkeletonImageCard = () => (
@@ -51,13 +49,11 @@ export function ImageGallery({ images }: ImageGalleryProps) {
         className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-4 lg:grid-cols-4 lg:gap-6"
       >
         {!isMounted
-          ? Array.from({ length: skeletonCount }, (_, index) => index).map(
-              (skeletonIndex) => (
-                <li key={`skeleton-${skeletonIndex}`}>
-                  <SkeletonImageCard />
-                </li>
-              ),
-            )
+          ? Array.from({ length: skeletonCount }, (_, index) => index).map((skeletonIndex) => (
+              <li key={`skeleton-${skeletonIndex}`}>
+                <SkeletonImageCard />
+              </li>
+            ))
           : sortedImages.map((image) => (
               <li key={image.src}>
                 <ImageCard image={image} onImageClick={handleImageClick} />
@@ -65,9 +61,7 @@ export function ImageGallery({ images }: ImageGalleryProps) {
             ))}
       </ul>
 
-      {isMounted && (
-        <ImageModal image={selectedImage} isOpen={isOpen} onClose={onClose} />
-      )}
+      {isMounted && <ImageModal image={selectedImage} isOpen={isOpen} onClose={onClose} />}
     </div>
   );
 }

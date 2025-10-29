@@ -1,7 +1,7 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-import { GALLERY_DIRECTORY } from "@/data/gallery";
-import type { GalleryImage } from "@/types";
+import { GALLERY_DIRECTORY } from '@/data/gallery';
+import type { GalleryImage } from '@/types';
 
 interface ImageCardProps {
   image: GalleryImage;
@@ -20,7 +20,7 @@ export function ImageCard({ image, onImageClick }: ImageCardProps) {
         <div className="relative h-0 w-full pb-[75%]">
           <Image
             fill
-            alt={image.description || "写真"}
+            alt={image.description || '写真'}
             className="rounded-lg object-cover"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             src={GALLERY_DIRECTORY + image.src}
