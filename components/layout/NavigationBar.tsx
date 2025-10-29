@@ -79,8 +79,8 @@ export function NavigationBar() {
       </NavbarContent>
 
       <NavbarContent className="hidden gap-4 sm:flex" justify="center">
-        {NAVIGATION_ITEMS.map((item, index) => (
-          <NavbarItem key={index} isActive={isActive(item.path)}>
+        {NAVIGATION_ITEMS.map((item) => (
+          <NavbarItem key={item.path} isActive={isActive(item.path)}>
             <Link color="foreground" href={item.path}>
               {item.label}
             </Link>

@@ -41,10 +41,7 @@ export function ImageModal({ image, isOpen, onClose }: ImageModalProps) {
       <ModalContent>
         <ModalBody>
           <div
-            aria-label="モーダル背景"
             className="fixed inset-0 flex flex-col items-center justify-center"
-            role="button"
-            tabIndex={0}
             onClick={handleBackdropInteraction}
             onKeyDown={handleBackdropInteraction}
             onTouchEnd={handleBackdropInteraction}

@@ -15,8 +15,8 @@ export function ProjectCard({ project, onOpen }: ProjectCardProps) {
         <h2 className="text-sm">言語：{project.language}</h2>
         <h3 className="my-2 font-semibold">{project.title}</h3>
         <div className="mb-1">
-          {project.description.map((item, index) => (
-            <p key={index} className="text-md">
+          {project.description.map((item) => (
+            <p key={item} className="text-md">
               {item}
             </p>
           ))}

@@ -44,23 +44,22 @@ export function ImageGallery({ images }: ImageGalleryProps) {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div
+      <ul
         aria-label="画像ギャラリー"
         className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-4 lg:grid-cols-4 lg:gap-6"
-        role="list"
       >
         {!isMounted
-          ? [...Array(skeletonCount)].map((_, index) => (
-              <div key={`skeleton-${index}`} role="listitem">
+          ? Array.from({ length: skeletonCount }, (_, index) => index).map((skeletonIndex) => (
+              <li key={`skeleton-${skeletonIndex}`}>
                 <SkeletonImageCard />
-              </div>
+              </li>
             ))
-          : sortedImages.map((image, index) => (
-              <div key={index} role="listitem">
+          : sortedImages.map((image) => (
+              <li key={image.src}>
                 <ImageCard image={image} onImageClick={handleImageClick} />
-              </div>
+              </li>
             ))}
-      </div>
+      </ul>
 
       {isMounted && <ImageModal image={selectedImage} isOpen={isOpen} onClose={onClose} />}
     </div>

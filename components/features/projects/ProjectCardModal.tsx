@@ -22,8 +22,8 @@ export function ProjectCardModal({ project }: ProjectCardModalProps) {
               <ModalHeader>{project.title}</ModalHeader>
               <ModalBody>
                 <div className="mb-1">
-                  {project.description.map((item, index) => (
-                    <p key={index} className="text-md">
+                  {project.description.map((item) => (
+                    <p key={item} className="text-md">
                       {item}
                     </p>
                   ))}

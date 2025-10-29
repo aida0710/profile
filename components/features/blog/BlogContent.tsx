@@ -17,9 +17,10 @@ function parseContentWithLinks(text: string): React.ReactNode {
 
   const parts: Array<string | React.ReactElement> = [];
   let lastIndex = 0;
-  let match;
+  let match: RegExpExecArray | null;
 
-  while ((match = linkRegex.exec(text)) !== null) {
+  match = linkRegex.exec(text);
+  while (match !== null) {
     if (match.index > lastIndex) {
       parts.push(text.substring(lastIndex, match.index));
     }
@@ -41,6 +42,7 @@ function parseContentWithLinks(text: string): React.ReactNode {
     );
 
     lastIndex = match.index + match[0].length;
+    match = linkRegex.exec(text);
   }
 
   if (lastIndex < text.length) {
@@ -80,8 +82,8 @@ export function BlogContent({ post }: BlogContentProps) {
       </div>
 
       <div className="prose mb-8 max-w-none">
-        {post.content.map((paragraph, index) => (
-          <p key={index} className="mb-2 leading-relaxed">
+        {post.content.map((paragraph) => (
+          <p key={paragraph} className="mb-2 leading-relaxed">
             {parseContentWithLinks(paragraph)}
           </p>
         ))}
@@ -92,12 +94,12 @@ export function BlogContent({ post }: BlogContentProps) {
           <Divider className="my-3" />
           <h2 className="mb-2 text-xl font-semibold">記事に紐図けられた画像一覧</h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {post.images.map((image, index) => (
-              <div key={index} className="flex aspect-auto w-full flex-col items-center justify-center">
+            {post.images.map((image) => (
+              <div key={image} className="flex aspect-auto w-full flex-col items-center justify-center">
                 <div className="relative w-full overflow-hidden rounded-lg">
                   <Image
                     src={BLOG_PICTURE_DIRECTORY + image}
-                    alt={`${post.title}の画像 ${index + 1}`}
+                    alt={`${post.title}の画像`}
                     width={1280}
                     height={720}
                     className="max-h-96 w-auto rounded-lg"

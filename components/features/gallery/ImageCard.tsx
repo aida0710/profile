@@ -11,6 +11,7 @@ interface ImageCardProps {
 export function ImageCard({ image, onImageClick }: ImageCardProps) {
   return (
     <button
+      type="button"
       aria-label="画像を拡大表示"
       className="group w-full overflow-hidden rounded-lg bg-background shadow-lg transition-transform hover:scale-[1.02] hover:opacity-95"
       onClick={() => onImageClick(image)}

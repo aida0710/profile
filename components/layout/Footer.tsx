@@ -44,8 +44,7 @@ export function Footer() {
         const time = await getLastCommitTime();
 
         setLastCommitTime(time);
-      } catch (error) {
-        console.error('Failed to fetch commit time:', error);
+      } catch {
         setLastCommitTime('Failed to load commit time');
       }
     };
@@ -59,8 +58,8 @@ export function Footer() {
 
       <div className="mx-auto max-w-7xl px-5 pb-8">
         <div className="mb-3 flex flex-wrap gap-2">
-          {SOCIAL_LINKS.map((link, index) => (
-            <Link key={index} aria-label={link.label} href={link.href} target="_blank">
+          {SOCIAL_LINKS.map((link) => (
+            <Link key={link.href} aria-label={link.label} href={link.href} target="_blank">
               <Button color="default" startContent={link.icon} variant="light">
                 {link.label}
               </Button>

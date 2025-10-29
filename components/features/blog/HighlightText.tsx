@@ -16,17 +16,18 @@ export function HighlightText({ text, highlight }: HighlightTextProps) {
   return (
     <>
       {parts.map((part, i) => {
+        const key = `${part}-${Math.random().toString(36).substring(2, 11)}-${i}`;
         if (part.toLowerCase() === highlight.toLowerCase()) {
           return (
             <mark
-              key={i}
+              key={key}
               className="rounded bg-primary-100 px-1 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400"
             >
               {part}
             </mark>
           );
         }
-        return part;
+        return <span key={key}>{part}</span>;
       })}
     </>
   );
