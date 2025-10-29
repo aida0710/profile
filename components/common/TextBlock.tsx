@@ -1,17 +1,13 @@
-import React from 'react';
+import type { TextBlockProps } from '@/types';
 
-import {TextBlockProps} from '@/types';
-
-export function TextBlock({messages}: TextBlockProps) {
-    return (
-        <div className='p-6'>
-            {messages.map((message, index) => (
-                <p
-                    key={index}
-                    className='text-base leading-relaxed md:text-lg'>
-                    {message}
-                </p>
-            ))}
-        </div>
-    );
+export function TextBlock({ messages }: TextBlockProps) {
+  return (
+    <div className="p-6">
+      {messages.map((message) => (
+        <p key={message} className="text-base leading-relaxed md:text-lg">
+          {message}
+        </p>
+      ))}
+    </div>
+  );
 }
