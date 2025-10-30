@@ -4,7 +4,7 @@ import { Button } from '@heroui/button';
 import { Divider } from '@heroui/divider';
 import { Link } from '@heroui/link';
 import { useEffect, useState } from 'react';
-import { BsGithub, BsInstagram, BsTwitter } from 'react-icons/bs';
+import { BsFacebook, BsGithub, BsInstagram, BsLinkedin, BsTwitter } from 'react-icons/bs';
 import { SiWakatime } from 'react-icons/si';
 
 import getLastCommitTime from '@/libs/fetch/getLastCommitTime';
@@ -30,6 +30,16 @@ const SOCIAL_LINKS: SocialLink[] = [
     href: 'https://wakatime.com/@aida_0710',
     icon: <SiWakatime className="h-full w-full p-1" />,
     label: 'Wakatime',
+  },
+  {
+    href: 'https://www.linkedin.com/in/aida0710/',
+    icon: <BsLinkedin className="h-full w-full p-1" />,
+    label: 'LinkedIn',
+  },
+  {
+    href: 'https://www.facebook.com/people/%E7%9B%B8%E7%94%B0%E5%84%AA%E5%B8%8C/pfbid0FsYQyp4KV7NvAyo65zwLK4AmVqcSxKaH6Q4YW9vV1xFV6sasmSSaYyLyF3tPTuaFl/',
+    icon: <BsFacebook className="h-full w-full p-1" />,
+    label: 'Facebook',
   },
 ];
 
