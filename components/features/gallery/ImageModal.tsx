@@ -40,7 +40,10 @@ export function ImageModal({ image, isOpen, onClose }: ImageModalProps) {
     <Modal hideCloseButton backdrop="opaque" className="bg-black/75" isOpen={isOpen} size="full" onClose={onClose}>
       <ModalContent>
         <ModalBody>
+          {/* biome-ignore lint/a11y/useSemanticElements: モーダル背景全体をクリック可能にするためdivを使用 */}
           <div
+            role="button"
+            tabIndex={0}
             className="fixed inset-0 flex flex-col items-center justify-center"
             onClick={handleBackdropInteraction}
             onKeyDown={handleBackdropInteraction}
