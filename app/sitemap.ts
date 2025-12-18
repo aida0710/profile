@@ -1,7 +1,6 @@
 import type { MetadataRoute } from 'next';
-
-import { blogPosts } from '@/data/blog';
 import { siteConfig } from '@/config/site';
+import { blogPosts } from '@/data/blog';
 
 /**
  * 日本語形式の日付（例: "2025年06月28日"）をDateオブジェクトに変換
