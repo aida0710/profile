@@ -3,6 +3,7 @@
 import { Card } from '@heroui/card';
 import { Skeleton } from '@heroui/skeleton';
 import { useEffect, useMemo, useState } from 'react';
+import { AnimatedSection } from '@/components/common/AnimatedSection';
 import { BlogCard } from '@/components/features/blog/BlogCard';
 import { SearchBar } from '@/components/features/blog/SearchBar';
 import type { BlogPost } from '@/types';
@@ -76,10 +77,10 @@ export function BlogSearchContainer({ posts }: BlogSearchContainerProps) {
             <SkeletonBlogCard />
           </>
         ) : filteredPosts.length > 0 ? (
-          filteredPosts.map((post) => (
-            <div key={post.slug} className="w-full">
+          filteredPosts.map((post, index) => (
+            <AnimatedSection key={post.slug} delay={index * 80} className="w-full">
               <BlogCard post={post} searchQuery={searchQuery} />
-            </div>
+            </AnimatedSection>
           ))
         ) : (
           <div className="py-12 text-center">

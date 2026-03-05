@@ -3,6 +3,7 @@
 import { useDisclosure } from '@heroui/modal';
 import { useEffect, useState } from 'react';
 
+import { AnimatedSection } from '@/components/common/AnimatedSection';
 import { ImageCard } from '@/components/features/gallery/ImageCard';
 import { ImageModal } from '@/components/features/gallery/ImageModal';
 import type { GalleryImage } from '@/types';
@@ -51,9 +52,11 @@ export function ImageGallery({ images }: ImageGalleryProps) {
                 <SkeletonImageCard />
               </li>
             ))
-          : sortedImages.map((image) => (
+          : sortedImages.map((image, index) => (
               <li key={image.src}>
-                <ImageCard image={image} onImageClick={handleImageClick} />
+                <AnimatedSection delay={index * 50}>
+                  <ImageCard image={image} onImageClick={handleImageClick} />
+                </AnimatedSection>
               </li>
             ))}
       </ul>
