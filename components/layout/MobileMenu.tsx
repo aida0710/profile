@@ -1,14 +1,12 @@
 'use client';
 
-import { Button } from '@heroui/button';
 import { Divider } from '@heroui/divider';
-import { Link } from '@heroui/link';
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from '@heroui/modal';
+import { Modal, ModalBody, ModalContent, ModalHeader, useDisclosure } from '@heroui/modal';
 import clsx from 'clsx';
 import { MenuIcon, XIcon } from 'lucide-react';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { ProjectIcon } from '@/components/icons/ProjectIcon';
 import type { NavItem } from '@/types';
 
 const MOTION_VARIANTS = {
@@ -17,7 +15,7 @@ const MOTION_VARIANTS = {
     opacity: 1,
     transition: {
       duration: 0.3,
-      ease: [0, 0, 0.2, 1] as const, // easeOut cubic-bezier
+      ease: [0, 0, 0.2, 1] as const,
     },
   },
   exit: {
@@ -25,7 +23,7 @@ const MOTION_VARIANTS = {
     opacity: 0,
     transition: {
       duration: 0.2,
-      ease: [0.4, 0, 1, 1] as const, // easeIn cubic-bezier
+      ease: [0.4, 0, 1, 1] as const,
     },
   },
 };
@@ -41,59 +39,57 @@ export function MobileMenu({ navItems }: MobileMenuProps) {
   const isActive = (path: string): boolean => pathname === path;
 
   return (
-    <div className="sm:hidden">
-      <button type="button" aria-label="メニューを開く" className="cursor-pointer" onClick={onOpen}>
-        <MenuIcon aria-hidden="true" className="h-8 w-8" />
+    <>
+      <button
+        type="button"
+        aria-label="メニューを開く"
+        className="cursor-pointer text-warm-text focus-visible:ring-2 focus-visible:ring-warm-accent focus-visible:rounded-md focus-visible:outline-none"
+        onClick={onOpen}
+      >
+        <MenuIcon aria-hidden="true" className="h-6 w-6" />
       </button>
 
       <Modal
         hideCloseButton
         backdrop="blur"
         isOpen={isOpen}
-        motionProps={{
-          variants: MOTION_VARIANTS,
-        }}
+        motionProps={{ variants: MOTION_VARIANTS }}
         size="full"
         onOpenChange={onOpenChange}
       >
-        <ModalContent className="bg-opacity-70 overscroll-contain">
+        <ModalContent className="bg-warm-bg">
           <ModalHeader className="flex items-center">
-            <button type="button" aria-label="メニューを閉じる" className="mr-4 cursor-pointer" onClick={onClose}>
-              <XIcon aria-hidden="true" className="h-8 w-8" />
+            <button
+              type="button"
+              aria-label="メニューを閉じる"
+              className="mr-4 cursor-pointer text-warm-text focus-visible:ring-2 focus-visible:ring-warm-accent focus-visible:rounded-md focus-visible:outline-none"
+              onClick={onClose}
+            >
+              <XIcon aria-hidden="true" className="h-6 w-6" />
             </button>
-            <Link color="foreground" href="/">
-              <ProjectIcon />
-              <p className="ml-5 text-large font-bold text-inherit">Profile</p>
-            </Link>
+            <p className="font-heading text-lg font-semibold text-warm-text">Menu</p>
           </ModalHeader>
 
-          <Divider />
+          <Divider className="bg-warm-border" />
 
-          <ModalBody>
+          <ModalBody className="py-6">
             {navItems.map((item) => (
-              <div key={item.path} className="flex w-full items-center">
-                <Link
-                  className={clsx('m-3 flex w-full items-center text-4xl', {
-                    'text-primary': isActive(item.path),
-                  })}
-                  color="foreground"
-                  href={item.path}
-                  onPress={onClose}
-                >
-                  <span aria-hidden="true">{item.icon}</span>
-                  <span className="ml-4">{item.label}</span>
-                </Link>
-              </div>
+              <Link
+                key={item.path}
+                className={clsx('flex items-center gap-4 rounded-lg px-4 py-3 text-2xl font-medium transition-colors', {
+                  'text-warm-accent': isActive(item.path),
+                  'text-warm-text hover:text-warm-accent': !isActive(item.path),
+                })}
+                href={item.path}
+                onClick={onClose}
+              >
+                <span aria-hidden="true">{item.icon}</span>
+                <span>{item.label}</span>
+              </Link>
             ))}
           </ModalBody>
-
-          <ModalFooter>
-            <Button color="primary" variant="ghost" onPress={onClose}>
-              閉じる
-            </Button>
-          </ModalFooter>
         </ModalContent>
       </Modal>
-    </div>
+    </>
   );
 }

@@ -15,15 +15,21 @@ export function ProjectCardModal({ project }: ProjectCardModalProps) {
   return (
     <>
       <ProjectCard project={project} onOpen={onOpen} />
-      <Modal isOpen={isOpen} placement="center" size="xl" onOpenChange={onOpenChange} className="overscroll-contain">
+      <Modal
+        isOpen={isOpen}
+        placement="center"
+        size="xl"
+        onOpenChange={onOpenChange}
+        className="overscroll-contain border border-warm-border bg-warm-bg"
+      >
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader>{project.title}</ModalHeader>
+              <ModalHeader className="font-heading text-warm-text">{project.title}</ModalHeader>
               <ModalBody>
-                <div className="mb-1">
+                <div className="mb-3">
                   {project.description.map((item) => (
-                    <p key={item} className="text-md">
+                    <p key={item} className="text-sm leading-relaxed text-warm-text/80">
                       {item}
                     </p>
                   ))}
@@ -31,7 +37,7 @@ export function ProjectCardModal({ project }: ProjectCardModalProps) {
                 {Object.entries(project.links).map(([key, link]) => (
                   <Link
                     key={key}
-                    className="block w-auto min-w-full whitespace-normal break-words rounded-lg bg-primary/10 px-4 py-6 text-left text-primary transition-colors hover:bg-primary/20"
+                    className="block rounded-lg border border-warm-border bg-warm-surface px-4 py-3 text-sm text-warm-accent transition-colors hover:border-warm-accent/30 hover:bg-warm-accent/5 focus-visible:ring-2 focus-visible:ring-warm-accent focus-visible:outline-none"
                     href={link.url}
                     target="_blank"
                   >
@@ -40,7 +46,7 @@ export function ProjectCardModal({ project }: ProjectCardModalProps) {
                 ))}
               </ModalBody>
               <ModalFooter>
-                <Button color="danger" variant="flat" onPress={onClose}>
+                <Button className="text-warm-subtext" variant="light" onPress={onClose}>
                   Close
                 </Button>
               </ModalFooter>

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <div className="pt-8">
+    <div className="px-2 py-10 md:py-16">
       <BlockFrame description="自分が開発した又は携わったプロジェクト" title="Projects">
         {projects.map((project: Project) => (
           <ProjectCardModal key={project.title} project={project} />

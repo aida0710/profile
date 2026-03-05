@@ -3,3 +3,23 @@
 @plugin './hero.mjs';
 @source '../node_modules/@heroui/theme/dist/**/**.{js,ts,jsx,tsx}';
 @custom-variant dark (&:is(.dark *));
+
+:root {
+  --color-warm-bg: #FAF8F5;
+  --color-warm-surface: #F0EDE8;
+  --color-warm-text: #2C2825;
+  --color-warm-subtext: #8A8580;
+  --color-warm-accent: #C4703F;
+  --color-warm-accent-hover: #B5633A;
+  --color-warm-border: #E8E4DF;
+}
+
+.dark {
+  --color-warm-bg: #1A1816;
+  --color-warm-surface: #252220;
+  --color-warm-text: #E8E4DF;
+  --color-warm-subtext: #8A8580;
+  --color-warm-accent: #D4885A;
+  --color-warm-accent-hover: #E09A6C;
+  --color-warm-border: #333028;
+}

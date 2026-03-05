@@ -6,9 +6,9 @@ import type { Metadata, Viewport } from 'next';
 import type React from 'react';
 
 import { Providers } from '@/app/providers';
-import { Footer } from '@/components/layout/Footer';
-import { NavigationBar } from '@/components/layout/NavigationBar';
-import { fontSans } from '@/config/fonts';
+import { MobileHeader } from '@/components/layout/MobileHeader';
+import { Sidebar } from '@/components/layout/Sidebar';
+import { fontHeading, fontMono, fontSans } from '@/config/fonts';
 import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
@@ -62,15 +62,28 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html suppressHydrationWarning lang="ja">
-      <body className={clsx('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
+      <body
+        className={clsx(
+          'min-h-screen bg-warm-bg font-sans antialiased transition-[background-color] duration-300',
+          fontSans.variable,
+          fontHeading.variable,
+          fontMono.variable,
+        )}
+      >
         <Analytics />
         <SpeedInsights />
-        <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
-          <div className="flex min-h-screen flex-col">
-            <NavigationBar />
-            <main className="mb-auto">{children}</main>
-            <Footer />
-          </div>
+        <Providers themeProps={{ attribute: 'class', defaultTheme: 'light' }}>
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-warm-accent focus:px-4 focus:py-2 focus:text-white"
+          >
+            メインコンテンツへスキップ
+          </a>
+          <Sidebar />
+          <MobileHeader />
+          <main id="main" className="min-h-screen pt-14 sm:ml-60 sm:pt-0">
+            {children}
+          </main>
         </Providers>
       </body>
     </html>

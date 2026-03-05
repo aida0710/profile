@@ -13,7 +13,7 @@ export function ImageCard({ image, onImageClick }: ImageCardProps) {
     <button
       type="button"
       aria-label="画像を拡大表示"
-      className="group w-full overflow-hidden rounded-lg bg-background shadow-lg transition-transform hover:scale-[1.02] hover:opacity-95 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none motion-reduce:transition-none"
+      className="group w-full overflow-hidden rounded-xl border border-warm-border bg-warm-surface transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-warm-accent/30 hover:shadow-lg hover:shadow-warm-accent/5 focus-visible:ring-2 focus-visible:ring-warm-accent focus-visible:outline-none"
       onClick={() => onImageClick(image)}
     >
       <div className="relative w-full p-1">
@@ -28,7 +28,7 @@ export function ImageCard({ image, onImageClick }: ImageCardProps) {
         </div>
       </div>
       <div className="p-2 lg:p-4">
-        <p className="text-sm text-default-500">{image.description}</p>
+        <p className="text-sm text-warm-subtext">{image.description}</p>
       </div>
     </button>
   );

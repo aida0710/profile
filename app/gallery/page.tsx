@@ -11,15 +11,13 @@ export const metadata: Metadata = {
 
 export default function GalleryPage() {
   return (
-    <main className="min-h-screen bg-background">
-      <div className="py-8">
-        <div className="text-center">
-          <h1 className="text-3xl font-medium md:text-4xl">Photo Gallery</h1>
-          <TextBlock messages={GALLERY_INTRODUCTION} />
-        </div>
-
-        <ImageGallery images={images} />
+    <div className="min-h-screen py-10 md:py-16">
+      <div className="mb-8 px-6">
+        <h1 className="font-heading text-3xl font-semibold tracking-tight text-warm-text md:text-4xl">Photo Gallery</h1>
+        <TextBlock messages={GALLERY_INTRODUCTION} />
       </div>
-    </main>
+
+      <ImageGallery images={images} />
+    </div>
   );
 }

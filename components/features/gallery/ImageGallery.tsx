@@ -1,7 +1,6 @@
 'use client';
 
 import { useDisclosure } from '@heroui/modal';
-import { Skeleton } from '@heroui/skeleton';
 import { useEffect, useState } from 'react';
 
 import { ImageCard } from '@/components/features/gallery/ImageCard';
@@ -30,16 +29,14 @@ export function ImageGallery({ images }: ImageGalleryProps) {
   const skeletonCount = 8;
 
   const SkeletonImageCard = () => (
-    <Skeleton className="w-full rounded-lg shadow-lg">
-      <div className="w-full overflow-hidden bg-background shadow-lg">
-        <div className="relative w-full p-1">
-          <div className="relative h-0 w-full rounded-lg bg-default-200 pb-[75%]" />
-        </div>
-        <div className="p-2 lg:p-4">
-          <div className="h-4 w-3/4 rounded bg-default-100" />
-        </div>
+    <div className="w-full animate-pulse overflow-hidden rounded-xl border border-warm-border bg-warm-surface">
+      <div className="relative w-full p-1">
+        <div className="relative h-0 w-full rounded-lg bg-warm-border pb-[75%]" />
       </div>
-    </Skeleton>
+      <div className="p-2 lg:p-4">
+        <div className="h-4 w-3/4 rounded bg-warm-border" />
+      </div>
+    </div>
   );
 
   return (

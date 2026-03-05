@@ -2,9 +2,9 @@ import type { TextBlockProps } from '@/types';
 
 export function TextBlock({ messages }: TextBlockProps) {
   return (
-    <div className="p-6">
+    <div className="py-4">
       {messages.map((message) => (
-        <p key={message} className="break-words text-base leading-relaxed md:text-lg">
+        <p key={message} className="break-words text-base leading-relaxed text-warm-text/80 md:text-lg">
           {message}
         </p>
       ))}

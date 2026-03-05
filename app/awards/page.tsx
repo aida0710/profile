@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function AwardsPage() {
   return (
-    <div className="pt-8">
+    <div className="px-2 py-10 md:py-16">
       <BlockFrame description="頂いた賞の一覧" title="Award">
         {awards.map((award) => (
           <AwardCard key={`${award.organization}-${award.description}-${award.date}`} award={award} />

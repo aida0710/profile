@@ -9,8 +9,20 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        warm: {
+          bg: 'var(--color-warm-bg)',
+          surface: 'var(--color-warm-surface)',
+          text: 'var(--color-warm-text)',
+          subtext: 'var(--color-warm-subtext)',
+          accent: 'var(--color-warm-accent)',
+          'accent-hover': 'var(--color-warm-accent-hover)',
+          border: 'var(--color-warm-border)',
+        },
+      },
       fontFamily: {
         sans: ['var(--font-sans)'],
+        heading: ['var(--font-heading)'],
         mono: ['var(--font-mono)'],
       },
     },

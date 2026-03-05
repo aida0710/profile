@@ -14,23 +14,21 @@ export default function BlogPage() {
   const posts: BlogPost[] = getSortedPosts();
 
   return (
-    <main className="min-h-screen bg-background">
-      <div className="py-8">
-        <div className="text-center">
-          <h1 className="text-3xl font-medium md:text-4xl">Blog</h1>
-          <TextBlock messages={BLOG_INTRODUCTION} />
-        </div>
-
-        <div className="mx-auto max-w-3xl px-4">
-          {posts.length > 0 ? (
-            <BlogSearchContainer posts={posts} />
-          ) : (
-            <div className="py-12 text-center">
-              <p className="text-xl text-default-500">現在投稿されている記事はありません。</p>
-            </div>
-          )}
-        </div>
+    <div className="min-h-screen py-10 md:py-16">
+      <div className="mb-8 px-6">
+        <h1 className="font-heading text-3xl font-semibold tracking-tight text-warm-text md:text-4xl">Blog</h1>
+        <TextBlock messages={BLOG_INTRODUCTION} />
       </div>
-    </main>
+
+      <div className="mx-auto max-w-3xl px-4">
+        {posts.length > 0 ? (
+          <BlogSearchContainer posts={posts} />
+        ) : (
+          <div className="py-12 text-center">
+            <p className="text-lg text-warm-subtext">現在投稿されている記事はありません。</p>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
