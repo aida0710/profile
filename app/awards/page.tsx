@@ -1,26 +1,25 @@
-import type {Metadata} from 'next';
+import type { Metadata } from 'next';
 
-import {AnimatedSection} from '@/components/common/AnimatedSection';
-import {BlockFrame} from '@/components/common/BlockFrame';
-import {AwardCard} from '@/components/features/award/AwardCard';
-import {awards} from '@/data/awards';
+import { AnimatedSection } from '@/components/common/AnimatedSection';
+import { BlockFrame } from '@/components/common/BlockFrame';
+import { AwardCard } from '@/components/features/award/AwardCard';
+import { awards } from '@/data/awards';
 
 export const metadata: Metadata = {
-    title: 'Awards',
-    description: '受賞した賞の一覧を紹介しています',
+  title: 'Awards',
+  description: '受賞した賞の一覧を紹介しています',
 };
 
 export default function AwardsPage() {
-    return (
-        <div className='px-2 py-10 md:py-16'>
-            <BlockFrame description='頂いた賞の一覧' title='Award'>
-                {awards.map((award, index) => (
-                    <AnimatedSection key={`${award.organization}-${award.description}-${award.date}`}
-                                     delay={index * 80}>
-                        <AwardCard award={award} />
-                    </AnimatedSection>
-                ))}
-            </BlockFrame>
-        </div>
-    );
+  return (
+    <div className="px-2 py-10 md:py-16">
+      <BlockFrame description="頂いた賞の一覧" title="Award">
+        {awards.map((award, index) => (
+          <AnimatedSection key={`${award.organization}-${award.description}-${award.date}`} delay={index * 80}>
+            <AwardCard award={award} />
+          </AnimatedSection>
+        ))}
+      </BlockFrame>
+    </div>
+  );
 }
