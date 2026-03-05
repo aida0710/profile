@@ -1,65 +1,67 @@
 'use client';
 
-import { Button } from '@heroui/button';
-import { Input } from '@heroui/input';
-import { Skeleton } from '@heroui/skeleton';
-import { Search, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import {Button} from '@heroui/button';
+import {Input} from '@heroui/input';
+import {Skeleton} from '@heroui/skeleton';
+import {Search, X} from 'lucide-react';
+import {useEffect, useState} from 'react';
 
 interface SearchBarProps {
-  onSearchAction: (query: string) => void;
+    onSearchAction: (query: string) => void;
 }
 
-export function SearchBar({ onSearchAction }: SearchBarProps) {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [isMounted, setIsMounted] = useState(false);
+export function SearchBar({onSearchAction}: SearchBarProps) {
+    const [searchQuery, setSearchQuery] = useState('');
+    const [isMounted, setIsMounted] = useState(false);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
 
-  useEffect(() => {
-    const delayDebounceFn = setTimeout(() => {
-      onSearchAction(searchQuery);
-    }, 500);
+    useEffect(() => {
+        const delayDebounceFn = setTimeout(() => {
+            onSearchAction(searchQuery);
+        }, 500);
 
-    return () => clearTimeout(delayDebounceFn);
-  }, [searchQuery, onSearchAction]);
+        return () => clearTimeout(delayDebounceFn);
+    }, [searchQuery, onSearchAction]);
 
-  const clearSearch = () => {
-    setSearchQuery('');
-    onSearchAction('');
-  };
+    const clearSearch = () => {
+        setSearchQuery('');
+        onSearchAction('');
+    };
 
-  return (
-    <div className="mx-auto mb-8 w-full max-w-xl">
-      <div className="relative">
-        {isMounted ? (
-          <Input
-            name="search"
-            autoComplete="off"
-            placeholder="記事を検索…"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            startContent={<Search aria-hidden="true" size={18} className="text-default-400" />}
-            endContent={
-              searchQuery && (
-                <Button isIconOnly size="sm" variant="light" onPress={clearSearch} aria-label="検索をクリア">
-                  <X size={16} />
-                </Button>
-              )
-            }
-            className="pr-8"
-          />
-        ) : (
-          <Skeleton className="w-full rounded-md">
-            <div className="flex h-10 w-full items-center rounded-md border border-default-200 bg-default-100 px-3">
-              <Search size={18} className="mr-2 text-default-300" />
-              <span className="text-default-300">記事を検索中…</span>
+    return (
+        <div className='mx-auto mb-8 w-full max-w-xl'>
+            <div className='relative'>
+                {isMounted ? (
+                    <Input
+                        name='search'
+                        autoComplete='off'
+                        placeholder='記事を検索…'
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        startContent={<Search aria-hidden='true' size={18} className='text-default-400' />}
+                        endContent={
+                            searchQuery && (
+                                <Button isIconOnly size='sm' variant='light' onPress={clearSearch}
+                                        aria-label='検索をクリア'>
+                                    <X size={16} />
+                                </Button>
+                            )
+                        }
+                        className='pr-8'
+                    />
+                ) : (
+                    <Skeleton className='w-full rounded-md'>
+                        <div
+                            className='flex h-10 w-full items-center rounded-md border border-default-200 bg-default-100 px-3'>
+                            <Search size={18} className='mr-2 text-default-300' />
+                            <span className='text-default-300'>記事を検索中…</span>
+                        </div>
+                    </Skeleton>
+                )}
             </div>
-          </Skeleton>
-        )}
-      </div>
-    </div>
-  );
+        </div>
+    );
 }
