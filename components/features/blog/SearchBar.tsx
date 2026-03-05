@@ -36,10 +36,12 @@ export function SearchBar({ onSearchAction }: SearchBarProps) {
       <div className="relative">
         {isMounted ? (
           <Input
-            placeholder="記事を検索..."
+            name="search"
+            autoComplete="off"
+            placeholder="記事を検索…"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            startContent={<Search size={18} className="text-default-400" />}
+            startContent={<Search aria-hidden="true" size={18} className="text-default-400" />}
             endContent={
               searchQuery && (
                 <Button isIconOnly size="sm" variant="light" onPress={clearSearch} aria-label="検索をクリア">
@@ -53,7 +55,7 @@ export function SearchBar({ onSearchAction }: SearchBarProps) {
           <Skeleton className="w-full rounded-md">
             <div className="flex h-10 w-full items-center rounded-md border border-default-200 bg-default-100 px-3">
               <Search size={18} className="mr-2 text-default-300" />
-              <span className="text-default-300">記事を検索中...</span>
+              <span className="text-default-300">記事を検索中…</span>
             </div>
           </Skeleton>
         )}

@@ -5,7 +5,7 @@ import { Divider } from '@heroui/divider';
 import { Link } from '@heroui/link';
 import { useEffect, useState } from 'react';
 import { BsFacebook, BsGithub, BsInstagram, BsLinkedin, BsTwitter } from 'react-icons/bs';
-import { SiWakatime } from 'react-icons/si';
+import { SiQiita, SiWakatime } from 'react-icons/si';
 
 import getLastCommitTime from '@/libs/fetch/getLastCommitTime';
 import type { SocialLink } from '@/types';
@@ -13,38 +13,43 @@ import type { SocialLink } from '@/types';
 const SOCIAL_LINKS: SocialLink[] = [
   {
     href: 'https://github.com/aida0710',
-    icon: <BsGithub className="h-full w-full p-1" />,
+    icon: <BsGithub aria-hidden="true" className="h-full w-full p-1" />,
     label: 'GitHub',
   },
   {
     href: 'https://twitter.com/aida_0710',
-    icon: <BsTwitter className="h-full w-full p-1" />,
+    icon: <BsTwitter aria-hidden="true" className="h-full w-full p-1" />,
     label: 'Twitter',
   },
   {
     href: 'https://www.instagram.com/aida_07100/',
-    icon: <BsInstagram className="h-full w-full p-1" />,
+    icon: <BsInstagram aria-hidden="true" className="h-full w-full p-1" />,
     label: 'Instagram',
   },
   {
+    href: 'https://qiita.com/aida0710',
+    icon: <SiQiita aria-hidden="true" className="h-full w-full p-1" />,
+    label: 'Qiita',
+  },
+  {
     href: 'https://wakatime.com/@aida_0710',
-    icon: <SiWakatime className="h-full w-full p-1" />,
+    icon: <SiWakatime aria-hidden="true" className="h-full w-full p-1" />,
     label: 'Wakatime',
   },
   {
     href: 'https://www.linkedin.com/in/aida0710/',
-    icon: <BsLinkedin className="h-full w-full p-1" />,
+    icon: <BsLinkedin aria-hidden="true" className="h-full w-full p-1" />,
     label: 'LinkedIn',
   },
   {
     href: 'https://www.facebook.com/people/%E7%9B%B8%E7%94%B0%E5%84%AA%E5%B8%8C/pfbid0FsYQyp4KV7NvAyo65zwLK4AmVqcSxKaH6Q4YW9vV1xFV6sasmSSaYyLyF3tPTuaFl/',
-    icon: <BsFacebook className="h-full w-full p-1" />,
+    icon: <BsFacebook aria-hidden="true" className="h-full w-full p-1" />,
     label: 'Facebook',
   },
 ];
 
 export function Footer() {
-  const [lastCommitTime, setLastCommitTime] = useState<string>('Loading...');
+  const [lastCommitTime, setLastCommitTime] = useState<string>('Loading…');
   const currentYear = new Date().getFullYear();
 
   useEffect(() => {

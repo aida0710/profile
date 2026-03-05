@@ -10,7 +10,10 @@ interface AwardCardProps {
 export function AwardCard({ award }: AwardCardProps) {
   return (
     <Link href={award.link} target="_blank">
-      <Card isHoverable className="h-full transition-transform hover:scale-[1.02]">
+      <Card
+        isHoverable
+        className="h-full transition-transform hover:scale-[1.02] focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none motion-reduce:transition-none"
+      >
         <CardBody>
           <h2 className="text-sm">{award.organization}</h2>
           <p className="text-xs">日付：{award.date}</p>

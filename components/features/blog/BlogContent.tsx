@@ -67,7 +67,7 @@ export function BlogContent({ post }: BlogContentProps) {
       </div>
       <div className="flex flex-wrap items-center justify-between gap-2 py-5">
         <div className="flex items-center gap-2 text-default-500">
-          <CalendarDays size={18} />
+          <CalendarDays aria-hidden="true" size={18} />
           <span>{post.date}</span>
         </div>
         {post.tags && post.tags.length > 0 && (
@@ -102,6 +102,7 @@ export function BlogContent({ post }: BlogContentProps) {
                     alt={`${post.title}の画像`}
                     width={1280}
                     height={720}
+                    loading="lazy"
                     className="max-h-96 w-auto rounded-lg"
                   />
                 </div>

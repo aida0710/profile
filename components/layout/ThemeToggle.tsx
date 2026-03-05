@@ -33,7 +33,7 @@ export function ThemeToggle() {
       variant="ghost"
       onPress={toggleTheme}
     >
-      <ThemeIcon className="h-full w-full" />
+      <ThemeIcon aria-hidden="true" className="h-full w-full" />
     </Button>
   );
 }

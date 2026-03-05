@@ -15,7 +15,7 @@ export function ProjectCardModal({ project }: ProjectCardModalProps) {
   return (
     <>
       <ProjectCard project={project} onOpen={onOpen} />
-      <Modal isOpen={isOpen} placement="center" size="xl" onOpenChange={onOpenChange}>
+      <Modal isOpen={isOpen} placement="center" size="xl" onOpenChange={onOpenChange} className="overscroll-contain">
         <ModalContent>
           {(onClose) => (
             <>
@@ -29,14 +29,13 @@ export function ProjectCardModal({ project }: ProjectCardModalProps) {
                   ))}
                 </div>
                 {Object.entries(project.links).map(([key, link]) => (
-                  <Link key={key} className="block w-full" href={link.url} target="_blank">
-                    <Button
-                      className="w-auto min-w-full whitespace-normal break-words px-4 py-6 text-left"
-                      color="primary"
-                      variant="flat"
-                    >
-                      {link.description}
-                    </Button>
+                  <Link
+                    key={key}
+                    className="block w-auto min-w-full whitespace-normal break-words rounded-lg bg-primary/10 px-4 py-6 text-left text-primary transition-colors hover:bg-primary/20"
+                    href={link.url}
+                    target="_blank"
+                  >
+                    {link.description}
                   </Link>
                 ))}
               </ModalBody>

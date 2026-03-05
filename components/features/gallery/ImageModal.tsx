@@ -37,7 +37,14 @@ export function ImageModal({ image, isOpen, onClose }: ImageModalProps) {
   if (!image) return null;
 
   return (
-    <Modal hideCloseButton backdrop="opaque" className="bg-black/75" isOpen={isOpen} size="full" onClose={onClose}>
+    <Modal
+      hideCloseButton
+      backdrop="opaque"
+      className="bg-black/75 overscroll-contain"
+      isOpen={isOpen}
+      size="full"
+      onClose={onClose}
+    >
       <ModalContent>
         <ModalBody>
           {/* biome-ignore lint/a11y/useSemanticElements: モーダル背景全体をクリック可能にするためdivを使用 */}
@@ -59,17 +66,19 @@ export function ImageModal({ image, isOpen, onClose }: ImageModalProps) {
             </Button>
 
             <div className="relative h-full max-h-[80vh] w-full max-w-5xl">
-              {isLoading && <Spinner className="absolute inset-0 z-50" color="white" size="lg" role="status" />}
+              <div aria-live="polite">
+                {isLoading && <Spinner className="absolute inset-0 z-50" color="white" size="lg" role="status" />}
+              </div>
 
               <div className="relative h-full w-full">
                 <Image
                   fill
                   priority
                   alt={image.description || '画像'}
-                  className={`object-contain transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+                  className={`object-contain transition-opacity duration-300 motion-reduce:transition-none ${isLoading ? 'opacity-0' : 'opacity-100'}`}
                   quality={100}
                   src={GALLERY_DIRECTORY + image.src}
-                  onLoadingComplete={() => setIsLoading(false)}
+                  onLoad={() => setIsLoading(false)}
                 />
               </div>
             </div>

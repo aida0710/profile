@@ -16,7 +16,7 @@ export function HighlightText({ text, highlight }: HighlightTextProps) {
   return (
     <>
       {parts.map((part, i) => {
-        const key = `${part}-${Math.random().toString(36).substring(2, 11)}-${i}`;
+        const key = `${i}-${part.slice(0, 20)}`;
         if (part.toLowerCase() === highlight.toLowerCase()) {
           return (
             <mark

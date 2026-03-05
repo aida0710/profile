@@ -68,7 +68,7 @@ export function BlogSearchContainer({ posts }: BlogSearchContainerProps) {
     <div className="w-full">
       <SearchBar onSearchAction={handleSearch} />
 
-      <div className="flex w-full flex-col items-center gap-6">
+      <div aria-live="polite" className="flex w-full flex-col items-center gap-6">
         {!isMounted ? (
           <>
             <SkeletonBlogCard />

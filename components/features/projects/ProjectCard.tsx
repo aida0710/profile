@@ -10,10 +10,15 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, onOpen }: ProjectCardProps) {
   return (
-    <Card isHoverable isPressable className="h-full transition-transform hover:scale-[1.02]" onPress={onOpen}>
+    <Card
+      isHoverable
+      isPressable
+      className="h-full transition-transform hover:scale-[1.02] focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none motion-reduce:transition-none"
+      onPress={onOpen}
+    >
       <CardBody>
-        <h2 className="text-sm">言語：{project.language}</h2>
-        <h3 className="my-2 font-semibold">{project.title}</h3>
+        <h2 className="my-2 font-semibold">{project.title}</h2>
+        <p className="text-sm">言語：{project.language}</p>
         <div className="mb-1">
           {project.description.map((item) => (
             <p key={item} className="text-md">

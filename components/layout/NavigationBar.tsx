@@ -1,6 +1,5 @@
 'use client';
 
-import { Button } from '@heroui/button';
 import { Link } from '@heroui/link';
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from '@heroui/navbar';
 import { AppWindowIcon, AwardIcon, HomeIcon, ImagesIcon, PenToolIcon } from 'lucide-react';
@@ -16,27 +15,27 @@ const NAVIGATION_ITEMS: NavItem[] = [
   {
     path: '/',
     label: 'Home',
-    icon: <HomeIcon color="currentColor" size={32} strokeWidth={3} />,
+    icon: <HomeIcon aria-hidden="true" color="currentColor" size={32} strokeWidth={3} />,
   },
   {
     path: '/awards',
     label: 'Awards',
-    icon: <AwardIcon color="currentColor" size={32} strokeWidth={3} />,
+    icon: <AwardIcon aria-hidden="true" color="currentColor" size={32} strokeWidth={3} />,
   },
   {
     path: '/projects',
     label: 'Projects',
-    icon: <AppWindowIcon color="currentColor" size={32} strokeWidth={3} />,
+    icon: <AppWindowIcon aria-hidden="true" color="currentColor" size={32} strokeWidth={3} />,
   },
   {
     path: '/blog',
     label: 'Blog',
-    icon: <PenToolIcon color="currentColor" size={32} strokeWidth={3} />,
+    icon: <PenToolIcon aria-hidden="true" color="currentColor" size={32} strokeWidth={3} />,
   },
   {
     path: '/gallery',
     label: 'Gallery',
-    icon: <ImagesIcon color="currentColor" size={32} strokeWidth={3} />,
+    icon: <ImagesIcon aria-hidden="true" color="currentColor" size={32} strokeWidth={3} />,
   },
 ];
 
@@ -89,16 +88,14 @@ export function NavigationBar() {
       </NavbarContent>
 
       <NavbarContent justify="end">
-        <Button
-          isIconOnly
+        <Link
           aria-label="GitHub repository"
-          className="block p-2"
-          radius="full"
-          variant="ghost"
-          onPress={() => window.open('https://github.com/aida0710/profile')}
+          className="block rounded-full p-2"
+          href="https://github.com/aida0710/profile"
+          target="_blank"
         >
-          <BsGithub className="h-full w-full" />
-        </Button>
+          <BsGithub aria-hidden="true" className="h-6 w-6" />
+        </Link>
         <ThemeToggle />
       </NavbarContent>
     </Navbar>

@@ -4,7 +4,7 @@ export function TextBlock({ messages }: TextBlockProps) {
   return (
     <div className="p-6">
       {messages.map((message) => (
-        <p key={message} className="text-base leading-relaxed md:text-lg">
+        <p key={message} className="break-words text-base leading-relaxed md:text-lg">
           {message}
         </p>
       ))}

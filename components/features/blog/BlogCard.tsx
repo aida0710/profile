@@ -41,7 +41,13 @@ export function BlogCard({ post, searchQuery = '' }: BlogCardProps) {
           {post.images.length > 0 && (
             <div className="order-first w-full flex-shrink-0 md:order-last md:w-1/3">
               <div className="relative h-32 w-full overflow-hidden rounded-lg">
-                <Image src={BLOG_PICTURE_DIRECTORY + post.images[0]} alt={post.title} fill className="object-cover" />
+                <Image
+                  src={BLOG_PICTURE_DIRECTORY + post.images[0]}
+                  alt={post.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
+                />
               </div>
             </div>
           )}
@@ -49,7 +55,7 @@ export function BlogCard({ post, searchQuery = '' }: BlogCardProps) {
 
         <CardFooter className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center text-sm text-default-400">
-            <CalendarDays size={16} className="mr-1" />
+            <CalendarDays aria-hidden="true" size={16} className="mr-1" />
             {post.date}
           </div>
 

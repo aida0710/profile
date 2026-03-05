@@ -42,7 +42,9 @@ export function MobileMenu({ navItems }: MobileMenuProps) {
 
   return (
     <div className="sm:hidden">
-      <MenuIcon className="h-8 w-8 cursor-pointer" onClick={onOpen} />
+      <button type="button" aria-label="メニューを開く" className="cursor-pointer" onClick={onOpen}>
+        <MenuIcon aria-hidden="true" className="h-8 w-8" />
+      </button>
 
       <Modal
         hideCloseButton
@@ -54,9 +56,11 @@ export function MobileMenu({ navItems }: MobileMenuProps) {
         size="full"
         onOpenChange={onOpenChange}
       >
-        <ModalContent className="bg-opacity-70">
+        <ModalContent className="bg-opacity-70 overscroll-contain">
           <ModalHeader className="flex items-center">
-            <XIcon className="mr-4 h-8 w-8 cursor-pointer" onClick={onClose} />
+            <button type="button" aria-label="メニューを閉じる" className="mr-4 cursor-pointer" onClick={onClose}>
+              <XIcon aria-hidden="true" className="h-8 w-8" />
+            </button>
             <Link color="foreground" href="/">
               <ProjectIcon />
               <p className="ml-5 text-large font-bold text-inherit">Profile</p>
@@ -76,7 +80,7 @@ export function MobileMenu({ navItems }: MobileMenuProps) {
                   href={item.path}
                   onPress={onClose}
                 >
-                  {item.icon}
+                  <span aria-hidden="true">{item.icon}</span>
                   <span className="ml-4">{item.label}</span>
                 </Link>
               </div>
