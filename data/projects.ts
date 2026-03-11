@@ -2,6 +2,25 @@ import type { Project } from '@/types';
 
 export const projects: Project[] = [
   {
+    title: 'Audio Player Plugin',
+    description: [
+      'JetBrains IDE向けの拡張機能',
+      '音声ファイルをクリックした時にカスタムUIが表示され、再生・停止はもちろん、スペクトラム表示などにも対応',
+    ],
+    image: 'audio-player-plugin.png',
+    links: {
+      github: {
+        description: 'Github Repository',
+        url: 'https://github.com/aida0710/jetbrains-audio-player-plugin',
+      },
+      marketplace: {
+        description: 'JetBrains Marketplace',
+        url: 'https://plugins.jetbrains.com/plugin/30608-audio-player',
+      },
+    },
+    language: 'Kotlin',
+  },
+  {
     title: 'rdb tunnel',
     description: [
       'rdbを介したl2レベルでのパケットの転送を行い、仮想的に別々のネットワーク空間をつなげることが可能',
