@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 
-import { AnimatedSection } from '@/components/common/AnimatedSection';
 import { BlockFrame } from '@/components/common/BlockFrame';
 import { AwardCard } from '@/components/features/award/AwardCard';
 import { awards } from '@/data/awards';
@@ -14,10 +13,8 @@ export default function AwardsPage() {
   return (
     <div className="px-2 py-10 md:py-16">
       <BlockFrame description="頂いた賞の一覧" title="Award">
-        {awards.map((award, index) => (
-          <AnimatedSection key={`${award.organization}-${award.description}-${award.date}`} delay={index * 80}>
-            <AwardCard award={award} />
-          </AnimatedSection>
+        {awards.map((award) => (
+          <AwardCard key={`${award.organization}-${award.description}-${award.date}`} award={award} />
         ))}
       </BlockFrame>
     </div>
