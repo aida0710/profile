@@ -1,6 +1,6 @@
 'use client';
 
-import { AppWindowIcon, AwardIcon, BookOpenIcon, HomeIcon, ImagesIcon, PenToolIcon } from 'lucide-react';
+import { AppWindowIcon, AwardIcon, BookOpenIcon, HomeIcon, ImagesIcon } from 'lucide-react';
 
 import { MobileMenu } from '@/components/layout/MobileMenu';
 import { ThemeToggle } from '@/components/layout/ThemeToggle';
@@ -17,11 +17,6 @@ const NAVIGATION_ITEMS: NavItem[] = [
     path: '/projects',
     label: 'Projects',
     icon: <AppWindowIcon aria-hidden="true" color="currentColor" size={32} strokeWidth={3} />,
-  },
-  {
-    path: '/blog',
-    label: 'Blog',
-    icon: <PenToolIcon aria-hidden="true" color="currentColor" size={32} strokeWidth={3} />,
   },
   {
     path: '/gallery',
