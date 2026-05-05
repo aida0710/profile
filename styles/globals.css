@@ -23,3 +23,8 @@
   --color-warm-accent-hover: #e09a6c;
   --color-warm-border: #333028;
 }
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: gray transparent;
+}
