@@ -2,7 +2,7 @@ import type {Project} from '@/types';
 
 export const projects: Project[] = [
     {
-        title: 'Dango',
+        title: 'Dango Hosting',
         description: [
             'ロビーから各サーバーへ、串団子のように繋がるMinecraft Java Editionのサーバーネットワーク',
             'ゲーム内コマンドで自分だけのサーバーを作成でき、サーバーごとに招待やユーザー権限を設定可能。共通のチャット・経済・レベル・マイルストーン・ランキングなどの機能を搭載',
