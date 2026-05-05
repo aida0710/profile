@@ -2,6 +2,22 @@ import type {Project} from '@/types';
 
 export const projects: Project[] = [
     {
+        title: 'Dango',
+        description: [
+            'ロビーから各サーバーへ、串団子のように繋がるMinecraft Java Editionのサーバーネットワーク',
+            'ゲーム内コマンドで自分だけのサーバーを作成でき、サーバーごとに招待やユーザー権限を設定可能。共通のチャット・経済・レベル・マイルストーン・ランキングなどの機能を搭載',
+            '普通のサバイバルやクリエイティブを、みんなでもっと楽しく気軽に。そんなサーバーを目指して開発しました。'
+        ],
+        image: 'dango-hosting.png',
+        links: {
+            github: {
+                description: 'Github Repository',
+                url: 'https://github.com/aida0710/dango-hosting',
+            },
+        },
+        language: 'Kotlin / TypeScript',
+    },
+    {
         title: 'Audio Player Plugin',
         description: [
             'JetBrains IDE向けの拡張機能',
