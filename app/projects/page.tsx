@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import { BlockFrame } from '@/components/common/BlockFrame';
-import { ProjectCardModal } from '@/components/features/projects/ProjectCardModal';
+import { ProjectCard } from '@/components/features/projects/ProjectCard';
 import { projects } from '@/data/projects';
 import type { Project } from '@/types';
 
@@ -15,7 +15,7 @@ export default function ProjectsPage() {
     <div className="px-2 py-10 md:py-16">
       <BlockFrame description="自分が開発した又は携わったプロジェクト" title="Projects">
         {projects.map((project: Project) => (
-          <ProjectCardModal key={project.title} project={project} />
+          <ProjectCard key={project.title} project={project} />
         ))}
       </BlockFrame>
     </div>
