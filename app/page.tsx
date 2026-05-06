@@ -18,9 +18,11 @@ export default function HomePage() {
           <p className="mt-2 text-warm-subtext">Frontend / Backend Engineer</p>
         </div>
 
-        {/* About section */}
+        {/* Affiliations section */}
         <section className="mb-10">
-          <h2 className="mb-4 font-heading text-sm font-semibold uppercase tracking-widest text-warm-accent">About</h2>
+          <h2 className="mb-4 font-heading text-sm font-semibold uppercase tracking-widest text-warm-accent">
+            Affiliations
+          </h2>
           <div className="space-y-2">
             {profileMessages.map((message) => (
               <p key={message} className="leading-relaxed text-warm-text/80">
