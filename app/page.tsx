@@ -1,7 +1,7 @@
 import { Image } from '@heroui/image';
 
 import { SocialIcons } from '@/components/features/home/SocialIcons';
-import { profileMessages } from '@/data/profile';
+import { affiliations, background } from '@/data/profile';
 
 export default function HomePage() {
   return (
@@ -24,9 +24,23 @@ export default function HomePage() {
             Affiliations
           </h2>
           <div className="space-y-2">
-            {profileMessages.map((message) => (
-              <p key={message} className="leading-relaxed text-warm-text/80">
-                {message}
+            {affiliations.map((item) => (
+              <p key={item} className="leading-relaxed text-warm-text/80">
+                {item}
+              </p>
+            ))}
+          </div>
+        </section>
+
+        {/* Background section */}
+        <section className="mb-10">
+          <h2 className="mb-4 font-heading text-sm font-semibold uppercase tracking-widest text-warm-accent">
+            Background
+          </h2>
+          <div className="space-y-2">
+            {background.map((item) => (
+              <p key={item} className="leading-relaxed text-warm-text/80">
+                {item}
               </p>
             ))}
           </div>
