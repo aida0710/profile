@@ -2,6 +2,22 @@ import type { Project } from '@/types';
 
 export const projects: Project[] = [
   {
+    title: 'Mochi Hosting',
+    description: [
+      'Minecraft Bedrock 版・Java 版のサーバーを、ブラウザだけで作成・管理できるホスティングプラットフォーム',
+      'BDS / PocketMine-MP / Paper / Spigot / Forge / Fabric / Vanilla などの主要サーバーソフトに対応し、Web コンソール・SFTP・ファイル編集・複数ユーザー共同管理・自動停止を Web 画面に集約',
+      '各サーバーを Docker コンテナとして隔離し、ポート割り当て・リソース制限・監査ログ・SFTP 認証など運用面の機能も自己実装',
+    ],
+    image: 'mochi-hosting.png',
+    links: {
+      github: {
+        description: 'ホームページ',
+        url: 'https://hosting.aida0710.work/',
+      },
+    },
+    language: 'TypeScript',
+  },
+  {
     title: 'Dango Hosting',
     description: [
       'ロビーから各サーバーへ、串団子のように繋がるMinecraft Java Editionのサーバーネットワーク',
