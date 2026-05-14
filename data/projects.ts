@@ -18,6 +18,22 @@ export const projects: Project[] = [
     language: 'TypeScript',
   },
   {
+    title: 'mdx-cli',
+    description: [
+      'MDX I クラウドインフラプラットフォームの非公式 CLI ツール。Web ポータル (oprpl.mdx.jp) での VM 管理・ネットワーク設定をターミナルから一括操作できる',
+      'VM の一括作成・起動・停止・削除・構成変更に対応し、`worker-{a-g}-{0-9}` のようなパターン展開で数十台規模の操作を 1 コマンドで実行。10 並列・リトライ付きで大規模運用にも耐える設計',
+      'Shibboleth SSO 認証 (keyring によるクレデンシャル保管)、DNAT/ACL/グローバル IP 管理、Web ポータルと同じ列構成での CSV 出力、シェル補完など、日常運用に必要な機能を一通り網羅',
+    ],
+    image: 'mdx-cli.png',
+    links: {
+      github: {
+        description: 'Github Repository',
+        url: 'https://github.com/aida0710/mdx-cli',
+      },
+    },
+    language: 'Python',
+  },
+  {
     title: 'Dango Hosting',
     description: [
       'ロビーから各サーバーへ、串団子のように繋がるMinecraft Java Editionのサーバーネットワーク',
