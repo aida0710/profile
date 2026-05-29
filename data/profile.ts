@@ -5,6 +5,6 @@ export const affiliations = [
 ];
 
 export const background = [
-  '大江戸テレコム株式会社 2024年4月〜2025年4月',
+  '大江戸テレコム株式会社 正社員 2024年4月〜2025年4月',
   'SecHack365 2024年度 学習駆動コース 坂井ゼミ 修了',
 ];
