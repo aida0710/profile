@@ -23,6 +23,7 @@
     "@heroui/spinner": "^2.2.29",
     "@heroui/system": "^2.4.28",
     "@heroui/theme": "^2.4.26",
+    "@next/third-parties": "^16.2.3",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "clsx": "2.1.1",

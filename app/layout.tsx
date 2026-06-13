@@ -1,4 +1,5 @@
 import '@/styles/globals.css';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import clsx from 'clsx';
@@ -11,20 +12,25 @@ import { Sidebar } from '@/components/layout/Sidebar';
 import { fontHeading, fontMono, fontSans } from '@/config/fonts';
 import { siteConfig } from '@/config/site';
 
+const homeTitle = `${siteConfig.fullName} | ${siteConfig.jobTitle}`;
+
 export const metadata: Metadata = {
   title: {
-    default: siteConfig.name,
+    default: homeTitle,
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
   icons: {
     icon: '/favicon.ico',
   },
+  alternates: {
+    canonical: '/',
+  },
   keywords: ['aida0710', 'profile', '相田', '優希', 'Aida', 'Masaki', '相田優希', 'Masaki Aida', '相田 優希'],
   openGraph: {
     type: 'website',
     locale: 'ja_JP',
-    title: siteConfig.name,
+    title: homeTitle,
     description: siteConfig.description,
     siteName: siteConfig.name,
     url: siteConfig.url,
@@ -33,11 +39,11 @@ export const metadata: Metadata = {
       type: 'image/png',
       width: 1200,
       height: 630,
-      alt: 'Profile Image',
+      alt: `${siteConfig.fullName} のプロフィール画像`,
     },
   },
   twitter: {
-    title: siteConfig.name,
+    title: homeTitle,
     description: siteConfig.description,
     card: 'summary_large_image',
     images: {
@@ -45,7 +51,7 @@ export const metadata: Metadata = {
       type: 'image/png',
       width: 1200,
       height: 630,
-      alt: 'Profile Image',
+      alt: `${siteConfig.fullName} のプロフィール画像`,
     },
     creator: siteConfig.twitter_id,
   },
@@ -59,6 +65,21 @@ export const viewport: Viewport = {
   ],
 };
 
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Masaki Aida',
+  alternateName: '相田優希',
+  url: siteConfig.url,
+  image: siteConfig.image,
+  jobTitle: siteConfig.jobTitle,
+  worksFor: { '@type': 'Organization', name: '株式会社DubGuild' },
+  sameAs: siteConfig.socials,
+};
+
+// Google Analytics 4 の測定ID（G-XXXXXXXXXX）。未設定ならGAは読み込まれない。
+const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html suppressHydrationWarning lang="ja">
@@ -70,6 +91,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           fontMono.variable,
         )}
       >
+        {/* biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD 構造化データの埋め込みに必要 */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
         <Analytics />
         <SpeedInsights />
         <Providers themeProps={{ attribute: 'class', defaultTheme: 'light' }}>
@@ -85,6 +108,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
           </main>
         </Providers>
+        {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
       </body>
     </html>
   );
