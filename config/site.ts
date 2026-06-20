@@ -7,6 +7,8 @@ export const siteConfig = {
   twitter_id: '@aida_0710',
   url: 'https://www.aida0710.work',
   image: 'https://www.aida0710.work/public_image.png',
+  // Google Analytics 4 の測定ID。クライアントに公開される非機密情報のため直接保持する。
+  gaId: 'G-88TR94J5Y4',
   // Person 構造化データ・各種プロフィールで使う SNS リンク
   socials: [
     'https://github.com/aida0710',

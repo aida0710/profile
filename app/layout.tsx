@@ -77,9 +77,6 @@ const personJsonLd = {
   sameAs: siteConfig.socials,
 };
 
-// Google Analytics 4 の測定ID（G-XXXXXXXXXX）。未設定ならGAは読み込まれない。
-const gaId = process.env.NEXT_PUBLIC_GA_ID;
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html suppressHydrationWarning lang="ja">
@@ -108,7 +105,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
           </main>
         </Providers>
-        {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
+        <GoogleAnalytics gaId={siteConfig.gaId} />
       </body>
     </html>
   );
