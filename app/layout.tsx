@@ -77,8 +77,8 @@ const personJsonLd = {
   sameAs: siteConfig.socials,
 };
 
-// Google Analytics 4 の測定ID（G-XXXXXXXXXX）。未設定ならGAは読み込まれない。
-const gaId = process.env.NEXT_PUBLIC_GA_ID;
+// Google Analytics 4 の測定ID。環境変数があれば優先し、なければ siteConfig の値を使う。
+const gaId = process.env.NEXT_PUBLIC_GA_ID ?? siteConfig.gaId;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
