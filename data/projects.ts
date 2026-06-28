@@ -2,6 +2,22 @@ import type { Project } from '@/types';
 
 export const projects: Project[] = [
   {
+    title: 'mado',
+    description: [
+      '複数の S3 互換ストレージを横断的に管理する Web ツール。バケット・ディレクトリのブラウズ、テキスト・画像・音声・tar/tar.gz/tar.xz のインラインプレビュー、Web URL / S3 URL のワンクリックコピーに対応',
+      '各ディレクトリに Markdown の README を残せる（履歴付き）ほか、チーム全体で共有する Markdown ノート機能も搭載。プレビューペインは幅可変で、幅の設定は自動保存される',
+      'Hono + PostgreSQL のバックエンドと Vite フロントエンドを Docker Compose で構成。S3 認証情報は AES-256-GCM で保存時暗号化し、CSRF 防御・PG ロール分離でプライベートネットワーク内運用を想定した設計',
+    ],
+    image: 'mado.png',
+    links: {
+      github: {
+        description: 'Github Repository',
+        url: 'https://github.com/aida0710/mado',
+      },
+    },
+    language: 'TypeScript',
+  },
+  {
     title: 'Mochi Hosting',
     description: [
       'Minecraft Bedrock 版・Java 版のサーバーを、ブラウザだけで作成・管理できるホスティングプラットフォーム',
