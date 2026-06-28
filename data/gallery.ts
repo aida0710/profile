@@ -9,6 +9,12 @@ export const GALLERY_INTRODUCTION: string[] = [
 
 export const images: GalleryImage[] = [
   {
+    src: '2026年6月25日_aws_summit.png',
+    description: 'AWS Summitで発表をさせていただきました。その際の写真です。',
+    date: '2026年6月25日',
+    detail: '',
+  },
+  {
     src: '2025年1月4日_荒川河川敷.JPG',
     description: '熊谷市の荒川河川敷にて撮影した写真。',
     date: '2025年1月4日',
