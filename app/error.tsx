@@ -1,24 +1,29 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
+import { t } from '@/libs/i18n/dictionaries';
+import { localeFromPath } from '@/libs/i18n/locale';
+
 export default function ErrorBoundary({ error, reset }: { error: Error; reset: () => void }) {
+  const pathname = usePathname();
+  const locale = localeFromPath(pathname);
+
   useEffect(() => {
     // biome-ignore lint/suspicious/noConsole: Error logging is necessary for debugging
     console.error(error);
   }, [error]);
 
   return (
-    <div>
-      <h2>Something went wrong!</h2>
+    <div className="flex min-h-screen flex-col items-center justify-center gap-4 px-6 text-center">
+      <h2 className="font-heading text-2xl font-semibold text-warm-text">{t(locale, 'error.title')}</h2>
       <button
         type="button"
-        onClick={
-          // Attempt to recover by trying to re-render the segment
-          () => reset()
-        }
+        className="rounded-lg border border-warm-border bg-warm-surface px-4 py-2 text-sm text-warm-text transition-colors hover:border-warm-accent hover:text-warm-accent focus-visible:ring-2 focus-visible:ring-warm-accent focus-visible:outline-none"
+        onClick={() => reset()}
       >
-        Try again
+        {t(locale, 'error.retry')}
       </button>
     </div>
   );

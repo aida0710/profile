@@ -1,9 +1,11 @@
 import type { ReactNode } from 'react';
 
+import type { Localized } from '@/libs/i18n/locale';
+
 // Awards 関連の型
 export interface Award {
-  organization: string;
-  description: string;
+  organization: Localized<string>;
+  description: Localized<string>;
   image: string;
   link: string;
   date: string;
@@ -12,21 +14,23 @@ export interface Award {
 // Gallery 関連の型
 export interface GalleryImage {
   src: string;
-  description: string;
+  description: Localized<string>;
   date: string;
-  detail: string;
+  detail: Localized<string>;
 }
 
 // Projects 関連の型
+export interface ProjectLink {
+  description: Localized<string>;
+  url: string;
+}
+
 export interface Project {
-  title: string;
-  description: string[];
+  title: Localized<string>;
+  description: Localized<string[]>;
   image: string;
   links: {
-    [key: string]: {
-      description: string;
-      url: string;
-    };
+    [key: string]: ProjectLink;
   };
   language: string;
 }
