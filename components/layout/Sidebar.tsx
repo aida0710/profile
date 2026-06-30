@@ -2,7 +2,7 @@
 
 import { Image } from '@heroui/image';
 import { Link } from '@heroui/link';
-import { AppWindowIcon, AwardIcon, BookOpenIcon, HomeIcon, ImagesIcon } from 'lucide-react';
+import { AppWindowIcon, AwardIcon, BookOpenIcon, FileTextIcon, HomeIcon, ImagesIcon } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { BsGithub } from 'react-icons/bs';
 
@@ -21,6 +21,7 @@ const NAVIGATION_ITEMS: SidebarNavItem[] = [
   { path: '/', labelKey: 'nav.home', icon: <HomeIcon aria-hidden="true" size={20} /> },
   { path: '/awards', labelKey: 'nav.awards', icon: <AwardIcon aria-hidden="true" size={20} /> },
   { path: '/projects', labelKey: 'nav.projects', icon: <AppWindowIcon aria-hidden="true" size={20} /> },
+  { path: '/articles', labelKey: 'nav.articles', icon: <FileTextIcon aria-hidden="true" size={20} /> },
   { path: '/gallery', labelKey: 'nav.gallery', icon: <ImagesIcon aria-hidden="true" size={20} /> },
   { path: '/colophon', labelKey: 'nav.colophon', icon: <BookOpenIcon aria-hidden="true" size={20} /> },
 ];

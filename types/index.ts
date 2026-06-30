@@ -35,6 +35,16 @@ export interface Project {
   language: string;
 }
 
+// Qiita 記事関連の型
+export interface QiitaArticle {
+  id: string;
+  title: string;
+  url: string;
+  createdAt: string;
+  likesCount: number;
+  tags: string[];
+}
+
 // Skills 関連の型
 export interface SkillCategory {
   key: string;

@@ -1,6 +1,6 @@
 'use client';
 
-import { AppWindowIcon, AwardIcon, BookOpenIcon, HomeIcon, ImagesIcon } from 'lucide-react';
+import { AppWindowIcon, AwardIcon, BookOpenIcon, FileTextIcon, HomeIcon, ImagesIcon } from 'lucide-react';
 
 import { LanguageSwitcher } from '@/components/layout/LanguageSwitcher';
 import { MobileMenu, type MobileMenuItem } from '@/components/layout/MobileMenu';
@@ -21,6 +21,11 @@ const NAVIGATION_ITEMS: MobileMenuItem[] = [
     path: '/projects',
     labelKey: 'nav.projects',
     icon: <AppWindowIcon aria-hidden="true" color="currentColor" size={32} strokeWidth={3} />,
+  },
+  {
+    path: '/articles',
+    labelKey: 'nav.articles',
+    icon: <FileTextIcon aria-hidden="true" color="currentColor" size={32} strokeWidth={3} />,
   },
   {
     path: '/gallery',

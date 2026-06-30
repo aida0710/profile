@@ -8,6 +8,7 @@ const lastModified = {
   home: '2026-06-13',
   awards: '2026-06-13',
   projects: '2026-06-13',
+  articles: '2026-06-30',
   gallery: '2026-06-13',
   colophon: '2026-06-13',
 };
@@ -24,6 +25,7 @@ interface RouteEntry {
 const routes: RouteEntry[] = [
   { path: '', changeFrequency: 'monthly', priority: 1.0, lastModified: lastModified.home },
   { path: '/projects', changeFrequency: 'monthly', priority: 0.9, lastModified: lastModified.projects },
+  { path: '/articles', changeFrequency: 'weekly', priority: 0.85, lastModified: lastModified.articles },
   { path: '/awards', changeFrequency: 'monthly', priority: 0.8, lastModified: lastModified.awards },
   { path: '/gallery', changeFrequency: 'monthly', priority: 0.7, lastModified: lastModified.gallery },
   { path: '/colophon', changeFrequency: 'yearly', priority: 0.3, lastModified: lastModified.colophon },
