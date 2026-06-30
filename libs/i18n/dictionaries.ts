@@ -4,6 +4,7 @@ const ja = {
   'nav.home': 'Home',
   'nav.awards': 'Awards',
   'nav.projects': 'Projects',
+  'nav.articles': 'Articles',
   'nav.gallery': 'Gallery',
   'nav.colophon': 'Colophon',
 
@@ -42,6 +43,12 @@ const ja = {
   'projects.meta.title': 'Projects',
   'projects.meta.description': '自分が開発した又は携わったプロジェクト',
 
+  'articles.title': 'Articles',
+  'articles.description': 'Qiita に投稿した記事一覧',
+  'articles.meta.title': 'Articles',
+  'articles.meta.description': 'Qiita に投稿した記事の一覧',
+  'articles.empty': '記事を取得できませんでした',
+
   'gallery.title': 'Photo Gallery',
   'gallery.intro1': '私が撮影した写真や撮影していただいた写真を掲載しています。',
   'gallery.intro2': '画像をクリックすると拡大表示されます。',
@@ -74,6 +81,7 @@ const en: Partial<Record<DictionaryKey, string>> = {
   'nav.home': 'Home',
   'nav.awards': 'Awards',
   'nav.projects': 'Projects',
+  'nav.articles': 'Articles',
   'nav.gallery': 'Gallery',
   'nav.colophon': 'Colophon',
 
@@ -112,6 +120,12 @@ const en: Partial<Record<DictionaryKey, string>> = {
   'projects.description': 'Projects I have built or contributed to',
   'projects.meta.title': 'Projects',
   'projects.meta.description': 'Projects I have built or contributed to.',
+
+  'articles.title': 'Articles',
+  'articles.description': 'My posts on Qiita',
+  'articles.meta.title': 'Articles',
+  'articles.meta.description': 'A list of my articles on Qiita.',
+  'articles.empty': 'No articles could be loaded.',
 
   'gallery.title': 'Photo Gallery',
   'gallery.intro1': 'A collection of photos I have taken and photos taken of me.',
