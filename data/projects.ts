@@ -2,6 +2,22 @@ import type { Project } from '@/types';
 
 export const projects: Project[] = [
   {
+    title: 'pdf-translate',
+    description: [
+      '英語論文を読める日本語に対訳翻訳する Web ツール。図表・段組みのレイアウトを保ったまま翻訳し、訳文 / 原文 / 対訳を切り替えて読める',
+      'フォルダ + 色付きタグで論文棚を整理。ドラッグ&ドロップ・一括移動・横断検索に対応し、冒頭から日本語要約を自動生成することで積ん読の中身を一目で把握できる',
+      'OpenAI・Anthropic 等のAPIキーに対応し、OpenAI互換APIならセルフホスト LLM も利用可。APIキー代を除き利用は無料',
+    ],
+    image: 'pdf-translate.png',
+    links: {
+      web: {
+        description: '公開サイト',
+        url: 'https://translation.aida0710.work/',
+      },
+    },
+    language: 'TypeScript',
+  },
+  {
     title: 'mado',
     description: [
       '複数の S3 互換ストレージを横断的に管理する Web ツール。バケット・ディレクトリのブラウズ、テキスト・画像・音声・tar/tar.gz/tar.xz のインラインプレビュー、Web URL / S3 URL のワンクリックコピーに対応',
