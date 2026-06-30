@@ -6,15 +6,18 @@ import Image from 'next/image';
 import type React from 'react';
 import { useCallback, useState } from 'react';
 import { GALLERY_DIRECTORY } from '@/data/gallery';
+import { t } from '@/libs/i18n/dictionaries';
+import { type Locale, pickLocalized } from '@/libs/i18n/locale';
 import type { GalleryImage } from '@/types';
 
 interface ImageModalProps {
   image: GalleryImage | null;
   isOpen: boolean;
+  locale: Locale;
   onClose: () => void;
 }
 
-export function ImageModal({ image, isOpen, onClose }: ImageModalProps) {
+export function ImageModal({ image, isOpen, locale, onClose }: ImageModalProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   const handleBackdropInteraction = useCallback(
@@ -35,6 +38,9 @@ export function ImageModal({ image, isOpen, onClose }: ImageModalProps) {
   );
 
   if (!image) return null;
+
+  const description = pickLocalized(image.description, locale);
+  const detail = pickLocalized(image.detail, locale);
 
   return (
     <Modal
@@ -58,7 +64,7 @@ export function ImageModal({ image, isOpen, onClose }: ImageModalProps) {
           >
             <Button
               isIconOnly
-              aria-label="閉じる"
+              aria-label={t(locale, 'common.close')}
               className="absolute right-4 top-4 z-50 bg-black/50 text-white hover:bg-black/70"
               onPress={onClose}
             >
@@ -74,7 +80,7 @@ export function ImageModal({ image, isOpen, onClose }: ImageModalProps) {
                 <Image
                   fill
                   priority
-                  alt={image.description || '画像'}
+                  alt={description || t(locale, 'gallery.imageAlt')}
                   className={`object-contain transition-opacity duration-300 motion-reduce:transition-none ${isLoading ? 'opacity-0' : 'opacity-100'}`}
                   quality={100}
                   src={GALLERY_DIRECTORY + image.src}
@@ -84,9 +90,13 @@ export function ImageModal({ image, isOpen, onClose }: ImageModalProps) {
             </div>
 
             <div className="mt-4 max-w-2xl p-4 text-center text-lg text-white">
-              {image.description && <p>{image.description}</p>}
-              {image.date && <p>撮影日: {image.date}</p>}
-              {image.detail && <p>{image.detail}</p>}
+              {description && <p>{description}</p>}
+              {image.date && (
+                <p>
+                  {t(locale, 'gallery.shotDate')}: {image.date}
+                </p>
+              )}
+              {detail && <p>{detail}</p>}
             </div>
           </div>
         </ModalBody>
