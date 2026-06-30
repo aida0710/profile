@@ -11,6 +11,9 @@ import { MobileHeader } from '@/components/layout/MobileHeader';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { fontHeading, fontMono, fontSans } from '@/config/fonts';
 import { siteConfig } from '@/config/site';
+import { t } from '@/libs/i18n/dictionaries';
+import { EN_PREFIX } from '@/libs/i18n/locale';
+import { getServerLocale } from '@/libs/i18n/server';
 
 const homeTitle = `${siteConfig.fullName} | ${siteConfig.jobTitle}`;
 
@@ -25,11 +28,17 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: '/',
+    languages: {
+      ja: '/',
+      en: EN_PREFIX,
+      'x-default': '/',
+    },
   },
   keywords: ['aida0710', 'profile', '相田', '優希', 'Aida', 'Masaki', '相田優希', 'Masaki Aida', '相田 優希'],
   openGraph: {
     type: 'website',
     locale: 'ja_JP',
+    alternateLocale: ['en_US'],
     title: homeTitle,
     description: siteConfig.description,
     siteName: siteConfig.name,
@@ -77,9 +86,11 @@ const personJsonLd = {
   sameAs: siteConfig.socials,
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const locale = await getServerLocale();
+
   return (
-    <html suppressHydrationWarning lang="ja">
+    <html suppressHydrationWarning lang={locale}>
       <body
         className={clsx(
           'min-h-screen bg-warm-bg font-sans antialiased transition-[background-color] duration-300',
@@ -97,7 +108,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             href="#main"
             className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-warm-accent focus:px-4 focus:py-2 focus:text-white"
           >
-            メインコンテンツへスキップ
+            {t(locale, 'common.skipToMain')}
           </a>
           <Sidebar />
           <MobileHeader />
