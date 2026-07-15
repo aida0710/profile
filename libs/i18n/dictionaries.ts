@@ -6,6 +6,7 @@ const ja = {
   'nav.projects': 'Projects',
   'nav.articles': 'Articles',
   'nav.gallery': 'Gallery',
+  'nav.publicKeys': 'Public Keys',
   'nav.colophon': 'Colophon',
 
   'common.jobRole': 'Engineer',
@@ -70,6 +71,14 @@ const ja = {
   'colophon.error': '取得できませんでした',
   'colophon.viewOnGitHub': 'GitHub で見る',
 
+  'publicKeys.title': 'Public Keys',
+  'publicKeys.description': 'SSH 公開鍵の一覧',
+  'publicKeys.meta.title': 'Public Keys',
+  'publicKeys.meta.description': 'SSH 公開鍵の一覧。/keys からテキスト形式でも取得できます。',
+  'publicKeys.rawHint': 'テキスト形式（authorized_keys にそのまま追記可）でも取得できます:',
+  'publicKeys.copy': 'コピー',
+  'publicKeys.copied': 'コピーしました',
+
   'error.title': '問題が発生しました',
   'error.retry': '再試行',
 } as const;
@@ -83,6 +92,7 @@ const en: Partial<Record<DictionaryKey, string>> = {
   'nav.projects': 'Projects',
   'nav.articles': 'Articles',
   'nav.gallery': 'Gallery',
+  'nav.publicKeys': 'Public Keys',
   'nav.colophon': 'Colophon',
 
   'common.jobRole': 'Engineer',
@@ -147,6 +157,14 @@ const en: Partial<Record<DictionaryKey, string>> = {
   'colophon.loading': 'Loading…',
   'colophon.error': 'Failed to load',
   'colophon.viewOnGitHub': 'View on GitHub',
+
+  'publicKeys.title': 'Public Keys',
+  'publicKeys.description': 'A list of my SSH public keys',
+  'publicKeys.meta.title': 'Public Keys',
+  'publicKeys.meta.description': 'A list of my SSH public keys. Also available as plain text at /keys.',
+  'publicKeys.rawHint': 'Also available as plain text (ready to append to authorized_keys):',
+  'publicKeys.copy': 'Copy',
+  'publicKeys.copied': 'Copied',
 
   'error.title': 'Something went wrong',
   'error.retry': 'Try again',

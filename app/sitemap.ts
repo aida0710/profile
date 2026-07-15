@@ -10,6 +10,7 @@ const lastModified = {
   projects: '2026-06-13',
   articles: '2026-06-30',
   gallery: '2026-06-13',
+  publicKeys: '2026-07-15',
   colophon: '2026-06-13',
 };
 
@@ -28,6 +29,7 @@ const routes: RouteEntry[] = [
   { path: '/articles', changeFrequency: 'weekly', priority: 0.85, lastModified: lastModified.articles },
   { path: '/awards', changeFrequency: 'monthly', priority: 0.8, lastModified: lastModified.awards },
   { path: '/gallery', changeFrequency: 'monthly', priority: 0.7, lastModified: lastModified.gallery },
+  { path: '/public-keys', changeFrequency: 'monthly', priority: 0.5, lastModified: lastModified.publicKeys },
   { path: '/colophon', changeFrequency: 'yearly', priority: 0.3, lastModified: lastModified.colophon },
 ];
 
