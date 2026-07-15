@@ -45,6 +45,12 @@ export interface QiitaArticle {
   tags: string[];
 }
 
+// Public Keys 関連の型
+export interface PublicKey {
+  label: string;
+  key: string;
+}
+
 // Skills 関連の型
 export interface SkillCategory {
   key: string;

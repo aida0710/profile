@@ -4,7 +4,7 @@ import { siteConfig } from '@/config/site';
 import { type DictionaryKey, t } from '@/libs/i18n/dictionaries';
 import { EN_PREFIX, type Locale } from '@/libs/i18n/locale';
 
-type PageKey = 'awards' | 'projects' | 'articles' | 'gallery' | 'colophon';
+type PageKey = 'awards' | 'projects' | 'articles' | 'gallery' | 'colophon' | 'publicKeys';
 
 interface BuildPageMetadataInput {
   locale: Locale;
