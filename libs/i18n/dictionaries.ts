@@ -4,7 +4,9 @@ const ja = {
   'nav.home': 'Home',
   'nav.awards': 'Awards',
   'nav.projects': 'Projects',
+  'nav.articles': 'Articles',
   'nav.gallery': 'Gallery',
+  'nav.publicKeys': 'Public Keys',
   'nav.colophon': 'Colophon',
 
   'common.jobRole': 'Engineer',
@@ -42,6 +44,12 @@ const ja = {
   'projects.meta.title': 'Projects',
   'projects.meta.description': '自分が開発した又は携わったプロジェクト',
 
+  'articles.title': 'Articles',
+  'articles.description': 'Qiita に投稿した記事一覧',
+  'articles.meta.title': 'Articles',
+  'articles.meta.description': 'Qiita に投稿した記事の一覧',
+  'articles.empty': '記事を取得できませんでした',
+
   'gallery.title': 'Photo Gallery',
   'gallery.intro1': '私が撮影した写真や撮影していただいた写真を掲載しています。',
   'gallery.intro2': '画像をクリックすると拡大表示されます。',
@@ -63,6 +71,14 @@ const ja = {
   'colophon.error': '取得できませんでした',
   'colophon.viewOnGitHub': 'GitHub で見る',
 
+  'publicKeys.title': 'Public Keys',
+  'publicKeys.description': 'SSH 公開鍵の一覧',
+  'publicKeys.meta.title': 'Public Keys',
+  'publicKeys.meta.description': 'SSH 公開鍵の一覧。/keys からテキスト形式でも取得できます。',
+  'publicKeys.rawHint': 'テキスト形式（authorized_keys にそのまま追記可）でも取得できます:',
+  'publicKeys.copy': 'コピー',
+  'publicKeys.copied': 'コピーしました',
+
   'error.title': '問題が発生しました',
   'error.retry': '再試行',
 } as const;
@@ -74,7 +90,9 @@ const en: Partial<Record<DictionaryKey, string>> = {
   'nav.home': 'Home',
   'nav.awards': 'Awards',
   'nav.projects': 'Projects',
+  'nav.articles': 'Articles',
   'nav.gallery': 'Gallery',
+  'nav.publicKeys': 'Public Keys',
   'nav.colophon': 'Colophon',
 
   'common.jobRole': 'Engineer',
@@ -113,6 +131,12 @@ const en: Partial<Record<DictionaryKey, string>> = {
   'projects.meta.title': 'Projects',
   'projects.meta.description': 'Projects I have built or contributed to.',
 
+  'articles.title': 'Articles',
+  'articles.description': 'My posts on Qiita',
+  'articles.meta.title': 'Articles',
+  'articles.meta.description': 'A list of my articles on Qiita.',
+  'articles.empty': 'No articles could be loaded.',
+
   'gallery.title': 'Photo Gallery',
   'gallery.intro1': 'A collection of photos I have taken and photos taken of me.',
   'gallery.intro2': 'Click an image to view it enlarged.',
@@ -133,6 +157,14 @@ const en: Partial<Record<DictionaryKey, string>> = {
   'colophon.loading': 'Loading…',
   'colophon.error': 'Failed to load',
   'colophon.viewOnGitHub': 'View on GitHub',
+
+  'publicKeys.title': 'Public Keys',
+  'publicKeys.description': 'A list of my SSH public keys',
+  'publicKeys.meta.title': 'Public Keys',
+  'publicKeys.meta.description': 'A list of my SSH public keys. Also available as plain text at /keys.',
+  'publicKeys.rawHint': 'Also available as plain text (ready to append to authorized_keys):',
+  'publicKeys.copy': 'Copy',
+  'publicKeys.copied': 'Copied',
 
   'error.title': 'Something went wrong',
   'error.retry': 'Try again',
