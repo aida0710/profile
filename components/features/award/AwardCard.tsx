@@ -1,4 +1,5 @@
 import { MediaCard } from '@/components/common/MediaCard';
+import { formatDate } from '@/libs/i18n/date';
 import { t } from '@/libs/i18n/dictionaries';
 import { type Locale, pickLocalized } from '@/libs/i18n/locale';
 import type { Award } from '@/types';
@@ -22,7 +23,7 @@ export function AwardCard({ award, locale }: AwardCardProps) {
       links={[{ label: t(locale, 'common.viewDetails'), url: award.link, kind: 'external' }]}
     >
       <p className="text-xs font-medium text-warm-subtext">{organization}</p>
-      <p className="mt-0.5 font-mono text-xs text-warm-subtext">{award.date}</p>
+      <p className="mt-0.5 font-mono text-xs text-warm-subtext">{formatDate(award.date, locale)}</p>
       <h3 className="mt-2 font-heading text-base font-semibold text-warm-text">{description}</h3>
     </MediaCard>
   );

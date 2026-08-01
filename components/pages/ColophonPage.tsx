@@ -1,9 +1,8 @@
-'use client';
-
 import { ExternalLinkIcon } from 'lucide-react';
-import { useEffect, useState } from 'react';
 import { BsGithub } from 'react-icons/bs';
-import getLastCommitTime from '@/libs/fetch/getLastCommitTime';
+
+import { getLastCommitTime } from '@/libs/fetch/getLastCommitTime';
+import { formatDateTime } from '@/libs/i18n/date';
 import { t } from '@/libs/i18n/dictionaries';
 import type { Locale } from '@/libs/i18n/locale';
 
@@ -11,14 +10,12 @@ interface ColophonPageProps {
   locale: Locale;
 }
 
-export function ColophonPage({ locale }: ColophonPageProps) {
-  const [lastCommitTime, setLastCommitTime] = useState<string>(t(locale, 'colophon.loading'));
-
-  useEffect(() => {
-    getLastCommitTime()
-      .then(setLastCommitTime)
-      .catch(() => setLastCommitTime(t(locale, 'colophon.error')));
-  }, [locale]);
+// サーバー側で取得する（fetch 側で revalidate 済み）。
+// 以前は 'use client' + useEffect から Server Action を呼んでいたため、
+// 表示のたびに GitHub API を叩き、ローディング状態も必要だった。
+export async function ColophonPage({ locale }: ColophonPageProps) {
+  const result = await getLastCommitTime();
+  const lastCommitTime = result.ok ? formatDateTime(result.isoDate, locale) : t(locale, 'colophon.error');
 
   return (
     <div className="flex min-h-screen items-start justify-center px-6 py-12 md:py-20">

@@ -2,6 +2,29 @@ import type { Project } from '@/types';
 
 export const projects: Project[] = [
   {
+    title: { ja: 'pdf-translate', en: 'pdf-translate' },
+    description: {
+      ja: [
+        '英語論文を読める日本語に対訳翻訳する Web ツール。図表・段組みのレイアウトを保ったまま翻訳し、訳文 / 原文 / 対訳を切り替えて読める',
+        'フォルダ + 色付きタグで論文棚を整理。ドラッグ&ドロップ・一括移動・横断検索に対応し、冒頭から日本語要約を自動生成することで積ん読の中身を一目で把握できる',
+        'OpenAI・Anthropic 等のAPIキーに対応し、OpenAI互換APIならセルフホスト LLM も利用可。APIキー代を除き利用は無料',
+      ],
+      en: [
+        'A web tool that turns English papers into readable Japanese side-by-side translations. Figures and multi-column layouts are preserved, and you can switch between translation, original, and parallel views.',
+        'Organize your library with folders and colored tags. Supports drag & drop, bulk moves, and cross-library search, and auto-generates a Japanese summary from the opening so you can see at a glance what is sitting in your backlog.',
+        'Works with OpenAI, Anthropic, and other API keys — any OpenAI-compatible endpoint, including self-hosted LLMs. Free to use apart from your own API costs.',
+      ],
+    },
+    image: 'pdf-translation.png',
+    links: {
+      web: {
+        description: { ja: '公開サイト', en: 'Website' },
+        url: 'https://translation.aida0710.work/',
+      },
+    },
+    language: 'TypeScript',
+  },
+  {
     title: { ja: 'mado', en: 'mado' },
     description: {
       ja: [

@@ -51,25 +51,13 @@ export interface PublicKey {
   key: string;
 }
 
-// Skills 関連の型
-export interface SkillCategory {
-  key: string;
-  title: string;
-  contents: string[];
-}
-
-// ナビゲーション関連の型
-export interface NavItem {
-  path: string;
-  label: string;
-  icon: ReactNode;
-}
-
 // 共通コンポーネントの型
 export interface BlockFrameProps {
   title: string;
   description: string;
   children: ReactNode;
+  /** 指定するとグリッドの代わりにこれを描画する（空状態・エラー表示など）。 */
+  fallback?: ReactNode;
 }
 
 export interface TextBlockProps {

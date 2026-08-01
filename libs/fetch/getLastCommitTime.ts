@@ -1,67 +1,41 @@
-'use server';
+const COMMITS_API = 'https://api.github.com/repos/aida0710/profile/commits?per_page=1';
 
-type CommitResult = {
-  success: boolean;
-  data: Date | string;
-};
+// 1 時間キャッシュする。
+// 未認証の GitHub API は 60 リクエスト/時/IP しかないため、
+// ページ表示のたびに叩くと共有 IP ではすぐ 403 になる。
+const REVALIDATE_SECONDS = 3600;
 
-export default async function getLastCommitTime(): Promise<string> {
-  const result: CommitResult = await getLastCommit();
-
-  if (!result.success) return result.data as string;
-
-  return await formatDate(result.data as Date);
+interface GitHubCommit {
+  commit?: {
+    author?: {
+      date?: string;
+    };
+  };
 }
 
-async function getLastCommit(): Promise<CommitResult> {
+/**
+ * 取得結果。
+ * エラーメッセージを文字列で返すと UI にそのまま出てしまい、
+ * ロケールに関係なく日本語が表示されてしまうため、成否だけを返して
+ * 表示文言は呼び出し側が辞書から引く。
+ */
+export type LastCommitResult = { ok: true; isoDate: string } | { ok: false };
+
+export async function getLastCommitTime(): Promise<LastCommitResult> {
   try {
-    const response: Response = await fetch('https://api.github.com/repos/aida0710/profile/commits', {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-      },
+    const response = await fetch(COMMITS_API, {
+      headers: { Accept: 'application/vnd.github+json' },
+      next: { revalidate: REVALIDATE_SECONDS },
     });
 
-    if (!response.ok) {
-      return {
-        success: false,
-        data: `GETリクエストが失敗しました: ${response.status}`,
-      };
-    }
+    if (!response.ok) return { ok: false };
 
-    const data = await response.json();
+    const commits = (await response.json()) as GitHubCommit[];
+    const isoDate = commits?.[0]?.commit?.author?.date;
+    if (!isoDate) return { ok: false };
 
-    if (!data[0]) {
-      return {
-        success: false,
-        data: 'データが取得できませんでした',
-      };
-    }
-
-    return {
-      success: true,
-      data: new Date(data[0].commit.author.date),
-    };
-  } catch (error) {
-    // console.error(error);
-
-    return {
-      success: false,
-      data: error instanceof Error ? error.message : '不明なエラーが発生しました',
-    };
+    return { ok: true, isoDate };
+  } catch {
+    return { ok: false };
   }
-}
-
-async function formatDate(date: Date): Promise<string> {
-  const japanTime: Date = new Date(date.toLocaleString('en-US', { timeZone: 'Asia/Tokyo' }));
-
-  return japanTime.toLocaleString('ja-JP', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    weekday: 'short',
-  });
 }

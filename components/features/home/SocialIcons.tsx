@@ -34,6 +34,7 @@ export function SocialIcons() {
           className="flex items-center gap-2 rounded-lg border border-warm-border bg-warm-surface px-4 py-2.5 text-sm text-warm-text transition-[border-color,color] duration-200 hover:border-warm-accent hover:text-warm-accent focus-visible:ring-2 focus-visible:ring-warm-accent focus-visible:outline-none"
           href={link.href}
           target="_blank"
+          rel="noopener noreferrer"
         >
           {link.icon}
           <span>{link.label}</span>

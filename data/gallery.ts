@@ -8,6 +8,9 @@ export const GALLERY_INTRODUCTION: Localized<string[]> = {
   en: ['A collection of photos I have taken and photos taken of me.', 'Click an image to view it enlarged.'],
 };
 
+// date は ISO 8601（YYYY-MM-DD）で記述する。
+// 表示は libs/i18n/date.ts の formatDate() がロケールに応じて整形し、
+// 並び替えもこの値を基準に行うため、表示用の文字列を直接書かないこと。
 export const images: GalleryImage[] = [
   {
     src: '2026年6月25日_aws_summit.png',
@@ -15,7 +18,7 @@ export const images: GalleryImage[] = [
       ja: 'AWS Summitで発表をさせていただきました。その際の写真です。',
       en: 'A photo from when I gave a talk at AWS Summit.',
     },
-    date: '2026年6月25日',
+    date: '2026-06-25',
     detail: { ja: '' },
   },
   {
@@ -24,7 +27,7 @@ export const images: GalleryImage[] = [
       ja: '熊谷市の荒川河川敷にて撮影した写真。',
       en: 'A photo taken along the Arakawa riverbank in Kumagaya.',
     },
-    date: '2025年1月4日',
+    date: '2025-01-04',
     detail: { ja: '' },
   },
   {
@@ -33,7 +36,7 @@ export const images: GalleryImage[] = [
       ja: '青の洞窟にて撮影した写真。イルミネーション。',
       en: 'A photo of the Aoi no Doukutsu illumination.',
     },
-    date: '2024年12月18日',
+    date: '2024-12-18',
     detail: { ja: '' },
   },
   {
@@ -42,7 +45,7 @@ export const images: GalleryImage[] = [
       ja: 'Sechack 365にて、運営スタッフの方より撮影していただいた写真。',
       en: 'A photo taken by the SecHack365 staff during the event.',
     },
-    date: '2024年9月27日',
+    date: '2024-09-27',
     detail: {
       ja: 'Sechack356 第三回広島オフラインイベント',
       en: 'SecHack365 — Third Hiroshima Offline Event',
@@ -54,7 +57,7 @@ export const images: GalleryImage[] = [
       ja: 'お台場にて撮影した写真。夕焼け。',
       en: 'A sunset shot taken in Odaiba.',
     },
-    date: '2024年12月7日',
+    date: '2024-12-07',
     detail: { ja: '' },
   },
   {
@@ -63,7 +66,7 @@ export const images: GalleryImage[] = [
       ja: 'お台場にて撮影した写真。紅葉。',
       en: 'Autumn leaves photographed in Odaiba.',
     },
-    date: '2024年12月7日',
+    date: '2024-12-07',
     detail: { ja: '' },
   },
   {
@@ -72,7 +75,7 @@ export const images: GalleryImage[] = [
       ja: '虎ノ門ヒルズにて食べたバニラアイス',
       en: 'Vanilla ice cream I had at Toranomon Hills.',
     },
-    date: '2024年12月21日',
+    date: '2024-12-21',
     detail: {
       ja: 'めちゃくちゃ良く撮影できたので、記念に。',
       en: 'The shot turned out really well, so I kept it as a souvenir.',
@@ -84,7 +87,7 @@ export const images: GalleryImage[] = [
       ja: '久米川の飲食店にて食べたサラダ。',
       en: 'A salad I had at a restaurant in Kumegawa.',
     },
-    date: '2025年1月11日',
+    date: '2025-01-11',
     detail: {
       ja: 'おいしかった。サラダ好き。',
       en: 'It was delicious. I love salads.',
@@ -96,7 +99,7 @@ export const images: GalleryImage[] = [
       ja: '実家の愛犬。',
       en: 'Our family dog.',
     },
-    date: '2025年2月1日',
+    date: '2025-02-01',
     detail: {
       ja: '名前は「まろん」っていうよ。',
       en: 'Her name is "Maron".',
@@ -108,7 +111,7 @@ export const images: GalleryImage[] = [
       ja: '実家の愛猫。アイコンの子。',
       en: 'Our family cat — the one you see in my avatar.',
     },
-    date: '2025年2月1日',
+    date: '2025-02-01',
     detail: {
       ja: '名前は「との」っていうよ。',
       en: 'His name is "Tono".',

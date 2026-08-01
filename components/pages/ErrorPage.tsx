@@ -1,15 +1,17 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
 import { t } from '@/libs/i18n/dictionaries';
-import { localeFromPath } from '@/libs/i18n/locale';
+import type { Locale } from '@/libs/i18n/locale';
 
-export default function ErrorBoundary({ error, reset }: { error: Error; reset: () => void }) {
-  const pathname = usePathname();
-  const locale = localeFromPath(pathname);
+interface ErrorPageProps {
+  locale: Locale;
+  error: Error;
+  reset: () => void;
+}
 
+export function ErrorPage({ locale, error, reset }: ErrorPageProps) {
   useEffect(() => {
     // biome-ignore lint/suspicious/noConsole: Error logging is necessary for debugging
     console.error(error);
