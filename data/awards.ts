@@ -1,5 +1,8 @@
 import type { Award } from '@/types';
 
+// date は ISO 8601（YYYY-MM-DD）で記述する。
+// 表示は libs/i18n/date.ts の formatDate() がロケールに応じて整形するため、
+// 表示用の文字列を直接書かないこと。
 export const awards: Award[] = [
   {
     organization: {
@@ -12,7 +15,7 @@ export const awards: Award[] = [
     },
     image: '100program-5-desktop-mascot-1.png',
     link: 'https://100program.jp/',
-    date: '2024年03月24日',
+    date: '2024-03-24',
   },
   {
     organization: {
@@ -25,7 +28,7 @@ export const awards: Award[] = [
     },
     image: '100program-5-desktop-mascot-2.png',
     link: 'https://100program.jp/',
-    date: '2024年03月24日',
+    date: '2024-03-24',
   },
   {
     organization: {
@@ -38,7 +41,7 @@ export const awards: Award[] = [
     },
     image: 'japan-web3-award.png',
     link: 'https://prtimes.jp/main/html/rd/p/000000024.000056442.html',
-    date: '2024年03月19日',
+    date: '2024-03-19',
   },
   {
     organization: {
@@ -51,7 +54,7 @@ export const awards: Award[] = [
     },
     image: 'gifu-contest.png',
     link: 'https://www.gku.ac.jp/topics/event/post-354.html',
-    date: '2024年03月11日',
+    date: '2024-03-11',
   },
   {
     organization: {
@@ -64,7 +67,7 @@ export const awards: Award[] = [
     },
     image: 'academia-in-action.png',
     link: 'https://www.ggi.tohoku.ac.jp/academia-in-action/',
-    date: '2024年03月04日',
+    date: '2024-03-04',
   },
   {
     organization: {
@@ -77,7 +80,7 @@ export const awards: Award[] = [
     },
     image: '異能ベーション-ジェネレーションアワード_表彰状.png',
     link: 'https://www.inno.go.jp/result/2023/generation/nominate/',
-    date: '2024年03月02日',
+    date: '2024-03-02',
   },
   {
     organization: {
@@ -90,6 +93,6 @@ export const awards: Award[] = [
     },
     image: '100program-4-nebula.png',
     link: 'https://100program.jp/',
-    date: '2023年09月22日',
+    date: '2023-09-22',
   },
 ];

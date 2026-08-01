@@ -1,10 +1,8 @@
-import '@/styles/globals.css';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import clsx from 'clsx';
-import type { Metadata, Viewport } from 'next';
-import type React from 'react';
+import type { ReactNode } from 'react';
 
 import { Providers } from '@/app/providers';
 import { MobileHeader } from '@/components/layout/MobileHeader';
@@ -12,67 +10,7 @@ import { Sidebar } from '@/components/layout/Sidebar';
 import { fontHeading, fontMono, fontSans } from '@/config/fonts';
 import { siteConfig } from '@/config/site';
 import { t } from '@/libs/i18n/dictionaries';
-import { EN_PREFIX } from '@/libs/i18n/locale';
-import { getServerLocale } from '@/libs/i18n/server';
-
-const homeTitle = `${siteConfig.fullName} | ${siteConfig.jobTitle}`;
-
-export const metadata: Metadata = {
-  title: {
-    default: homeTitle,
-    template: `%s - ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
-  icons: {
-    icon: '/favicon.ico',
-  },
-  alternates: {
-    canonical: '/',
-    languages: {
-      ja: '/',
-      en: EN_PREFIX,
-      'x-default': '/',
-    },
-  },
-  keywords: ['aida0710', 'profile', '相田', '優希', 'Aida', 'Masaki', '相田優希', 'Masaki Aida', '相田 優希'],
-  openGraph: {
-    type: 'website',
-    locale: 'ja_JP',
-    alternateLocale: ['en_US'],
-    title: homeTitle,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
-    url: siteConfig.url,
-    images: {
-      url: siteConfig.image,
-      type: 'image/png',
-      width: 1200,
-      height: 630,
-      alt: `${siteConfig.fullName} のプロフィール画像`,
-    },
-  },
-  twitter: {
-    title: homeTitle,
-    description: siteConfig.description,
-    card: 'summary_large_image',
-    images: {
-      url: siteConfig.image,
-      type: 'image/png',
-      width: 1200,
-      height: 630,
-      alt: `${siteConfig.fullName} のプロフィール画像`,
-    },
-    creator: siteConfig.twitter_id,
-  },
-  metadataBase: new URL(siteConfig.url ?? 'http://localhost:3000'),
-};
-
-export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
-};
+import type { Locale } from '@/libs/i18n/locale';
 
 const personJsonLd = {
   '@context': 'https://schema.org',
@@ -86,9 +24,18 @@ const personJsonLd = {
   sameAs: siteConfig.socials,
 };
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const locale = await getServerLocale();
+interface RootShellProps {
+  locale: Locale;
+  children: ReactNode;
+}
 
+/**
+ * 日本語版 / 英語版それぞれのルートレイアウトが共有する <html> ドキュメント本体。
+ *
+ * locale をルート構造（app/(ja) と app/(en)/en）から静的に決めているため、
+ * headers() を読む必要がなく、全ページを静的生成できる。
+ */
+export function RootShell({ locale, children }: RootShellProps) {
   return (
     <html suppressHydrationWarning lang={locale}>
       <body

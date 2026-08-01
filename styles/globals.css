@@ -28,3 +28,27 @@
   scrollbar-width: thin;
   scrollbar-color: gray transparent;
 }
+
+/* 出現アニメーション。
+   CSS のみで完結させることで、JS が無効・読み込み失敗の環境でも
+   コンテンツが必ず表示されるようにしている（components/common/AnimatedSection.tsx）。 */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 500ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up {
+    animation: none;
+  }
+}

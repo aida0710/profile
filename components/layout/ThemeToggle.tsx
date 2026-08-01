@@ -10,13 +10,11 @@ import { localeFromPath } from '@/libs/i18n/locale';
 
 export function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
-  const { setTheme, theme } = useTheme();
+  // theme は 'system' になり得るため、実際に適用されている resolvedTheme を見る。
+  // そうしないとアイコンと実際の表示が食い違う。
+  const { setTheme, resolvedTheme } = useTheme();
   const pathname = usePathname();
   const locale = localeFromPath(pathname);
-
-  const toggleTheme = (): void => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
-  };
 
   useEffect(() => {
     setMounted(true);
@@ -24,8 +22,12 @@ export function ThemeToggle() {
 
   if (!mounted) return null;
 
-  const isLight = theme === 'light';
+  const isLight = resolvedTheme === 'light';
   const ThemeIcon = isLight ? BsFillMoonStarsFill : BsFillSunFill;
+
+  const toggleTheme = (): void => {
+    setTheme(isLight ? 'dark' : 'light');
+  };
 
   return (
     <button

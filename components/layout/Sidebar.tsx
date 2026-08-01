@@ -82,6 +82,7 @@ export function Sidebar() {
           className="rounded-full p-2 text-warm-subtext transition-colors hover:text-warm-text"
           href="https://github.com/aida0710/profile"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <BsGithub aria-hidden="true" className="h-5 w-5" />
         </Link>

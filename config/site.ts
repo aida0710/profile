@@ -1,9 +1,13 @@
+import type { Localized } from '@/libs/i18n/locale';
+
 export const siteConfig = {
   name: 'Aida Profile',
   fullName: '相田優希 (Masaki Aida)',
   jobTitle: 'Frontend / Backend Engineer',
-  description:
-    '相田優希 (Masaki Aida) のプロフィールサイト。フロントエンド / バックエンドエンジニア。機械学習・ネットワークを中心に、受賞歴や制作プロジェクトを掲載しています。',
+  description: {
+    ja: '相田優希 (Masaki Aida) のプロフィールサイト。フロントエンド / バックエンドエンジニア。機械学習・ネットワークを中心に、受賞歴や制作プロジェクトを掲載しています。',
+    en: 'Profile of Masaki Aida (相田優希). Frontend / Backend Engineer focused on machine learning and networking, with selected awards and projects.',
+  } satisfies Localized<string>,
   twitter_id: '@aida_0710',
   url: 'https://www.aida0710.work',
   image: 'https://www.aida0710.work/public_image.png',

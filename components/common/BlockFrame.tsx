@@ -1,11 +1,9 @@
-'use client';
-
 import { Children } from 'react';
 
 import { AnimatedSection } from '@/components/common/AnimatedSection';
 import type { BlockFrameProps } from '@/types';
 
-export function BlockFrame({ title, description, children }: BlockFrameProps) {
+export function BlockFrame({ title, description, children, fallback }: BlockFrameProps) {
   return (
     <section className="mx-auto w-full max-w-7xl px-6">
       <AnimatedSection>
@@ -16,11 +14,19 @@ export function BlockFrame({ title, description, children }: BlockFrameProps) {
           <p className="text-sm text-warm-subtext md:text-base">{description}</p>
         </header>
       </AnimatedSection>
-      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {Children.map(children, (child, index) => (
-          <AnimatedSection delay={index * 80}>{child}</AnimatedSection>
-        ))}
-      </div>
+
+      {/* fallback（空状態メッセージ等）はグリッドの外に出す。
+          グリッド内に置くと Children.map のラッパー div がグリッドアイテムになり、
+          メッセージ側の col-span-full が効かなくなるため。 */}
+      {fallback ? (
+        <AnimatedSection delay={80}>{fallback}</AnimatedSection>
+      ) : (
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {Children.map(children, (child, index) => (
+            <AnimatedSection delay={index * 80}>{child}</AnimatedSection>
+          ))}
+        </div>
+      )}
     </section>
   );
 }

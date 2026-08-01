@@ -1,6 +1,7 @@
 import { BlockFrame } from '@/components/common/BlockFrame';
 import { AwardCard } from '@/components/features/award/AwardCard';
 import { awards } from '@/data/awards';
+import { sortByDateDesc } from '@/libs/i18n/date';
 import { t } from '@/libs/i18n/dictionaries';
 import type { Locale } from '@/libs/i18n/locale';
 
@@ -9,10 +10,12 @@ interface AwardsPageProps {
 }
 
 export function AwardsPage({ locale }: AwardsPageProps) {
+  const sortedAwards = sortByDateDesc(awards, (award) => award.date);
+
   return (
     <div className="px-2 py-10 md:py-16">
       <BlockFrame description={t(locale, 'awards.description')} title={t(locale, 'awards.title')}>
-        {awards.map((award) => (
+        {sortedAwards.map((award) => (
           <AwardCard
             key={`${award.organization.ja}-${award.description.ja}-${award.date}`}
             award={award}

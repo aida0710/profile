@@ -1,6 +1,7 @@
 import { TextBlock } from '@/components/common/TextBlock';
 import { ImageGallery } from '@/components/features/gallery/ImageGallery';
 import { GALLERY_INTRODUCTION, images } from '@/data/gallery';
+import { sortByDateDesc } from '@/libs/i18n/date';
 import { t } from '@/libs/i18n/dictionaries';
 import { type Locale, pickLocalized } from '@/libs/i18n/locale';
 
@@ -10,6 +11,7 @@ interface GalleryPageProps {
 
 export function GalleryPage({ locale }: GalleryPageProps) {
   const intro = pickLocalized(GALLERY_INTRODUCTION, locale);
+  const sortedImages = sortByDateDesc(images, (image) => image.date);
 
   return (
     <div className="min-h-screen py-10 md:py-16">
@@ -20,7 +22,7 @@ export function GalleryPage({ locale }: GalleryPageProps) {
         <TextBlock messages={intro} />
       </div>
 
-      <ImageGallery images={images} locale={locale} />
+      <ImageGallery images={sortedImages} locale={locale} />
     </div>
   );
 }

@@ -48,7 +48,9 @@ const ja = {
   'articles.description': 'Qiita に投稿した記事一覧',
   'articles.meta.title': 'Articles',
   'articles.meta.description': 'Qiita に投稿した記事の一覧',
-  'articles.empty': '記事を取得できませんでした',
+  'articles.empty': '記事がまだありません',
+  'articles.error': '記事を取得できませんでした',
+  'articles.tags': 'タグ',
 
   'gallery.title': 'Photo Gallery',
   'gallery.intro1': '私が撮影した写真や撮影していただいた写真を掲載しています。',
@@ -60,6 +62,7 @@ const ja = {
   'gallery.photoAlt': '写真',
   'gallery.imageAlt': '画像',
   'gallery.shotDate': '撮影日',
+  'gallery.loading': '画像を読み込み中',
 
   'colophon.title': 'Colophon',
   'colophon.subtitle': 'このサイトについて',
@@ -67,7 +70,6 @@ const ja = {
   'colophon.meta.description': 'このサイトについて',
   'colophon.repository': 'Repository',
   'colophon.lastCommit': 'Last Commit',
-  'colophon.loading': '読み込み中…',
   'colophon.error': '取得できませんでした',
   'colophon.viewOnGitHub': 'GitHub で見る',
 
@@ -78,6 +80,11 @@ const ja = {
   'publicKeys.rawHint': 'テキスト形式（authorized_keys にそのまま追記可）でも取得できます:',
   'publicKeys.copy': 'コピー',
   'publicKeys.copied': 'コピーしました',
+  'publicKeys.copyFailed': 'コピーできませんでした',
+
+  'notFound.title': 'ページが見つかりません',
+  'notFound.description': 'お探しのページは存在しないか、移動した可能性があります。',
+  'notFound.backHome': 'ホームに戻る',
 
   'error.title': '問題が発生しました',
   'error.retry': '再試行',
@@ -135,7 +142,9 @@ const en: Partial<Record<DictionaryKey, string>> = {
   'articles.description': 'My posts on Qiita',
   'articles.meta.title': 'Articles',
   'articles.meta.description': 'A list of my articles on Qiita.',
-  'articles.empty': 'No articles could be loaded.',
+  'articles.empty': 'No articles yet.',
+  'articles.error': 'Could not load articles.',
+  'articles.tags': 'Tags',
 
   'gallery.title': 'Photo Gallery',
   'gallery.intro1': 'A collection of photos I have taken and photos taken of me.',
@@ -147,6 +156,7 @@ const en: Partial<Record<DictionaryKey, string>> = {
   'gallery.photoAlt': 'Photo',
   'gallery.imageAlt': 'Image',
   'gallery.shotDate': 'Taken on',
+  'gallery.loading': 'Loading image',
 
   'colophon.title': 'Colophon',
   'colophon.subtitle': 'About this site',
@@ -154,7 +164,6 @@ const en: Partial<Record<DictionaryKey, string>> = {
   'colophon.meta.description': 'About this site.',
   'colophon.repository': 'Repository',
   'colophon.lastCommit': 'Last Commit',
-  'colophon.loading': 'Loading…',
   'colophon.error': 'Failed to load',
   'colophon.viewOnGitHub': 'View on GitHub',
 
@@ -165,6 +174,11 @@ const en: Partial<Record<DictionaryKey, string>> = {
   'publicKeys.rawHint': 'Also available as plain text (ready to append to authorized_keys):',
   'publicKeys.copy': 'Copy',
   'publicKeys.copied': 'Copied',
+  'publicKeys.copyFailed': 'Copy failed',
+
+  'notFound.title': 'Page not found',
+  'notFound.description': 'The page you are looking for does not exist or may have moved.',
+  'notFound.backHome': 'Back to home',
 
   'error.title': 'Something went wrong',
   'error.retry': 'Try again',

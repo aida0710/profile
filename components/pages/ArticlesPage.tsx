@@ -9,16 +9,25 @@ interface ArticlesPageProps {
 }
 
 export async function ArticlesPage({ locale }: ArticlesPageProps) {
-  const articles = await getQiitaArticles();
+  const result = await getQiitaArticles();
+  const articles = result.ok ? result.articles : [];
+
+  // 取得失敗と「記事が 0 件」は別のメッセージで伝える
+  const fallback =
+    articles.length === 0 ? (
+      <p className="text-sm text-warm-subtext">{t(locale, result.ok ? 'articles.empty' : 'articles.error')}</p>
+    ) : undefined;
 
   return (
     <div className="px-2 py-10 md:py-16">
-      <BlockFrame description={t(locale, 'articles.description')} title={t(locale, 'articles.title')}>
-        {articles.length === 0 ? (
-          <p className="col-span-full text-sm text-warm-subtext">{t(locale, 'articles.empty')}</p>
-        ) : (
-          articles.map((article) => <ArticleCard key={article.id} article={article} locale={locale} />)
-        )}
+      <BlockFrame
+        description={t(locale, 'articles.description')}
+        fallback={fallback}
+        title={t(locale, 'articles.title')}
+      >
+        {articles.map((article) => (
+          <ArticleCard key={article.id} article={article} locale={locale} />
+        ))}
       </BlockFrame>
     </div>
   );
