@@ -78,9 +78,7 @@ const ja = {
   'publicKeys.meta.title': 'Public Keys',
   'publicKeys.meta.description': 'SSH 公開鍵の一覧。/keys からテキスト形式でも取得できます。',
   'publicKeys.rawHint': 'テキスト形式（authorized_keys にそのまま追記可）でも取得できます:',
-  'publicKeys.copy': 'コピー',
-  'publicKeys.copied': 'コピーしました',
-  'publicKeys.copyFailed': 'コピーできませんでした',
+  'publicKeys.download': 'ダウンロード',
 
   'notFound.title': 'ページが見つかりません',
   'notFound.description': 'お探しのページは存在しないか、移動した可能性があります。',
@@ -172,9 +170,7 @@ const en: Partial<Record<DictionaryKey, string>> = {
   'publicKeys.meta.title': 'Public Keys',
   'publicKeys.meta.description': 'A list of my SSH public keys. Also available as plain text at /keys.',
   'publicKeys.rawHint': 'Also available as plain text (ready to append to authorized_keys):',
-  'publicKeys.copy': 'Copy',
-  'publicKeys.copied': 'Copied',
-  'publicKeys.copyFailed': 'Copy failed',
+  'publicKeys.download': 'Download',
 
   'notFound.title': 'Page not found',
   'notFound.description': 'The page you are looking for does not exist or may have moved.',
