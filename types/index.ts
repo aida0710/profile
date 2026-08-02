@@ -47,6 +47,11 @@ export interface QiitaArticle {
 
 // Public Keys 関連の型
 export interface PublicKey {
+  /**
+   * ダウンロード URL（/keys/<id>）とファイル名（<id>.pub）に使う識別子。
+   * 変更すると公開済みの URL が変わるため、一度公開したら変えないこと。
+   */
+  id: string;
   label: string;
   key: string;
 }

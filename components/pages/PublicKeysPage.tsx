@@ -33,7 +33,7 @@ export function PublicKeysPage({ locale }: PublicKeysPageProps) {
 
         <div className="flex flex-col gap-5">
           {publicKeys.map((publicKey, index) => (
-            <AnimatedSection key={publicKey.key} delay={(index + 2) * 80}>
+            <AnimatedSection key={publicKey.id} delay={(index + 2) * 80}>
               <PublicKeyCard publicKey={publicKey} locale={locale} />
             </AnimatedSection>
           ))}

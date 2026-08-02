@@ -36,7 +36,9 @@
 │   │       ├── not-found.tsx
 │   │       └── ...              # (ja) と同じ構成
 │   ├── not-found.tsx            # どのグループにも一致しない URL 用（日英併記）
-│   ├── keys/route.ts            # /keys — SSH 公開鍵を text/plain で返す
+│   ├── keys/
+│   │   ├── route.ts             # /keys — 全公開鍵を text/plain で返す
+│   │   └── [id]/route.ts        # /keys/<id> — 1件を .pub ファイルとしてダウンロード
 │   ├── providers.tsx            # HeroUI + next-themes プロバイダー
 │   ├── robots.ts
 │   └── sitemap.ts
@@ -237,7 +239,16 @@ sortByDateDesc(items, (i) => i.date)      // 新しい順（元配列は変更�
 `date` は ISO 8601。並び替えは各ページで `sortByDateDesc` が行うため、配列の順序は問いません。
 
 ### PublicKey（data/publicKeys.ts）
-公開鍵は秘密情報ではないためコミットして問題ありません。配列に追加すれば UI と `/keys` の両方が自動で追従します。
+```typescript
+{
+  id: 'ed25519-2026-07-15',        // /keys/<id> と <id>.pub に使う。公開後は変更しない
+  label: 'Ed25519 (2026-07-15)',   // 画面に出す人間向けラベル
+  key: 'ssh-ed25519 AAAA...',      // authorized_keys に貼れる 1 行
+}
+```
+公開鍵は秘密情報ではないためコミットして問題ありません。配列に追加すれば、一覧 UI・`/keys`（全件テキスト）・`/keys/<id>`（個別ダウンロード）がすべて自動で追従します。
+
+`/keys/<id>` は `Content-Disposition: attachment` を付けて `.pub` ファイルとしてダウンロードさせます。`generateStaticParams` でビルド時に生成され、`dynamicParams = false` により未定義の id は 404 になります。
 
 ---
 
