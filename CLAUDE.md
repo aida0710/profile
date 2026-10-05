@@ -309,6 +309,9 @@ Tailwind CSS v4 では `@import "tailwindcss";` 1 行に加え、`@config` / `@p
 - **`useTheme()` は `theme` ではなく `resolvedTheme` を見る** — `theme` は `'system'` になり得ます
 - **外部リンクの `target="_blank"` には `rel="noopener noreferrer"` を付ける**
 - **`role="button"` の要素に他のインタラクティブ要素を入れない** — 不正な ARIA になります
+- **framer-motion は直接 import していないが削除しない** — HeroUI（`@heroui/modal` など）の peer 依存で、`MobileMenu` の `motionProps` 経由で使われています
+- **framer-motion 12 の `ease` は cubic-bezier 配列 + `as const`** — 文字列（`'easeOut'`）は型エラーになります
+  - `'easeOut'` → `[0, 0, 0.2, 1] as const` / `'easeIn'` → `[0.4, 0, 1, 1] as const`
 
 ---
 
