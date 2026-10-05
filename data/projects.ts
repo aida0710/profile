@@ -2,6 +2,33 @@ import type { Project } from '@/types';
 
 export const projects: Project[] = [
   {
+    title: { ja: 'sshc', en: 'sshc' },
+    description: {
+      ja: [
+        'OpenSSHの設定ファイルをそのまま使う、ローカルファーストのSSHクライアント。接続管理、Terminal、SFTP、Workspace、スニペット、接続ごとのVPN、暗号化同期を1つのWeb UIとCLIから扱える',
+        '設定ファイルのコメント・順序・空白・Includeを保った編集、中断再開やバックグラウンド転送キュー付きSFTP、最大4ペインを並べるWorkspace、Vaultによるパスワード・鍵パスフレーズ・TOTPの安全な保存と再利用に対応',
+        'WireGuard・L2TP/IPsec・OpenConnect・OpenVPN・IKEv2/IPsec による接続ごとのVPN、S3互換ストレージへの暗号化スナップショット同期、Homebrew・インストーラー・APKでの各OS対応を備える',
+      ],
+      en: [
+        'A local-first SSH client that works directly with your OpenSSH config files. Manages connections, Terminal, SFTP, Workspace, snippets, per-connection VPN, and encrypted sync from a single Web UI and CLI.',
+        'Edits config files while preserving comments, order, whitespace, and Include directives. Ships with resumable SFTP with a background transfer queue, up to 4-pane Workspace, and a Vault for securely storing and reusing passwords, key passphrases, and TOTP keys.',
+        'Supports per-connection VPN (WireGuard, L2TP/IPsec, OpenConnect, OpenVPN, IKEv2/IPsec), encrypted snapshot sync via S3-compatible storage, and installs on macOS, Linux, Windows, and Android.',
+      ],
+    },
+    image: 'sshc.png',
+    links: {
+      docs: {
+        description: { ja: 'ドキュメント', en: 'Documentation' },
+        url: 'https://aida0710.github.io/sshc/',
+      },
+      github: {
+        description: { ja: 'Github Repository', en: 'GitHub Repository' },
+        url: 'https://github.com/aida0710/sshc',
+      },
+    },
+    language: 'Go',
+  },
+  {
     title: { ja: 'pdf-translate', en: 'pdf-translate' },
     description: {
       ja: [
