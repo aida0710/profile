@@ -258,8 +258,9 @@ sortByDateDesc(items, (i) => i.date)      // 新しい順（元配列は変更�
 npm run dev      # 開発サーバー（Turbopack）
 npm run build    # 本番ビルド（型チェックも実行される）
 npm run start    # 本番サーバー
-npm run lint     # Biome チェック + 自動修正
-npm run format   # Biome 整形のみ
+npm run lint      # Biome チェック + 自動修正
+npm run format    # Biome 整形のみ
+npm run typecheck # 型チェック（tsc --noEmit）
 ```
 
 **`biome.json` の `$schema` は CLI のバージョンと一致させてください。** ずれると `biome check` がエラー終了します。更新は `npx biome migrate` で行えます。
@@ -308,6 +309,7 @@ Tailwind CSS v4 では `@import "tailwindcss";` 1 行に加え、`@config` / `@p
 - **`useTheme()` は `theme` ではなく `resolvedTheme` を見る** — `theme` は `'system'` になり得ます
 - **外部リンクの `target="_blank"` には `rel="noopener noreferrer"` を付ける**
 - **`role="button"` の要素に他のインタラクティブ要素を入れない** — 不正な ARIA になります
+- **framer-motion は直接 import していないが削除しない** — HeroUI（`@heroui/modal` など）の peer 依存で、`MobileMenu` の `motionProps` 経由で使われています
 - **framer-motion 12 の `ease` は cubic-bezier 配列 + `as const`** — 文字列（`'easeOut'`）は型エラーになります
   - `'easeOut'` → `[0, 0, 0.2, 1] as const` / `'easeIn'` → `[0.4, 0, 1, 1] as const`
 
@@ -322,5 +324,5 @@ Tailwind CSS v4 では `@import "tailwindcss";` 1 行に加え、`@config` / `@p
 
 ---
 
-**最終更新:** 2026年8月1日
+**最終更新:** 2026年10月5日
 **バージョン:** 3.1.0
