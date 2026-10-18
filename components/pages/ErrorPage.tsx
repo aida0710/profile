@@ -18,11 +18,11 @@ export function ErrorPage({ locale, error, reset }: ErrorPageProps) {
   }, [error]);
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-4 px-6 text-center">
-      <h2 className="font-heading text-2xl font-semibold text-warm-text">{t(locale, 'error.title')}</h2>
+    <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4 px-6 text-center">
+      <h2 className="text-2xl font-semibold text-ink">{t(locale, 'error.title')}</h2>
       <button
         type="button"
-        className="rounded-lg border border-warm-border bg-warm-surface px-4 py-2 text-sm text-warm-text transition-colors hover:border-warm-accent hover:text-warm-accent focus-visible:ring-2 focus-visible:ring-warm-accent focus-visible:outline-none"
+        className="rounded-md border border-line2 bg-bg px-4 py-2 text-sm text-ink transition-colors hover:bg-bg2"
         onClick={() => reset()}
       >
         {t(locale, 'error.retry')}

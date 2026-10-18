@@ -10,20 +10,20 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        warm: {
-          bg: 'var(--color-warm-bg)',
-          surface: 'var(--color-warm-surface)',
-          text: 'var(--color-warm-text)',
-          subtext: 'var(--color-warm-subtext)',
-          accent: 'var(--color-warm-accent)',
-          'accent-hover': 'var(--color-warm-accent-hover)',
-          border: 'var(--color-warm-border)',
-        },
+        bg: 'var(--color-bg)',
+        bg2: 'var(--color-bg2)',
+        ink: 'var(--color-ink)',
+        sub: 'var(--color-sub)',
+        faint: 'var(--color-faint)',
+        line: 'var(--color-line)',
+        line2: 'var(--color-line2)',
+        plus: 'var(--color-plus)',
+        ok: 'var(--color-ok)',
       },
       fontFamily: {
-        sans: ['var(--font-sans)'],
-        heading: ['var(--font-heading)'],
-        mono: ['var(--font-mono)'],
+        // 欧文は Geist、和文は Noto Sans JP に落とす。
+        sans: ['var(--font-sans)', 'var(--font-sans-jp)', 'sans-serif'],
+        mono: ['var(--font-mono)', 'var(--font-sans-jp)', 'monospace'],
       },
     },
   },

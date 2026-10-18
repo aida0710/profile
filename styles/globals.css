@@ -4,24 +4,30 @@
 @source "../node_modules/@heroui/theme/dist/**/**.{js,ts,jsx,tsx}";
 @custom-variant dark (&:is(.dark *));
 
+/* 配色トークン。tailwind.config.cjs が bg / ink / line などのユーティリティに対応付ける。
+   ダークは next-themes が付ける .dark で差し替えるため、dark: プレフィックスは要らない。 */
 :root {
-  --color-warm-bg: #faf8f5;
-  --color-warm-surface: #f0ede8;
-  --color-warm-text: #2c2825;
-  --color-warm-subtext: #8a8580;
-  --color-warm-accent: #c4703f;
-  --color-warm-accent-hover: #b5633a;
-  --color-warm-border: #e8e4df;
+  --color-bg: #ffffff;
+  --color-bg2: #fafafa;
+  --color-ink: #0a0a0a;
+  --color-sub: #666666;
+  --color-faint: #8f8f8f;
+  --color-line: #ebebeb;
+  --color-line2: #d4d4d4;
+  --color-plus: #a3a3a3;
+  --color-ok: oklch(0.62 0.16 150);
 }
 
 .dark {
-  --color-warm-bg: #1a1816;
-  --color-warm-surface: #252220;
-  --color-warm-text: #e8e4df;
-  --color-warm-subtext: #8a8580;
-  --color-warm-accent: #d4885a;
-  --color-warm-accent-hover: #e09a6c;
-  --color-warm-border: #333028;
+  --color-bg: #0a0a0a;
+  --color-bg2: #111111;
+  --color-ink: #ededed;
+  --color-sub: #a1a1a1;
+  --color-faint: #7a7a7a;
+  --color-line: #222222;
+  --color-line2: #333333;
+  --color-plus: #555555;
+  --color-ok: oklch(0.72 0.15 150);
 }
 
 * {
@@ -29,26 +35,57 @@
   scrollbar-color: gray transparent;
 }
 
-/* 出現アニメーション。
-   CSS のみで完結させることで、JS が無効・読み込み失敗の環境でも
-   コンテンツが必ず表示されるようにしている（components/common/AnimatedSection.tsx）。 */
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(1rem);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+/* セクション角の＋マーク。縦横 1px の線 2 本を背景で描く（components/grid/GridSection.tsx）。 */
+.grid-corner {
+  position: absolute;
+  bottom: -6px;
+  z-index: 1;
+  width: 11px;
+  height: 11px;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--color-plus), var(--color-plus)) center / 1px 100% no-repeat,
+    linear-gradient(var(--color-plus), var(--color-plus)) center / 100% 1px no-repeat;
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 500ms ease-out both;
+/* ヒーローの方眼。左から右へ現れるよう mask で薄める。開始位置は --grid-fade-start で変える。 */
+.grid-paper {
+  position: absolute;
+  inset: 0;
+  opacity: 0.9;
+  background-image:
+    linear-gradient(var(--color-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: -1px -1px;
+  mask-image: linear-gradient(90deg, transparent var(--grid-fade-start, 40%), #000 100%);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .animate-fade-in-up {
-    animation: none;
-  }
+/* 本文とフッターの間の斜線帯。 */
+.hatch-band {
+  height: 64px;
+  border-bottom: 1px solid var(--color-line);
+  background-image: repeating-linear-gradient(-45deg, var(--color-line) 0 1px, transparent 1px 8px);
+}
+
+/* セル型グリッド。各セルが右と下に罫線を持ち、グリッドを 1px 外へずらして外周の二重線を
+   親の overflow:hidden で隠す。列数がいくつに折り返しても罫線が崩れない。 */
+.cell-grid {
+  display: grid;
+  margin: 0 -1px -1px 0;
+  grid-template-columns: repeat(var(--cell-repeat, auto-fit), minmax(min(100%, var(--cell-min)), 1fr));
+}
+
+.cell-grid > * {
+  /* 画像などの固有幅でセルが列幅より広がらないようにする。 */
+  min-width: 0;
+  border-right: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+}
+
+/* ヘッダーとメインが共有する幅。左右の 1px が縦のガイド線になる。 */
+.site-container {
+  width: min(1080px, 100% - 24px);
+  margin-inline: auto;
+  border-inline: 1px solid var(--color-line);
 }

@@ -2,6 +2,9 @@ import type { Project } from '@/types';
 
 export const projects: Project[] = [
   {
+    id: 'sshc',
+    category: 'Network',
+    featured: true,
     title: { ja: 'sshc', en: 'sshc' },
     description: {
       ja: [
@@ -29,52 +32,93 @@ export const projects: Project[] = [
     language: 'Go',
   },
   {
-    title: { ja: 'pdf-translate', en: 'pdf-translate' },
+    id: 'mado-s3-datacatalog',
+    category: 'Infra',
+    featured: true,
+    title: { ja: 'mado S3 Data Catalog', en: 'mado S3 Data Catalog' },
     description: {
       ja: [
-        '英語論文を読める日本語に対訳翻訳する Web ツール。図表・段組みのレイアウトを保ったまま翻訳し、訳文 / 原文 / 対訳を切り替えて読める',
-        'フォルダ + 色付きタグで論文棚を整理。ドラッグ&ドロップ・一括移動・横断検索に対応し、冒頭から日本語要約を自動生成することで積ん読の中身を一目で把握できる',
-        'OpenAI・Anthropic 等のAPIキーに対応し、OpenAI互換APIならセルフホスト LLM も利用可。APIキー代を除き利用は無料',
+        '複数の S3 アカウントと多数のバケットを横断して管理する Web ツール。テキスト・画像・音声・MP4 動画・tar/tar.gz/tar.xz の中身をダウンロードせずにその場でプレビューでき、Web URL / S3 URL をワンクリックでコピーできる',
+        '各ディレクトリの README とチーム共有ノート(どちらも履歴付き)、音声の波形・スペクトログラムと同期プレイヤーでの聴き比べ、配下の件数・容量の集計と他ストレージへ移す場合の費用・時間の見積もり、バケット容量の推移グラフに対応',
+        'OpenLineage 形式のデータセット系譜の可視化、Local User / OIDC SSO と 4 段階のロールによる権限管理と監査ログ、接続ごとの操作制限、機能単位で権限を選べるアクセストークンを備える',
       ],
       en: [
-        'A web tool that turns English papers into readable Japanese side-by-side translations. Figures and multi-column layouts are preserved, and you can switch between translation, original, and parallel views.',
-        'Organize your library with folders and colored tags. Supports drag & drop, bulk moves, and cross-library search, and auto-generates a Japanese summary from the opening so you can see at a glance what is sitting in your backlog.',
-        'Works with OpenAI, Anthropic, and other API keys — any OpenAI-compatible endpoint, including self-hosted LLMs. Free to use apart from your own API costs.',
+        'A web tool for managing many buckets across multiple S3 accounts. Preview text, images, audio, MP4 video, and the contents of tar / tar.gz / tar.xz in place without downloading, and copy Web or S3 URLs in one click.',
+        'Per-directory READMEs and a team-wide shared note (both with history), audio waveforms, spectrograms, and a synced player for side-by-side listening, object count and size totals with cost and time estimates for moving data to other storage, and capacity charts per bucket.',
+        'Includes OpenLineage-based dataset lineage views, Local User / OIDC SSO with four roles and audit logs, per-connection operation limits, and access tokens scoped by feature.',
       ],
     },
-    image: 'pdf-translation.png',
+    image: 'mado-s3-datacatalog.png',
     links: {
-      web: {
-        description: { ja: '公開サイト', en: 'Website' },
-        url: 'https://translation.aida0710.work/',
+      docs: {
+        description: { ja: 'ドキュメント', en: 'Documentation' },
+        url: 'https://aida0710.github.io/mado-s3-datacatalog/',
+      },
+      github: {
+        description: { ja: 'Github Repository', en: 'GitHub Repository' },
+        url: 'https://github.com/aida0710/mado-s3-datacatalog',
       },
     },
     language: 'TypeScript',
   },
   {
-    title: { ja: 'mado', en: 'mado' },
+    id: 'mado-ml-tracking',
+    category: 'Infra',
+    title: { ja: 'mado ML Tracking', en: 'mado ML Tracking' },
     description: {
       ja: [
-        '複数の S3 互換ストレージを横断的に管理する Web ツール。バケット・ディレクトリのブラウズ、テキスト・画像・音声・tar/tar.gz/tar.xz のインラインプレビュー、Web URL / S3 URL のワンクリックコピーに対応',
-        '各ディレクトリに Markdown の README を残せる(履歴付き)ほか、チーム全体で共有する Markdown ノート機能も搭載。プレビューペインは幅可変で、幅の設定は自動保存される',
-        'Hono + PostgreSQL のバックエンドと Vite フロントエンドを Docker Compose で構成。S3 認証情報は AES-256-GCM で保存時暗号化し、CSRF 防御・PG ロール分離でプライベートネットワーク内運用を想定した設計',
+        '実験・モデル・実行コード・データセットを同じ Run に結び付けて管理する、MLflow 3 互換の実験管理基盤。パラメータ・時系列メトリクス・ログ・GPU 使用率を記録し、Run の比較やメディアのプレビューができる',
+        'モデルの版ごとに重み・親モデル・生成元の Run を残し、登録をきっかけに推論・評価を自動でキューへ投入。コードは画面上のエディタで編集でき、SSH 経由の GPU ジョブとして実行・再実行できる',
+        'React / Vite の画面、Hono の API、PostgreSQL、Python SDK と SSH worker で構成。公式 MLflow 3 SDK からも記録でき、成果物はファイルシステムか S3 互換ストレージを Project ごとに選べる',
       ],
       en: [
-        'A web tool for managing multiple S3-compatible storage backends side by side. Browse buckets and directories, preview text / images / audio / tar / tar.gz / tar.xz inline, and copy Web or S3 URLs in one click.',
-        'Each directory can keep a Markdown README (with history), and the workspace ships with team-wide Markdown notes. The preview pane is resizable and the width is auto-saved.',
-        'Built with a Hono + PostgreSQL backend and a Vite frontend, all wired together via Docker Compose. S3 credentials are encrypted at rest with AES-256-GCM, and the design uses CSRF protection plus PostgreSQL role isolation, assuming operation inside a private network.',
+        'An MLflow 3-compatible experiment tracking platform that ties experiments, models, code, and datasets to the same Run. Records parameters, time-series metrics, logs, and GPU usage, with Run comparison and media previews.',
+        'Each model version keeps its weights, parent model, and source Run, and registering a version can automatically queue inference and evaluation. Code is edited in an in-browser editor and runs as GPU jobs over SSH, with re-runs tracked separately.',
+        'Built with a React / Vite frontend, a Hono API, PostgreSQL, a Python SDK, and an SSH worker. The official MLflow 3 SDK can log to it too, and artifacts go to the filesystem or S3-compatible storage, chosen per Project.',
       ],
     },
-    image: 'mado.png',
+    image: 'mado-ml-tracking.png',
+    links: {
+      docs: {
+        description: { ja: 'ドキュメント', en: 'Documentation' },
+        url: 'https://aida0710.github.io/mado-ml-tracking/',
+      },
+      github: {
+        description: { ja: 'Github Repository', en: 'GitHub Repository' },
+        url: 'https://github.com/aida0710/mado-ml-tracking',
+      },
+    },
+    language: 'TypeScript',
+  },
+  {
+    id: 'versitygw-lustre-backend',
+    category: 'Infra',
+    title: { ja: 'versitygw Lustre backend', en: 'versitygw Lustre backend' },
+    description: {
+      ja: [
+        'ファイルシステムを S3 として公開する Versity S3 Gateway に、Lustre のような並列ファイルシステム向けのバックエンドを追加したフォーク',
+        'マルチパートアップロードの各 part を 1 本のスパースファイルの最終位置へ直接書き込み、完了処理は truncate と rename だけで済ませる。reflink が使えない Lustre でも、全データを 2 回書く結合コピーが発生しない',
+        'オブジェクトとバケットの属性はバケット単位の SQLite に保存し、user xattr に頼らずメタデータサーバへの問い合わせも減らした。一覧取得の専用実行枠と属性取得の並列化、part を fsync してから成功を返す書き込みにも対応',
+      ],
+      en: [
+        'A fork of the Versity S3 Gateway, which serves a filesystem over S3, that adds a backend for parallel filesystems such as Lustre.',
+        'Each multipart part is written straight into its final position in one sparse file, so completing an upload is just a truncate and a rename. On Lustre, where reflink is unavailable, this avoids the concatenating copy that writes every byte twice.',
+        'Object and bucket attributes live in a per-bucket SQLite database instead of user xattrs, cutting load on the metadata servers. It also adds a dedicated execution slot for listings, parallel attribute lookups, and fsyncs each part before reporting success.',
+      ],
+    },
+    image: 'versitygw-lustre-backend.png',
     links: {
       github: {
         description: { ja: 'Github Repository', en: 'GitHub Repository' },
-        url: 'https://github.com/aida0710/mado',
+        url: 'https://github.com/aida0710/versitygw-lustre-backend',
       },
     },
-    language: 'TypeScript',
+    language: 'Go',
   },
   {
+    id: 'mochi-hosting',
+    category: 'Infra',
+    featured: true,
     title: { ja: 'Mochi Hosting', en: 'Mochi Hosting' },
     description: {
       ja: [
@@ -98,6 +142,9 @@ export const projects: Project[] = [
     language: 'TypeScript',
   },
   {
+    id: 'mdx-cli',
+    category: 'Infra',
+    featured: true,
     title: { ja: 'mdx-cli', en: 'mdx-cli' },
     description: {
       ja: [
@@ -121,6 +168,8 @@ export const projects: Project[] = [
     language: 'Python',
   },
   {
+    id: 'dango-hosting',
+    category: 'Game',
     title: { ja: 'Dango Hosting', en: 'Dango Hosting' },
     description: {
       ja: [
@@ -144,6 +193,8 @@ export const projects: Project[] = [
     language: 'Kotlin / TypeScript',
   },
   {
+    id: 'audio-player-plugin',
+    category: 'Tool',
     title: { ja: 'Audio Player Plugin', en: 'Audio Player Plugin' },
     description: {
       ja: [
@@ -169,6 +220,8 @@ export const projects: Project[] = [
     language: 'Kotlin',
   },
   {
+    id: 'mobility-instrument',
+    category: 'Art',
     title: { ja: '人流楽器', en: 'Mobility Instrument' },
     description: {
       ja: [
@@ -197,6 +250,8 @@ export const projects: Project[] = [
     language: 'Dart / TypeScript',
   },
   {
+    id: 'rdb-tunnel',
+    category: 'Network',
     title: { ja: 'rdb tunnel', en: 'rdb tunnel' },
     description: {
       ja: [
@@ -218,6 +273,8 @@ export const projects: Project[] = [
     language: 'Rust',
   },
   {
+    id: 'dos-attack-tool',
+    category: 'Network',
     title: {
       ja: '教育目的、演習目的のDosツール',
       en: 'DoS Tool for Educational Use',
@@ -246,6 +303,8 @@ export const projects: Project[] = [
     language: 'Rust',
   },
   {
+    id: 'packet-sniffer',
+    category: 'Network',
     title: {
       ja: 'ネットワークパケット傍聴ツール',
       en: 'Network Packet Sniffer',
@@ -270,6 +329,8 @@ export const projects: Project[] = [
     language: 'Rust',
   },
   {
+    id: 'catsial',
+    category: 'Web',
     title: { ja: 'Catsial', en: 'Catsial' },
     description: {
       ja: ['Web単語帳アプリ', '現在開発中 データベースはMySQLを使用'],
@@ -295,6 +356,8 @@ export const projects: Project[] = [
     language: 'TypeScript',
   },
   {
+    id: 'web-network-simulator',
+    category: 'Network',
     title: { ja: 'Web Network Simulator', en: 'Web Network Simulator' },
     description: {
       ja: ['100pro 5期で作成したネットワークシミュレータ', '主にフロントエンドなどを担当し、Next.jsで開発'],
@@ -317,6 +380,8 @@ export const projects: Project[] = [
     language: 'TypeScript / Python',
   },
   {
+    id: 'desktop-mascot',
+    category: 'App',
     title: { ja: 'Desktop Mascot', en: 'Desktop Mascot' },
     description: {
       ja: ['100pro 5期で作成したデスクトップマスコット', 'Unity + C# + Google Calendar Api for .Netで開発'],
@@ -335,6 +400,8 @@ export const projects: Project[] = [
     language: 'C#',
   },
   {
+    id: 'zircon-lang',
+    category: 'Language',
     title: { ja: 'Zircon Lang', en: 'Zircon Lang' },
     description: {
       ja: ['Kotlin製自作インタープリター言語', '開発中(字句解析器/構文解析器/インタープリター実装済み)'],
@@ -353,6 +420,8 @@ export const projects: Project[] = [
     language: 'Kotlin',
   },
   {
+    id: 'blur-focus',
+    category: 'Tool',
     title: { ja: 'Blur Focus', en: 'Blur Focus' },
     description: {
       ja: ['初めて作成したクローム拡張機能。', '文章を読むときに文字が滑るので、文字が滑らないように対策する拡張機能'],
@@ -371,6 +440,8 @@ export const projects: Project[] = [
     language: 'TypeScript',
   },
   {
+    id: 'folivora',
+    category: 'Game',
     title: { ja: 'Folivora', en: 'Folivora' },
     description: {
       ja: ['マインクラフトサーバのプラグイン。真面目に設計を頑張ったプロジェクト'],
@@ -386,6 +457,8 @@ export const projects: Project[] = [
     language: 'PHP',
   },
   {
+    id: 'profile',
+    category: 'Web',
     title: { ja: 'Profile', en: 'Profile' },
     description: {
       ja: ['この自己紹介サイトのソースコード'],

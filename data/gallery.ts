@@ -1,12 +1,6 @@
-import type { Localized } from '@/libs/i18n/locale';
 import type { GalleryImage } from '@/types';
 
 export const GALLERY_DIRECTORY = '/images/gallery/';
-
-export const GALLERY_INTRODUCTION: Localized<string[]> = {
-  ja: ['私が撮影した写真や撮影していただいた写真を掲載しています。', '画像をクリックすると拡大表示されます。'],
-  en: ['A collection of photos I have taken and photos taken of me.', 'Click an image to view it enlarged.'],
-};
 
 // date は ISO 8601（YYYY-MM-DD）で記述する。
 // 表示は libs/i18n/date.ts の formatDate() がロケールに応じて整形し、

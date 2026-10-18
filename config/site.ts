@@ -13,12 +13,11 @@ export const siteConfig = {
   image: 'https://www.aida0710.work/public_image.png',
   // Google Analytics 4 の測定ID。クライアントに公開される非機密情報のため直接保持する。
   gaId: 'G-88TR94J5Y4',
-  // Person 構造化データ・各種プロフィールで使う SNS リンク
+  // トップのリンクボタンと Person 構造化データ（sameAs）で使う SNS リンク
   socials: [
-    'https://github.com/aida0710',
-    'https://twitter.com/aida_0710',
-    'https://www.instagram.com/aida_07100/',
-    'https://qiita.com/aida0710',
-    'https://wakatime.com/@aida_0710',
+    { label: 'GitHub', url: 'https://github.com/aida0710' },
+    { label: 'Twitter', url: 'https://twitter.com/aida_0710' },
+    { label: 'Instagram', url: 'https://www.instagram.com/aida_07100/' },
+    { label: 'Qiita', url: 'https://qiita.com/aida0710' },
   ],
 };
