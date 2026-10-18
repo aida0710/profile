@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-import { fontHeading, fontMono, fontSans } from '@/config/fonts';
+import { fontVariables } from '@/config/fonts';
 import { t } from '@/libs/i18n/dictionaries';
 import { DEFAULT_LOCALE, EN_PREFIX } from '@/libs/i18n/locale';
 
@@ -12,8 +12,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const linkClass =
-  'rounded-lg border border-warm-border bg-warm-surface px-4 py-2 text-sm text-warm-text transition-colors hover:border-warm-accent hover:text-warm-accent focus-visible:ring-2 focus-visible:ring-warm-accent focus-visible:outline-none';
+const linkClass = 'rounded-md border border-line2 bg-bg px-4 py-2 text-sm text-ink transition-colors hover:bg-bg2';
 
 /**
  * どのルートグループにも一致しなかった URL 用の 404。
@@ -27,24 +26,16 @@ const linkClass =
  */
 export default function NotFound() {
   return (
-    <div
-      lang={DEFAULT_LOCALE}
-      className={clsx(
-        'min-h-screen bg-warm-bg font-sans antialiased',
-        fontSans.variable,
-        fontHeading.variable,
-        fontMono.variable,
-      )}
-    >
+    <div lang={DEFAULT_LOCALE} className={clsx('min-h-screen bg-bg font-sans text-ink antialiased', ...fontVariables)}>
       <main className="flex min-h-screen flex-col items-center justify-center gap-3 px-6 text-center">
-        <p className="font-mono text-sm tracking-widest text-warm-subtext">404</p>
+        <p className="font-mono text-sm tracking-widest text-sub">404</p>
 
-        <h1 className="font-heading text-2xl font-semibold text-warm-text md:text-3xl">{t('ja', 'notFound.title')}</h1>
-        <p className="max-w-md text-warm-subtext">{t('ja', 'notFound.description')}</p>
+        <h1 className="text-2xl font-semibold text-ink md:text-3xl">{t('ja', 'notFound.title')}</h1>
+        <p className="max-w-md text-sub">{t('ja', 'notFound.description')}</p>
 
-        <div lang="en" className="mt-4 border-t border-warm-border pt-4">
-          <h2 className="font-heading text-lg font-semibold text-warm-text">{t('en', 'notFound.title')}</h2>
-          <p className="mt-1 max-w-md text-warm-subtext">{t('en', 'notFound.description')}</p>
+        <div lang="en" className="mt-4 border-t border-line pt-4">
+          <h2 className="text-lg font-semibold text-ink">{t('en', 'notFound.title')}</h2>
+          <p className="mt-1 max-w-md text-sub">{t('en', 'notFound.description')}</p>
         </div>
 
         <div className="mt-4 flex flex-wrap items-center justify-center gap-3">

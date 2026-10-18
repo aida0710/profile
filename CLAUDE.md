@@ -19,66 +19,54 @@
 ├── app/
 │   ├── (ja)/                    # 日本語版ルートグループ（URL に影響しない）
 │   │   ├── layout.tsx           # ルートレイアウト <html lang="ja">
-│   │   ├── page.tsx             # /
+│   │   ├── page.tsx             # /（プロフィール + 受賞履歴）
 │   │   ├── error.tsx            # 日本語版エラー境界
 │   │   ├── not-found.tsx        # (ja) 配下の notFound() 用
-│   │   ├── awards/page.tsx      # /awards
 │   │   ├── projects/page.tsx    # /projects
-│   │   ├── articles/page.tsx    # /articles
-│   │   ├── gallery/page.tsx     # /gallery
-│   │   ├── public-keys/page.tsx # /public-keys
-│   │   └── colophon/page.tsx    # /colophon
+│   │   └── gallery/page.tsx     # /gallery（画面上の名前は Photos）
 │   ├── (en)/                    # 英語版ルートグループ
 │   │   ├── layout.tsx           # ルートレイアウト <html lang="en">
-│   │   └── en/                  # URL の /en はこのディレクトリが担う
-│   │       ├── page.tsx         # /en
-│   │       ├── error.tsx
-│   │       ├── not-found.tsx
-│   │       └── ...              # (ja) と同じ構成
+│   │   └── en/                  # URL の /en はこのディレクトリが担う（(ja) と同じ構成）
 │   ├── not-found.tsx            # どのグループにも一致しない URL 用（日英併記）
 │   ├── keys/
-│   │   ├── route.ts             # /keys — 全公開鍵を text/plain で返す
+│   │   ├── route.ts             # /keys — 全公開鍵を text/plain で返す（curl で使われるので残す）
 │   │   └── [id]/route.ts        # /keys/<id> — 1件を .pub ファイルとしてダウンロード
-│   ├── providers.tsx            # HeroUI + next-themes プロバイダー
+│   ├── providers.tsx            # HeroUI + next-themes プロバイダー（既定はダーク）
 │   ├── robots.ts
 │   └── sitemap.ts
 │
 ├── components/
-│   ├── common/
-│   │   ├── AnimatedSection.tsx  # CSS のみの出現アニメーション（サーバーコンポーネント）
-│   │   ├── BlockFrame.tsx       # 見出し + グリッド。fallback で空状態も表示できる
-│   │   ├── MediaCard.tsx        # 画像 + リンクボタン付きカード
-│   │   └── TextBlock.tsx
+│   ├── grid/                    # 格子デザインの部品（サーバーコンポーネント）
+│   │   ├── GridSection.tsx      # 下罫線 + 左右下の＋マークを持つ区画
+│   │   ├── GridPaper.tsx        # ヒーローの方眼背景
+│   │   ├── CellGrid.tsx         # 隙間なし・罫線区切りのセル型グリッド
+│   │   ├── SectionHeader.tsx    # 区画先頭の見出し行
+│   │   └── PageHero.tsx         # Projects / Photos の見出し区画
+│   ├── common/CopyButton.tsx    # クリップボードコピー（1.6 秒「コピーしました」）
 │   ├── layout/
 │   │   ├── RootShell.tsx        # (ja)/(en) 両レイアウトが共有する <html>/<body>
-│   │   ├── Sidebar.tsx          # デスクトップ用サイドバー
-│   │   ├── MobileHeader.tsx     # モバイル用ヘッダー
-│   │   ├── MobileMenu.tsx       # モバイル用フルスクリーンメニュー
-│   │   ├── LanguageSwitcher.tsx # ja <-> en 切り替え
-│   │   └── ThemeToggle.tsx      # ダーク/ライト切り替え
+│   │   ├── SiteHeader.tsx       # 上部ヘッダー（ナビ・言語・配色）
+│   │   └── SiteFooter.tsx       # 全ページ共通の末尾（公開鍵 + このサイトについて）
 │   ├── features/
-│   │   ├── articles/ArticleCard.tsx
-│   │   ├── award/AwardCard.tsx
-│   │   ├── gallery/{ImageGallery,ImageCard,ImageModal}.tsx
-│   │   ├── home/SocialIcons.tsx
-│   │   ├── projects/ProjectCard.tsx
-│   │   └── publicKeys/PublicKeyCard.tsx
+│   │   ├── awards/AwardsAccordion.tsx      # トップの開閉式受賞履歴（<details>）
+│   │   ├── colophon/ColophonSection.tsx    # 最終更新・ソース・書体
+│   │   ├── gallery/{PhotoGrid,PhotoLightbox}.tsx
+│   │   ├── projects/{ProjectsBrowser,ProjectListCard,projectListItem}.tsx
+│   │   └── publicKeys/PublicKeysSection.tsx
 │   └── pages/                   # 各ページの中身（locale を props で受け取る）
-│       ├── HomePage.tsx  AwardsPage.tsx  ProjectsPage.tsx  ArticlesPage.tsx
-│       ├── GalleryPage.tsx  PublicKeysPage.tsx  ColophonPage.tsx
+│       ├── HomePage.tsx  ProjectsPage.tsx  GalleryPage.tsx
 │       └── NotFoundPage.tsx  ErrorPage.tsx
 │
 ├── config/
 │   ├── site.ts                  # サイト設定（description は Localized）
-│   └── fonts.ts                 # Source Sans 3 / Outfit / JetBrains Mono
+│   └── fonts.ts                 # Geist / Geist Mono / Noto Sans JP
 │
 ├── data/                        # 静的データ
-│   ├── projects.ts  awards.ts  gallery.ts  profile.ts  publicKeys.ts
+│   ├── projects.ts  projectCategories.ts  awards.ts  gallery.ts  profile.ts  publicKeys.ts
 │
 ├── libs/
 │   ├── fetch/
-│   │   ├── getLastCommitTime.ts # GitHub API（revalidate 1h）
-│   │   └── getQiitaArticles.ts  # Qiita API（revalidate 1d）
+│   │   └── getLastCommitTime.ts # GitHub API（revalidate 1h）
 │   └── i18n/
 │       ├── locale.ts            # Locale 型・パス操作・pickLocalized
 │       ├── dictionaries.ts      # UI 文言（ja が正、en は Partial）
@@ -86,7 +74,7 @@
 │       └── metadata.ts          # buildRootMetadata / buildPageMetadata
 │
 ├── types/index.ts               # 全型定義
-├── styles/globals.css           # Tailwind v4 + CSS 変数 + fade-in-up
+├── styles/globals.css           # Tailwind v4 + 配色トークン + 格子の CSS
 ├── public/images/{projects,awards,gallery}/
 │
 ├── next.config.js               # turbopack.root / セキュリティヘッダ
@@ -154,31 +142,32 @@ app/(en)/layout.tsx  ->  <RootShell locale="en">   ->  <html lang="en">
 
 ### 3.3 サーバーコンポーネント vs クライアントコンポーネント
 
-**サーバーコンポーネント（デフォルト）:** ほぼ全てのページとカード類。データ取得（`ArticlesPage`, `ColophonPage`）もサーバー側で行います。
+**サーバーコンポーネント（デフォルト）:** ほぼ全てのページとカード類。データ取得（`ColophonSection` の最終更新）もサーバー側で行います。
 
 **クライアントコンポーネント（`'use client'`）:** ユーザー操作や状態が必要なものだけです。
 
-- `Sidebar` / `MobileHeader` / `MobileMenu` / `LanguageSwitcher` / `ThemeToggle`（`usePathname` / `useTheme`）
-- `ImageGallery` / `ImageModal`（モーダルの開閉状態）
-- `PublicKeyCard`（クリップボードコピー）
+- `SiteHeader`（`usePathname` / `useTheme`）
+- `ProjectsBrowser`（検索・種別・展開・到着時の強調）
+- `PhotoGrid` / `PhotoLightbox`（ネイティブ `<dialog>` の開閉）
+- `CopyButton`（クリップボードコピー）
 - `ErrorPage`（error 境界の要件）
 - `providers.tsx`
 
-`AnimatedSection` と `BlockFrame` はサーバーコンポーネントです。アニメーションを CSS のみにしたため `'use client'` が不要になりました。
+受賞履歴の開閉は `<details>` で行うため、JS 無しでも動きます。
 
 ### 3.4 データ取得
 
 外部 API は必ず `next: { revalidate }` を指定します。指定しないと Next.js 15 以降はキャッシュされず、毎リクエストで外部 API を叩いてしまいます。
 
 ```typescript
-// libs/fetch/getQiitaArticles.ts
-const response = await fetch(QIITA_API, { next: { revalidate: 86400 } });
+// libs/fetch/getLastCommitTime.ts
+const response = await fetch(COMMITS_API, { next: { revalidate: 3600 } });
 ```
 
 **失敗と「0 件」は必ず区別します。** 空配列で潰すと、利用側が「取得に失敗した」のか「本当に無い」のか判断できません。
 
 ```typescript
-export type QiitaArticlesResult = { ok: true; articles: QiitaArticle[] } | { ok: false };
+export type LastCommitResult = { ok: true; isoDate: string } | { ok: false };
 ```
 
 **エラーメッセージを文字列で返してはいけません。** ロケールに関係なく同じ言語が表示されてしまいます。成否だけを返し、文言は呼び出し側が辞書から引きます。
@@ -211,13 +200,9 @@ sortByDateDesc(items, (i) => i.date)      // 新しい順（元配列は変更�
 
 ---
 
-## 5. アニメーション
+## 5. 初期表示で中身を隠さない
 
-`AnimatedSection` は `styles/globals.css` の `.animate-fade-in-up`（CSS `@keyframes`）で実装しています。
-
-**JS でクラスを差し替える実装にしてはいけません。** 以前は `useEffect` で `opacity-0` → `opacity-100` に切り替えていたため、JS が無効・読み込み失敗の環境ではコンテンツが永久に表示されませんでした。CSS アニメーションはスクリプト無しでも実行されるため、この問題が起きません。
-
-同じ理由で、**初期状態でコンテンツを隠すクライアント側ガード（`isMounted` チェック等）を SSR で描画すべき要素に使ってはいけません。** ギャラリーは以前 `!isMounted` の間スケルトンだけを返しており、HTML に写真が 1 枚も含まれていませんでした。
+**初期状態でコンテンツを隠すクライアント側ガード（`isMounted` チェック等）を SSR で描画すべき要素に使ってはいけません。** JS が無効・読み込み失敗の環境で中身が出なくなります。以前のギャラリーは `!isMounted` の間スケルトンだけを返しており、HTML に写真が 1 枚も含まれていませんでした。
 
 ---
 
@@ -226,6 +211,9 @@ sortByDateDesc(items, (i) => i.date)      // 新しい順（元配列は変更�
 ### Project（data/projects.ts）
 ```typescript
 {
+  id: 'mado',                                             // /projects#<id> のアンカー。公開後は変更しない
+  category: 'Infra',                                      // data/projectCategories.ts の区分
+  featured: true,                                         // 任意。トップの Projects 欄に載せる注力作
   title: { ja: 'mado', en: 'mado' },
   description: { ja: ['段落1', '段落2'], en: ['...'] },   // en は省略可
   image: 'mado.png',                                      // public/images/projects/ 配下
@@ -234,6 +222,8 @@ sortByDateDesc(items, (i) => i.date)      // 新しい順（元配列は変更�
 }
 ```
 `image` に指定したファイルは必ず `public/images/projects/` に配置してください。無いと画像が壊れます。
+
+配列の順序がそのまま表示順です。トップには先頭の 4 件が出ます（`HomePage.tsx` の `HOME_PROJECT_COUNT`）。
 
 ### Award（data/awards.ts）/ GalleryImage（data/gallery.ts）
 `date` は ISO 8601。並び替えは各ページで `sortByDateDesc` が行うため、配列の順序は問いません。
@@ -283,18 +273,22 @@ export default function Page() {
 }
 ```
 
-5. `components/layout/Sidebar.tsx` と `MobileHeader.tsx` の `NAVIGATION_ITEMS` に追加
+5. `components/layout/SiteHeader.tsx` の `NAVIGATION_ITEMS` に追加（表記は言語に関わらず英語）
 6. `app/sitemap.ts` の `routes` と `lastModified` に追加
 
 ---
 
 ## 9. スタイリング
 
-配色は `styles/globals.css` の CSS 変数（`--color-warm-*`）で定義し、`tailwind.config.cjs` が `warm-bg` / `warm-text` などのユーティリティに対応付けています。ダークモードは `.dark` クラス（next-themes）で変数を差し替えるため、**`dark:` プレフィックスは基本的に不要です。**
+モノクロ・1px 罫線・格子のデザインです。配色は `styles/globals.css` の CSS 変数（`--color-bg` / `bg2` / `ink` / `sub` / `faint` / `line` / `line2` / `plus` / `ok`）で定義し、`tailwind.config.cjs` が `bg-bg` / `text-ink` / `border-line` などに対応付けています。ダークモードは `.dark` クラス（next-themes）で変数を差し替えるため、**`dark:` プレフィックスは基本的に不要です。**
 
 ```tsx
-<div className="bg-warm-surface text-warm-text border-warm-border">
+<div className="border-b border-line bg-bg2 text-sub">
 ```
+
+- 区画は `GridSection`、カード群は `CellGrid` で組みます。カード・セル・画像は角丸なし、影なし
+- ＋マーク・方眼・斜線帯・セル型グリッドの罫線は長い任意値クラスにせず、`globals.css` の `.grid-corner` / `.grid-paper` / `.hatch-band` / `.cell-grid` にまとめています
+- ＋マークがガイド線の外へ 5px はみ出すため、`body` に `overflow-x: clip` を付けています
 
 Tailwind CSS v4 では `@import "tailwindcss";` 1 行に加え、`@config` / `@plugin` / `@source` ディレクティブで設定と HeroUI を読み込んでいます。
 
@@ -309,9 +303,6 @@ Tailwind CSS v4 では `@import "tailwindcss";` 1 行に加え、`@config` / `@p
 - **`useTheme()` は `theme` ではなく `resolvedTheme` を見る** — `theme` は `'system'` になり得ます
 - **外部リンクの `target="_blank"` には `rel="noopener noreferrer"` を付ける**
 - **`role="button"` の要素に他のインタラクティブ要素を入れない** — 不正な ARIA になります
-- **framer-motion は直接 import していないが削除しない** — HeroUI（`@heroui/modal` など）の peer 依存で、`MobileMenu` の `motionProps` 経由で使われています
-- **framer-motion 12 の `ease` は cubic-bezier 配列 + `as const`** — 文字列（`'easeOut'`）は型エラーになります
-  - `'easeOut'` → `[0, 0, 0.2, 1] as const` / `'easeIn'` → `[0.4, 0, 1, 1] as const`
 
 ---
 
@@ -324,5 +315,5 @@ Tailwind CSS v4 では `@import "tailwindcss";` 1 行に加え、`@config` / `@p
 
 ---
 
-**最終更新:** 2026年10月5日
+**最終更新:** 2026年10月18日
 **バージョン:** 3.1.0

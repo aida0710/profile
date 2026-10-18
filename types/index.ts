@@ -1,6 +1,7 @@
-import type { ReactNode } from 'react';
-
+import type { ProjectCategory } from '@/data/projectCategories';
 import type { Localized } from '@/libs/i18n/locale';
+
+export type { ProjectCategory };
 
 // Awards 関連の型
 export interface Award {
@@ -26,6 +27,11 @@ export interface ProjectLink {
 }
 
 export interface Project {
+  /** Projects ページのアンカー（/projects#<id>）に使う識別子。公開後は変更しない。 */
+  id: string;
+  category: ProjectCategory;
+  /** トップの Projects 欄に載せる注力作。 */
+  featured?: boolean;
   title: Localized<string>;
   description: Localized<string[]>;
   image: string;
@@ -33,16 +39,6 @@ export interface Project {
     [key: string]: ProjectLink;
   };
   language: string;
-}
-
-// Qiita 記事関連の型
-export interface QiitaArticle {
-  id: string;
-  title: string;
-  url: string;
-  createdAt: string;
-  likesCount: number;
-  tags: string[];
 }
 
 // Public Keys 関連の型
@@ -54,23 +50,4 @@ export interface PublicKey {
   id: string;
   label: string;
   key: string;
-}
-
-// 共通コンポーネントの型
-export interface BlockFrameProps {
-  title: string;
-  description: string;
-  children: ReactNode;
-  /** 指定するとグリッドの代わりにこれを描画する（空状態・エラー表示など）。 */
-  fallback?: ReactNode;
-}
-
-export interface TextBlockProps {
-  messages: string[];
-}
-
-export interface SocialLink {
-  href: string;
-  icon: ReactNode;
-  label: string;
 }

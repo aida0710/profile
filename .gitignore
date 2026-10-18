@@ -38,3 +38,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .superpowers/
+
+# 確認用のスクリーンショットなど
+/artifacts/
